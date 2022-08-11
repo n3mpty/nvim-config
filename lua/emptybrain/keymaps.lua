@@ -19,8 +19,8 @@ vim.g.maplocalleader = " "
 
 -- Normal --
 -- Inline text
-vim.keymap.set("n", "<leader>dl", "<cmd>lua vim.diagnostic.config({ virtual_text = true, underline = true})<cr>")
-vim.keymap.set("n", "<leader>dd", "<cmd>lua vim.diagnostic.config({ virtual_text = false, underline = false})<cr>")
+keymap("n", "<leader>dl", "<cmd>lua vim.diagnostic.config({ virtual_text = true, underline = true})<cr>")
+keymap("n", "<leader>dd", "<cmd>lua vim.diagnostic.config({ virtual_text = false, underline = false})<cr>")
 
 --  Comment
 keymap('n', '<leader>/', '<CMD>lua require("Comment.api").toggle_current_linewise()<CR>', opts)
