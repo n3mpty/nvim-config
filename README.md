@@ -1,14 +1,5 @@
-# A Basic Stable IDE config for Neovim
+# A Basic And Not Stable IDE config for Neovim
 
-> Why does this repo exist?
-
-This config attempts to provide a rock solid fully featured starting point for someone new to Neovim, or just tired of maintaining the basic IDE components of their config. 
-
-> What makes it "rock solid"?
-
-All of the included plugins are pinned to a version that ensures they are compatible and will not update potentially introducing errors into your config. For every Neovim release I will update this repo along with the community to keep it up to date with the newest versions.
-
-As I mentioned, this config is meant as a starting point for people new to Neovim who want a familiar IDE experience. The config has a very simple structure that makes it easy to add new plugins. 
 
 ## Install Neovim 0.7
 
@@ -36,7 +27,6 @@ Run `nvim` and wait for the plugins to be installed
 
 **NOTE** (You will notice treesitter pulling in a bunch of parsers the next time you open Neovim) 
 
-**NOTE** Checkout this file for some predefined keymaps: [keymaps](https://github.com/LunarVim/nvim-basic-ide/blob/master/lua/user/keymaps.lua)
 
 ## Get healthy
 
@@ -106,7 +96,7 @@ First Enter:
 
 and press `i` on the Language Server you wish to install
 
-Next you will need to add the server to this list: [servers](https://github.com/LunarVim/nvim-basic-ide/blob/8b9ec3bffe8c8577042baf07c75408532a733fea/lua/user/lsp/lsp-installer.lua#L6)
+Next you will need to add the server to this list: [servers](https://github.com/emptybrain/notvim/blob/master/lua/emptybrain/plugins/packer.lua)
 
 ### Formatters and linters
 
@@ -116,7 +106,7 @@ Make sure the formatter or linter is installed and add it to this setup function
 
 ### Plugins
 
-You can install new plugins here: [plugins](https://github.com/LunarVim/nvim-basic-ide/blob/8b9ec3bffe8c8577042baf07c75408532a733fea/lua/user/plugins.lua#L42)
+You can install new plugins here: [plugins](https://github.com/emptybrain/notvim/blob/master/lua/emptybrain/plugins/packer.lua)
 
 ---
 

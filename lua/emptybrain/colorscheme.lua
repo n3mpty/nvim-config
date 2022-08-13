@@ -10,7 +10,7 @@ nightfox.setup({
     groups = {
       all = {
       CursorLine = { fg="", bg = "#1F1A1A"},
-      CursorColumn = { bg = "Red"},
+      -- CursorColumn = { bg = "Red"},
       --
       HopNextKey = { fg = "#F72626", style = "bold"},
       HopNextKey1 = { fg = "#F76726", style = "bold"},
@@ -19,7 +19,7 @@ nightfox.setup({
       -- TabLineFill = { bg = "Black"},
       -- TabLineSel = { bg = "Black"},
       -- 
-      NormalFloat = { bg = "NONE" }
+      NormalFloat = { bg = "NONE" },
     }
   },
 	options = {

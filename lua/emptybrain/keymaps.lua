@@ -23,6 +23,10 @@ keymap("i", "<C-s>", "<cmd>w!<cr>", opts)
 
 
 -- Normal --
+-- Hop
+-- keymap("n", "s", ":HopChar1<cr>", opts)
+-- keymap("n", "S", ":HopWord<cr>", opts)
+
 -- Inline text
 keymap("n", "<leader>dl", "<cmd>lua vim.diagnostic.config({ virtual_text = true, underline = true})<cr>")
 keymap("n", "<leader>dd", "<cmd>lua vim.diagnostic.config({ virtual_text = false, underline = false})<cr>")

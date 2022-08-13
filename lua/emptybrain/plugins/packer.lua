@@ -83,11 +83,12 @@ return packer.startup(function(use)
   })
   use({
     "phaazon/hop.nvim",
+    branch = 'v2',
     event = "BufRead",
     config = function()
       require("hop").setup()
-      vim.api.nvim_set_keymap("n", "s", ":HopChar1<cr>", { silent = true })
-      vim.api.nvim_set_keymap("n", "S", ":HopWord<cr>", { silent = true })
+      vim.api.nvim_set_keymap("n", "s", "<CMD>HopChar1<CR>", { silent = true })
+      vim.api.nvim_set_keymap("n", "S", "<CMD>HopWord<CR>", { silent = true })
     end,
   })
 
@@ -138,12 +139,9 @@ return packer.startup(function(use)
     "norcalli/nvim-colorizer.lua"
   })
 
-  use({
-    "chentoast/marks.nvim",
-    as = "marks"
-  })
+  use { "MattesGroeger/vim-bookmarks" }
 
-  use { "wbthomason/packer.nvim", commit = "00ec5adef58c5ff9a07f11f45903b9dbbaa1b422" } -- Have packer manage itself
+  use { "wbthomason/packer.nvim", commit = "40b16d7cb9c576973e03db2ebc1320a5732769a8" } -- Have packer manage itself
   use { "nvim-lua/plenary.nvim", commit = "968a4b9afec0c633bc369662e78f8c5db0eba249" } -- Useful lua functions used by lots of plugins
   use { "windwp/nvim-autopairs", commit = "fa6876f832ea1b71801c4e481d8feca9a36215ec" } -- Autopairs, integrates with both cmp and treesitter
   use { "numToStr/Comment.nvim", commit = "2c26a00f32b190390b664e56e32fd5347613b9e2" }
