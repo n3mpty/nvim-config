@@ -15,9 +15,9 @@ nightfox.setup({
       HopNextKey = { fg = "#F72626", style = "bold"},
       HopNextKey1 = { fg = "#F76726", style = "bold"},
       --
-      TabLine = { bg = "Black"},
+      -- TabLine = { bg = "Black"},
       -- TabLineFill = { bg = "Black"},
-      TabLineSel = { bg = "Black"},
+      -- TabLineSel = { bg = "Black"},
       -- 
       NormalFloat = { bg = "NONE" }
     }

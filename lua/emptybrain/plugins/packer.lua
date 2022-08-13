@@ -138,16 +138,21 @@ return packer.startup(function(use)
     "norcalli/nvim-colorizer.lua"
   })
 
+  use({
+    "chentoast/marks.nvim",
+    as = "marks"
+  })
+
   use { "wbthomason/packer.nvim", commit = "00ec5adef58c5ff9a07f11f45903b9dbbaa1b422" } -- Have packer manage itself
   use { "nvim-lua/plenary.nvim", commit = "968a4b9afec0c633bc369662e78f8c5db0eba249" } -- Useful lua functions used by lots of plugins
   use { "windwp/nvim-autopairs", commit = "fa6876f832ea1b71801c4e481d8feca9a36215ec" } -- Autopairs, integrates with both cmp and treesitter
   use { "numToStr/Comment.nvim", commit = "2c26a00f32b190390b664e56e32fd5347613b9e2" }
   use { "JoosepAlviste/nvim-ts-context-commentstring", commit = "88343753dbe81c227a1c1fd2c8d764afb8d36269" }
   use { "kyazdani42/nvim-web-devicons", commit = "8d2c5337f0a2d0a17de8e751876eeb192b32310e" }
-  use { "kyazdani42/nvim-tree.lua", commit = "bdb6d4a25410da35bbf7ce0dbdaa8d60432bc243" }
-  use { "akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons"} -- commit = "c78b3ecf9539a719828bca82fc7ddb9b3ba0c353" }
+  use { "kyazdani42/nvim-tree.lua", commit = "261a5c380c000e23c4a23dcd55b984c856cdb113" }
+  use { "akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons", commit = "dd2addade63c977bae47f1b2abe9ef503df1b4d8"}
   use { "moll/vim-bbye", commit = "25ef93ac5a87526111f43e5110675032dbcacf56" }
-  use { "nvim-lualine/lualine.nvim", commit = "3362b28f917acc37538b1047f187ff1b5645ecdd" }
+  use { "nvim-lualine/lualine.nvim", commit = "c0510ddec86070dbcacbd291736de27aabbf3bfe" }
   use { "akinsho/toggleterm.nvim", commit = "aaeed9e02167c5e8f00f25156895a6fd95403af8" }
   use { "ahmedkhalf/project.nvim", commit = "541115e762764bc44d7d3bf501b6e367842d3d4f" }
   use { "lewis6991/impatient.nvim", commit = "969f2c5c90457612c09cf2a13fee1adaa986d350" }
@@ -173,8 +178,10 @@ return packer.startup(function(use)
   use { "rafamadriz/friendly-snippets", commit = "d27a83a363e61009278b6598703a763ce9c8e617" } -- a bunch of snippets to use
 
   -- LSP
+  use { "williamboman/mason.nvim", commit = "cb7bdcd2d5a71ffb12127d60bcaad5ba39ab741b" }
+  use { "williamboman/mason-lspconfig.nvim", commit = "f0d0d62273b76fa0ef5154ce9d05b1a2a083e79b"}
   use { "neovim/nvim-lspconfig"} -- commit = "148c99bd09b44cf3605151a06869f6b4d4c24455" } -- enable LSP
-  use { "williamboman/nvim-lsp-installer"}  -- commit = "e9f13d7acaa60aff91c58b923002228668c8c9e6" } -- simple to use language server installer
+  -- use { "williamboman/nvim-lsp-installer"}  -- commit = "e9f13d7acaa60aff91c58b923002228668c8c9e6" } -- simple to use language server installer
   use { "jose-elias-alvarez/null-ls.nvim"} -- commit = "ff40739e5be6581899b43385997e39eecdbf9465" } -- for formatters and linters
   -- use { "RRethy/vim-illuminate", -- commit = "c82e6d04f27a41d7fdcad9be0bce5bb59fcb78e5" }
 

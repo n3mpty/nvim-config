@@ -1,6 +1,5 @@
 local opts = { noremap = true, silent = true }
 
-
 -- Shorten function name
 local keymap = vim.keymap.set
 
@@ -17,15 +16,21 @@ vim.g.maplocalleader = " "
 -- term_mode = "t",
 -- command_mode = "c",
 
+
+-- Write 
+keymap("n", "<C-s>", "<cmd>w!<cr>", opts)
+keymap("i", "<C-s>", "<cmd>w!<cr>", opts)
+
+
 -- Normal --
 -- Inline text
 keymap("n", "<leader>dl", "<cmd>lua vim.diagnostic.config({ virtual_text = true, underline = true})<cr>")
 keymap("n", "<leader>dd", "<cmd>lua vim.diagnostic.config({ virtual_text = false, underline = false})<cr>")
 
 --  Comment
-keymap('n', '<leader>/', '<CMD>lua require("Comment.api").toggle_current_linewise()<CR>', opts)
-keymap('v', '<leader>/', '<CMD>lua require("Comment.api").toggle_current_linewise()<CR>', opts)
-keymap('x', '<leader>/', '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', opts)
+keymap("n", "<leader>/", '<CMD>lua require("Comment.api").toggle_current_linewise()<CR>', opts)
+keymap("v", "<leader>/", '<CMD>lua require("Comment.api").toggle_current_linewise()<CR>', opts)
+keymap("x", "<leader>/", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', opts)
 
 --
 vim.cmd([[
@@ -34,9 +39,16 @@ vim.cmd([[
   nnoremap <ESC> :noh<cr>
   set guicursor+=n-v-c:blinkon1
 
+
+  nnoremap ; :
+  nnoremap : ;
+  vnoremap ; :
+  vnoremap : ;
+
 ]])
 --
-keymap("n", ";", ":", opts)
+
+
 --
 keymap("n", "i", "a", opts)
 keymap("n", "I", "A", opts)
@@ -59,9 +71,6 @@ keymap("n", "C", "<cmd>Bdelete<cr>", opts)
 --
 
 keymap("n", "<C-q>", "<cmd>q!<cr>", opts)
-keymap("n", "<C-s>", "<cmd>w!<cr>", opts)
-
-
 
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
@@ -80,12 +89,13 @@ keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Move text up and down
-keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
-keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
+-- keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
+-- keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
 -- Insert --
--- Press jk fast to exit insert mode 
+-- Press jj fast to exit insert mode
 keymap("i", "jj", "<Esc>", opts)
+keymap("i", "<C-p>", "<Esc>pi", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -100,10 +110,10 @@ keymap("v", "p", '"_dP', opts)
 
 -- Visual Block --
 -- Move text up and down
-keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
-keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
+keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 
 -- Terminal --
 -- Better terminal navigation
