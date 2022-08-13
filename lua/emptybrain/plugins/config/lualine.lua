@@ -2,6 +2,17 @@ local status_ok, lualine = pcall(require, "lualine")
 if not status_ok then
 	return
 end
+local colors = {
+	blue = "#3FCBFC",
+	cyan = "#3FFCD5",
+	black = "#1D1A1A",
+	white = "#D4D4D4",
+	red = "#FC3F3F",
+	violet = "#E53FFC",
+	grey = "#343434",
+	green = "#3FFC4B",
+	purple = "#EF3FFC",
+}
 
 local hide_in_width = function()
 	return vim.fn.winwidth(0) > 80
@@ -85,7 +96,7 @@ local diagnostics = {
 
 local diff = {
 	"diff",
-	colored = true,
+	colored = false,
 	symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
 }
 
@@ -97,6 +108,7 @@ local filetype = {
 	"filetype",
 	icons_enabled = true,
 	icon = nil,
+	-- color = { fg = colors.white, bg = colors.black },
 }
 
 local branch = {
@@ -105,50 +117,57 @@ local branch = {
 	icon = "",
 }
 
-local colors = {
-	blue = "#2C71CF",
-	cyan = "#79dac8",
-	black = "#080808",
-	white = "#c6c6c6",
-	red = "#CF2C2C",
-	violet = "#d183e8",
-	grey = "#2A2A2B",
-	green = "#3CCF2C",
-	purple = "#6D3BB7",
+local python_env = {
+	function()
+		local utils = require("emptybrain.plugins.config.lualine-utils")
+		if vim.bo.filetype == "python" then
+			local venv = os.getenv("CONDA_DEFAULT_ENV")
+			if venv then
+				return string.format("  (%s)", utils.env_cleanup(venv))
+			end
+			venv = os.getenv("VIRTUAL_ENV")
+			if venv then
+				return string.format("  (%s)", utils.env_cleanup(venv))
+			end
+			return ""
+		end
+		return ""
+	end,
+	color = { fg = colors.green },
+	cond = hide_in_width,
 }
-
 local theme = {
 	normal = {
 		a = { fg = colors.black, bg = colors.red },
-		b = { fg = colors.white, bg = colors.grey },
+		b = { fg = colors.grey, bg = colors.blue },
 		c = { fg = colors.white, bg = colors.black },
-		x = { fg = colors.black, bg = colors.black },
+		x = { fg = colors.white, bg = colors.black },
 		y = { fg = colors.white, bg = colors.grey },
-		z = { fg = colors.black, bg = colors.red },
+		z = { fg = colors.white, bg = colors.black },
 	},
 	insert = {
 		a = { fg = colors.black, bg = colors.green },
 		-- b = { fg = colors.black, bg = colors.blue },
 		-- c = { fg = colors.black, bg = colors.blue },
 		-- x = { fg = colors.black, bg = colors.blue },
-		-- y = { fg = colors.black, bg = colors.blue },
-		z = { fg = colors.black, bg = colors.green },
+		y = { fg = colors.white, bg = colors.grey },
+		z = { fg = colors.white, bg = colors.black },
 	},
 	visual = {
 		a = { fg = colors.black, bg = colors.purple },
 		-- b = { fg = colors.black, bg = colors.blue },
 		-- c = { fg = colors.black, bg = colors.blue },
 		-- x = { fg = colors.black, bg = colors.blue },
-		-- y = { fg = colors.black, bg = colors.blue },
+		y = { fg = colors.white, bg = colors.grey },
 		-- z = { fg = colors.black, bg = colors.blue },
 	},
 	command = {
 		a = { fg = colors.white, bg = colors.black },
-		-- b = { fg = colors.black, bg = colors.blue },
-		-- c = { fg = colors.black, bg = colors.blue },
-		-- x = { fg = colors.black, bg = colors.blue },
-		-- y = { fg = colors.black, bg = colors.blue },
-		-- z = { fg = colors.black, bg = colors.blue },
+		b = { fg = colors.white, bg = colors.black },
+		c = { fg = colors.white, bg = colors.black },
+		x = { fg = colors.white, bg = colors.black },
+		y = { fg = colors.white, bg = colors.black },
+		z = { fg = colors.white, bg = colors.black },
 	},
 	inactive = {
 		a = { fg = colors.white, bg = colors.black },
@@ -175,10 +194,10 @@ lualine.setup({
 	sections = {
 		lualine_a = { mode },
 		lualine_b = { branch, diff },
-		lualine_c = { "filename", lsp_progress },
-		lualine_x = {},
-		lualine_y = { diagnostics, lsp_info, filetype, "progress" },
-		lualine_z = { spaces, "location" },
+		lualine_c = { filetype, "filename", python_env },
+		lualine_x = { lsp_progress },
+		lualine_y = { diagnostics, lsp_info },
+		lualine_z = { spaces, "progress", "location" },
 	},
 	inactive_sections = {
 		lualine_a = { "filename" },

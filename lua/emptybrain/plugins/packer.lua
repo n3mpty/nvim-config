@@ -51,17 +51,23 @@ return packer.startup(function(use)
     "simrat39/symbols-outline.nvim",
     cmd = "SymbolsOutline",
   })
+  -- use({
+  --
+  --   "folke/persistence.nvim",
+  --   event = "BufReadPre", -- this will only start session saving when an actual file was opened
+  --   module = "persistence",
+  --   config = function()
+  --     require("persistence").setup {
+  --       dir = vim.fn.expand(vim.fn.stdpath "config" .. "/session/"),
+  --       options = { "buffers", "curdir", "tabpages", "winsize" },
+  --     }
+  --   end,
+  -- })
   use({
-
-    "folke/persistence.nvim",
-    event = "BufReadPre", -- this will only start session saving when an actual file was opened
-    module = "persistence",
-    config = function()
-      require("persistence").setup {
-        dir = vim.fn.expand(vim.fn.stdpath "config" .. "/session/"),
-        options = { "buffers", "curdir", "tabpages", "winsize" },
-      }
-    end,
+    "Shatur/neovim-session-manager",
+    as = "session_manager",
+    cmd = "SessionManager",
+    event = "BufWritePost",
   })
   use({
 
@@ -126,12 +132,12 @@ return packer.startup(function(use)
     end
   })
   -- use({
-  --   --   "wakatime/vim-wakatime"
+  --     "wakatime/vim-wakatime"
   -- })
+  use({
+    "norcalli/nvim-colorizer.lua"
+  })
 
-
-
-  
   use { "wbthomason/packer.nvim", commit = "00ec5adef58c5ff9a07f11f45903b9dbbaa1b422" } -- Have packer manage itself
   use { "nvim-lua/plenary.nvim", commit = "968a4b9afec0c633bc369662e78f8c5db0eba249" } -- Useful lua functions used by lots of plugins
   use { "windwp/nvim-autopairs", commit = "fa6876f832ea1b71801c4e481d8feca9a36215ec" } -- Autopairs, integrates with both cmp and treesitter
@@ -139,7 +145,7 @@ return packer.startup(function(use)
   use { "JoosepAlviste/nvim-ts-context-commentstring", commit = "88343753dbe81c227a1c1fd2c8d764afb8d36269" }
   use { "kyazdani42/nvim-web-devicons", commit = "8d2c5337f0a2d0a17de8e751876eeb192b32310e" }
   use { "kyazdani42/nvim-tree.lua", commit = "bdb6d4a25410da35bbf7ce0dbdaa8d60432bc243" }
-  use { "akinsho/bufferline.nvim", commit = "c78b3ecf9539a719828bca82fc7ddb9b3ba0c353" }
+  use { "akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons"} -- commit = "c78b3ecf9539a719828bca82fc7ddb9b3ba0c353" }
   use { "moll/vim-bbye", commit = "25ef93ac5a87526111f43e5110675032dbcacf56" }
   use { "nvim-lualine/lualine.nvim", commit = "3362b28f917acc37538b1047f187ff1b5645ecdd" }
   use { "akinsho/toggleterm.nvim", commit = "aaeed9e02167c5e8f00f25156895a6fd95403af8" }
@@ -152,6 +158,7 @@ return packer.startup(function(use)
 
   -- Colorschemes
   use { "folke/tokyonight.nvim", commit = "8223c970677e4d88c9b6b6d81bda23daf11062bb" }
+  use {"EdenEast/nightfox.nvim"}
 
   -- cmp plugins
   use { "hrsh7th/nvim-cmp", commit = "df6734aa018d6feb4d76ba6bda94b1aeac2b378a" } -- The completion plugin
@@ -166,13 +173,13 @@ return packer.startup(function(use)
   use { "rafamadriz/friendly-snippets", commit = "d27a83a363e61009278b6598703a763ce9c8e617" } -- a bunch of snippets to use
 
   -- LSP
-  use { "neovim/nvim-lspconfig", commit = "148c99bd09b44cf3605151a06869f6b4d4c24455" } -- enable LSP
-  use { "williamboman/nvim-lsp-installer", commit = "e9f13d7acaa60aff91c58b923002228668c8c9e6" } -- simple to use language server installer
-  use { "jose-elias-alvarez/null-ls.nvim", commit = "ff40739e5be6581899b43385997e39eecdbf9465" } -- for formatters and linters
-  use { "RRethy/vim-illuminate", commit = "c82e6d04f27a41d7fdcad9be0bce5bb59fcb78e5" }
+  use { "neovim/nvim-lspconfig"} -- commit = "148c99bd09b44cf3605151a06869f6b4d4c24455" } -- enable LSP
+  use { "williamboman/nvim-lsp-installer"}  -- commit = "e9f13d7acaa60aff91c58b923002228668c8c9e6" } -- simple to use language server installer
+  use { "jose-elias-alvarez/null-ls.nvim"} -- commit = "ff40739e5be6581899b43385997e39eecdbf9465" } -- for formatters and linters
+  -- use { "RRethy/vim-illuminate", -- commit = "c82e6d04f27a41d7fdcad9be0bce5bb59fcb78e5" }
 
   -- Telescope
-  use { "nvim-telescope/telescope.nvim", commit = "d96eaa914aab6cfc4adccb34af421bdd496468b0" }
+  use { "nvim-telescope/telescope.nvim" } --commit = "d96eaa914aab6cfc4adccb34af421bdd496468b0" }
 
   -- Treesitter
   use {

@@ -51,8 +51,8 @@ keymap("n", "<C-e>", "$a", opts) -- end line
 keymap("n", "<C-b>", "_i", opts) -- start line
 --
 -- Split View
-keymap("n", "\\", "<cmd>split<cr>", opts)
-keymap("n", "|", "<cmd>vsplit<cr>", opts)
+keymap("n", "\\", "<cmd>split<cr>", opts) -- Horizontal split
+keymap("n", "|", "<cmd>vsplit<cr>", opts) -- Vertical split
 
 -- Close  Buffer
 keymap("n", "C", "<cmd>Bdelete<cr>", opts)

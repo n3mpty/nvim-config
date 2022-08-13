@@ -28,12 +28,12 @@ M.setup = function()
       active = signs, -- show signs
     },
     update_in_insert = true,
-    underline = true,
+    underline = false,
     severity_sort = true,
     float = {
       focusable = true,
       style = "minimal",
-      border = "rounded",
+      border = "single",
       source = "always",
       header = "",
       prefix = "",
@@ -43,11 +43,11 @@ M.setup = function()
   vim.diagnostic.config(config)
 
   vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-    border = "rounded",
+    border = "single",
   })
 
   vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-    border = "rounded",
+    border = "single",
   })
 end
 

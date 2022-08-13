@@ -21,7 +21,7 @@ opt.splitbelow = true                       -- force all horizontal splits to go
 opt.splitright = true                       -- force all vertical splits to go to the right of current window
 opt.swapfile = false                       -- creates a swapfile
 opt.termguicolors = true                    -- set term gui colors (most terminals support this)
-opt.timeoutlen = 250                        -- time to wait for a mapped sequence to complete (in milliseconds)
+opt.timeoutlen = 400                        -- time to wait for a mapped sequence to complete (in milliseconds)
 opt.undofile = true                         -- enable persistent undo
 opt.updatetime = 300                        -- faster completion (4000ms default)
 opt.writebackup = false                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
@@ -36,19 +36,7 @@ opt.signcolumn = "yes"                      -- always show the sign column, othe
 opt.wrap = false                            -- display lines as one long line
 opt.scrolloff = 8                           -- is one of my fav
 opt.sidescrolloff = 8
-opt.guifont = "monospace:h17"               -- the font used in graphical neovim applications
-
-
-g.tokyonight_style = "night"
-g.tokyonight_terminal_colors = true
-g.tokyonight_italic_comments = true
-g.tokyonight_italic_keywords = false
-g.tokyonight_italic_functions = false
-g.tokyonight_italic_variables = false
-g.tokyonight_transparent = true
-g.tokyonight_transparent_sidebar = true
-g.tokyonight_dark_sidebar = true
-g.tokyonight_dark_float = true
+-- opt.guifont = "monospace:h17"               -- the font used in graphical neovim applications
 
 
 opt.shortmess:append "c"
