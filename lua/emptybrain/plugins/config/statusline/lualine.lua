@@ -2,6 +2,8 @@ local status_ok, lualine = pcall(require, "lualine")
 if not status_ok then
 	return
 end
+
+
 local colors = {
 	blue = "#3FCBFC",
 	cyan = "#3FFCD5",
@@ -102,6 +104,7 @@ local diff = {
 
 local mode = {
 	"mode",
+    icon = '',
 }
 
 local filetype = {
@@ -119,7 +122,7 @@ local branch = {
 
 local python_env = {
 	function()
-		local utils = require("emptybrain.plugins.config.lualine-utils")
+		local utils = require("emptybrain.plugins.config.statusline.utils")
 		if vim.bo.filetype == "python" then
 			local venv = os.getenv("CONDA_DEFAULT_ENV")
 			if venv then
@@ -142,7 +145,7 @@ local theme = {
 		b = { fg = colors.grey, bg = colors.blue },
 		c = { fg = colors.white, bg = colors.black },
 		x = { fg = colors.white, bg = colors.black },
-		y = { fg = colors.white, bg = colors.grey },
+		y = { fg = colors.white, bg = colors.black },
 		z = { fg = colors.white, bg = colors.black },
 	},
 	insert = {
@@ -150,7 +153,7 @@ local theme = {
 		-- b = { fg = colors.black, bg = colors.blue },
 		-- c = { fg = colors.black, bg = colors.blue },
 		-- x = { fg = colors.black, bg = colors.blue },
-		y = { fg = colors.white, bg = colors.grey },
+		y = { fg = colors.white, bg = colors.black },
 		z = { fg = colors.white, bg = colors.black },
 	},
 	visual = {
@@ -158,10 +161,18 @@ local theme = {
 		-- b = { fg = colors.black, bg = colors.blue },
 		-- c = { fg = colors.black, bg = colors.blue },
 		-- x = { fg = colors.black, bg = colors.blue },
-		y = { fg = colors.white, bg = colors.grey },
+		y = { fg = colors.white, bg = colors.black },
 		-- z = { fg = colors.black, bg = colors.blue },
 	},
 	command = {
+		a = { fg = colors.white, bg = colors.black },
+		b = { fg = colors.white, bg = colors.black },
+		c = { fg = colors.white, bg = colors.black },
+		x = { fg = colors.white, bg = colors.black },
+		y = { fg = colors.white, bg = colors.black },
+		z = { fg = colors.white, bg = colors.black },
+	},
+	terminal = {
 		a = { fg = colors.white, bg = colors.black },
 		b = { fg = colors.white, bg = colors.black },
 		c = { fg = colors.white, bg = colors.black },
@@ -197,7 +208,7 @@ lualine.setup({
 		lualine_c = { filetype, "filename", python_env },
 		lualine_x = { lsp_progress },
 		lualine_y = { diagnostics, lsp_info },
-		lualine_z = { spaces, "progress", "location" },
+		lualine_z = { spaces, "location" },
 	},
 	inactive_sections = {
 		lualine_a = { "filename" },

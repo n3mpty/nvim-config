@@ -4,6 +4,8 @@ if not status_ok then
 end
 
 session_manager.setup({
+    autoload_mode = require('session_manager.config').AutoloadMode.Disabled, -- Define what to do when Neovim is started without arguments. Possible values: Disabled, CurrentDir, LastSession
 	autosave_last_session = true,
-	autosave_only_in_session = true,
+	autosave_only_in_session = false,
 })
+

@@ -205,7 +205,7 @@ local mappings = {
 			" find files",
 		},
 		a = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "find all" },
-		g = { "<cmd> Telescope live_grep <CR>", "  live grep" },
+		g = { "<cmd> Telescope live_grep <CR>", "live grep" },
 		m = { "<cmd> Telescope git_commits <CR>", "git commits" },
 		t = { "<cmd> Telescope git_status <CR>", "git status" },
 	},

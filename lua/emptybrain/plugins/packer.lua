@@ -47,7 +47,6 @@ return packer.startup(function(use)
     cmd = "TroubleToggle",
   })
   use({
-
     "simrat39/symbols-outline.nvim",
     cmd = "SymbolsOutline",
   })
@@ -76,7 +75,8 @@ return packer.startup(function(use)
     config = function() require "lsp_signature".on_attach({
         bind = true,
         handlers_opts = {
-          border = "solid"
+          border = "single",
+          hint_prefix = '🐀',
         }
       })
     end,
@@ -84,12 +84,7 @@ return packer.startup(function(use)
   use({
     "phaazon/hop.nvim",
     branch = 'v2',
-    event = "BufRead",
-    config = function()
-      require("hop").setup()
-      vim.api.nvim_set_keymap("n", "s", "<CMD>HopChar1<CR>", { silent = true })
-      vim.api.nvim_set_keymap("n", "S", "<CMD>HopWord<CR>", { silent = true })
-    end,
+    event = "BufRead"
   })
 
   use({
@@ -132,14 +127,23 @@ return packer.startup(function(use)
       })
     end
   })
-  -- use({
-  --     "wakatime/vim-wakatime"
-  -- })
+  use({
+      "wakatime/vim-wakatime"
+  })
   use({
     "norcalli/nvim-colorizer.lua"
   })
 
-  use { "MattesGroeger/vim-bookmarks" }
+  use({
+    "kshenoy/vim-signature"
+  })
+
+  use({"karb94/neoscroll.nvim"})
+
+  use({
+    "Pocco81/auto-save.nvim",
+  })
+  
 
   use { "wbthomason/packer.nvim", commit = "40b16d7cb9c576973e03db2ebc1320a5732769a8" } -- Have packer manage itself
   use { "nvim-lua/plenary.nvim", commit = "968a4b9afec0c633bc369662e78f8c5db0eba249" } -- Useful lua functions used by lots of plugins

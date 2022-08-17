@@ -20,6 +20,7 @@ null_ls.setup({
       extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
     },
     formatting.black.with({ extra_args = { "--fast" } }),
+    -- diagnostics.pylint.with( { filetypes = { "python" }}),
     formatting.stylua,
   },
 })

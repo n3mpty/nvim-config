@@ -9,17 +9,22 @@ local g = vim.g
 nightfox.setup({
     groups = {
       all = {
-      CursorLine = { fg="", bg = "#1F1A1A"},
-      -- CursorColumn = { bg = "Red"},
+      CursorLine = { fg="", bg = "#000000"},
+      CursorColumn = { bg = "#1F1A1A"},
       --
       HopNextKey = { fg = "#F72626", style = "bold"},
       HopNextKey1 = { fg = "#F76726", style = "bold"},
+      HopNextKey2 = { fg = "#3374CA" },
       --
       -- TabLine = { bg = "Black"},
       -- TabLineFill = { bg = "Black"},
       -- TabLineSel = { bg = "Black"},
       -- 
       NormalFloat = { bg = "NONE" },
+      --
+      SignatureMarkLine = { bg = "#474747"},
+      SignatureMarkText = { fg = "#474747"},
+      
     }
   },
 	options = {
@@ -30,7 +35,7 @@ nightfox.setup({
 		},
 	},
     specs = {
-      carbonfox = {
+      nightfox = {
       diag = {
         error = "#E12B21",
         warn = "#E19921",
@@ -49,7 +54,7 @@ nightfox.setup({
 })
 
 
-cmd("colorscheme carbonfox")
+cmd("colorscheme nightfox")
 
 -- g.tokyonight_style = "night"
 -- g.tokyonight_terminal_colors = true

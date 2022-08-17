@@ -63,8 +63,8 @@ keymap("n", "A", "I", opts)
 
 keymap("n", "<C-p>", "%", opts)
 ---
-keymap("n", "<C-e>", "$a", opts) -- end line
-keymap("n", "<C-b>", "_i", opts) -- start line
+-- keymap("n", "<C-l>", "$a", opts) -- end line
+-- keymap("n", "<C-h>", "_i", opts) -- start line
 --
 -- Split View
 keymap("n", "\\", "<cmd>split<cr>", opts) -- Horizontal split

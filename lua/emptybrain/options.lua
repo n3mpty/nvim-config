@@ -21,13 +21,13 @@ opt.splitbelow = true                       -- force all horizontal splits to go
 opt.splitright = true                       -- force all vertical splits to go to the right of current window
 opt.swapfile = false                       -- creates a swapfile
 opt.termguicolors = true                    -- set term gui colors (most terminals support this)
-opt.timeoutlen = 400                        -- time to wait for a mapped sequence to complete (in milliseconds)
+opt.timeoutlen = 700                        -- time to wait for a mapped sequence to complete (in milliseconds)
 opt.undofile = true                         -- enable persistent undo
 opt.updatetime = 300                        -- faster completion (4000ms default)
 opt.writebackup = false                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 opt.expandtab = true                        -- convert tabs to spaces
 opt.shiftwidth = 2                          -- the number of spaces inserted for each indentation
-opt.tabstop = 4                             -- insert 2 spaces for a tab
+opt.tabstop = 4                             -- insert 4 spaces for a tab
 opt.cursorline = true                       -- highlight the current line
 opt.number = true                           -- set numbered lines
 opt.relativenumber = false                  -- set relative numbered lines
@@ -36,9 +36,14 @@ opt.signcolumn = "yes"                      -- always show the sign column, othe
 opt.wrap = false                            -- display lines as one long line
 opt.scrolloff = 8                           -- is one of my fav
 opt.sidescrolloff = 8
+opt.laststatus = 3                          -- Global statusline
 -- opt.guifont = "monospace:h17"               -- the font used in graphical neovim applications
-
 
 opt.shortmess:append "c"
 opt.whichwrap:append("<,>,[,],h,l")
 opt.iskeyword:append("-")
+
+opt.list = true
+-- opt.listchars:append "eol:⏎"
+opt.listchars:append "space:⋅"
+
