@@ -32,9 +32,13 @@ keymap("n", "<leader>dl", "<cmd>lua vim.diagnostic.config({ virtual_text = true,
 keymap("n", "<leader>dd", "<cmd>lua vim.diagnostic.config({ virtual_text = false, underline = false})<cr>")
 
 --  Comment
-keymap("n", "<leader>/", '<CMD>lua require("Comment.api").toggle_current_linewise()<CR>', opts)
-keymap("v", "<leader>/", '<CMD>lua require("Comment.api").toggle_current_linewise()<CR>', opts)
-keymap("x", "<leader>/", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', opts)
+
+keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<cr>", opts)
+keymap("n", "<leader>c/",  "<cmd>lua require('Comment.api').toggle.blockwise.current()<cr>", opts)
+keymap("v", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<cr>", opts)
+keymap("x", "<leader>/", '<ESC><CMD>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>', opts)
+-- keymap('x', '<leader>/', function() vim.api.nvim_feedkeys(esc, 'nx', false) .toggle.linewise(vim.fn.visualmode()) end)
+-- keymap("v", "<leader>/b", api.toggle.blockwise.count())
 
 --
 vim.cmd([[

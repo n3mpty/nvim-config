@@ -27,7 +27,7 @@ opt.updatetime = 300                        -- faster completion (4000ms default
 opt.writebackup = false                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 opt.expandtab = true                        -- convert tabs to spaces
 opt.shiftwidth = 2                          -- the number of spaces inserted for each indentation
-opt.tabstop = 4                             -- insert 4 spaces for a tab
+opt.tabstop = 2                             -- insert 4 spaces for a tab
 opt.cursorline = true                       -- highlight the current line
 opt.number = true                           -- set numbered lines
 opt.relativenumber = false                  -- set relative numbered lines
@@ -43,7 +43,7 @@ opt.shortmess:append "c"
 opt.whichwrap:append("<,>,[,],h,l")
 opt.iskeyword:append("-")
 
-opt.list = true
+opt.list = false 
 -- opt.listchars:append "eol:⏎"
-opt.listchars:append "space:⋅"
+-- opt.listchars:append "space:⋅"
 
