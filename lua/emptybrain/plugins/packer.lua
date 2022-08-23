@@ -33,7 +33,7 @@ end
 packer.init {
   display = {
     open_fn = function()
-      return require("packer.util").float { border = "rounded" }
+      return require("packer.util").float { border = "single" }
     end,
   },
 }
@@ -41,53 +41,40 @@ packer.init {
 -- Install your plugins here
 return packer.startup(function(use)
   -- My plugins here
-  use({
+  use{
 
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
-  })
-  use({
+  }
+  use{
     "simrat39/symbols-outline.nvim",
-    cmd = "SymbolsOutline",
-  })
-  -- use({
-  --
-  --   "folke/persistence.nvim",
-  --   event = "BufReadPre", -- this will only start session saving when an actual file was opened
-  --   module = "persistence",
-  --   config = function()
-  --     require("persistence").setup {
-  --       dir = vim.fn.expand(vim.fn.stdpath "config" .. "/session/"),
-  --       options = { "buffers", "curdir", "tabpages", "winsize" },
-  --     }
-  --   end,
-  -- })
-  use({
+  }
+  use{
     "Shatur/neovim-session-manager",
     as = "session_manager",
     cmd = "SessionManager",
     event = "BufWritePost",
-  })
-  use({
+  }
+  use{
 
     "ray-x/lsp_signature.nvim",
     event = "BufRead",
     config = function() require "lsp_signature".on_attach({
-        bind = true,
-        handlers_opts = {
-          border = "single",
-          hint_prefix = '🐀',
-        }
-      })
+      bind = true,
+      handlers_opts = {
+        border = "single",
+        hint_prefix = '🐀',
+      }
+    })
     end,
-  })
-  use({
+  }
+  use{
     "phaazon/hop.nvim",
     branch = 'v2',
     event = "BufRead"
-  })
+  }
 
-  use({
+  use{
 
     "max397574/better-escape.nvim",
     config = function()
@@ -96,8 +83,8 @@ return packer.startup(function(use)
       })
 
     end,
-  })
-  use({
+  }
+  use{
 
     "edluffy/specs.nvim",
     config = function()
@@ -118,32 +105,25 @@ return packer.startup(function(use)
         }
       })
     end,
-  })
-  use({
-    "kylechui/nvim-surround",
-    config = function()
-      require("nvim-surround").setup({
-        -- Configuration here, or leave empty to use defaults
-      })
-    end
-  })
-  use({
-      "wakatime/vim-wakatime"
-  })
-  use({
-    "norcalli/nvim-colorizer.lua"
-  })
-
-  use({
-    "kshenoy/vim-signature"
-  })
-
-  use({"karb94/neoscroll.nvim"})
-
-  use({
-    "Pocco81/auto-save.nvim",
-  })
+  }
   
+ use {  "kylechui/nvim-surround",
+    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    config = function()
+        require("nvim-surround").setup({
+            -- Configuration here, or leave empty to use defaults
+        })
+    end
+}
+  use{ "wakatime/vim-wakatime" }
+  use{ "norcalli/nvim-colorizer.lua" }
+
+  use{ "kshenoy/vim-signature" }
+
+  use{"karb94/neoscroll.nvim"}
+  use{ "Pocco81/auto-save.nvim", }
+
+  use {'simrat39/rust-tools.nvim'}
 
   use { "wbthomason/packer.nvim" } -- Have packer manage itself
   use { "nvim-lua/plenary.nvim" } -- Useful lua functions used by lots of plugins
@@ -160,7 +140,7 @@ return packer.startup(function(use)
   use { "lewis6991/impatient.nvim" }
   use { "lukas-reineke/indent-blankline.nvim" }
   use { "goolord/alpha-nvim" }
-  use({"folke/which-key.nvim"})
+  use{"folke/which-key.nvim"}
   
 
   -- Colorschemes

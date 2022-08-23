@@ -10,6 +10,6 @@ hop.setup()
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
 
-keymap("n", "S", "<CMD>HopWord<CR>", opts)
-keymap("n", "W", "<CMD>HopWordCurrentLine<CR>", opts)
+keymap("n", "F", "<CMD>HopWord<CR>", opts)
+keymap("n", "f", "<CMD>HopWordCurrentLine<CR>", opts)
 

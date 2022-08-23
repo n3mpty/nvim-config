@@ -25,10 +25,11 @@ nightfox.setup({
       SignatureMarkLine = { bg = "#474747" },
       SignatureMarkText = { fg = "#474747" },
       --
-      Visual = { fg = NONE, bg = "#a36d50" },
-      VisualNOS = { fg = NONE, bg = "#a36d50" },
-      Search = { fg = NONE, bg = "#bd6a3e" },
-      IncSearch = { fg = NONE, bg = "#bd6a3e" },
+      Visual = { fg = "NONE", bg = "#5c2b2b" },
+      VisualNOS = { fg = "NONE", bg = "#5c2b2b" },
+      Search = { fg = "#d3dbd9", bg = "#5fa38d" },
+      IncSearch = { fg = "#d3dbd9", bg = "#5fa38d" },
+      ---
       
     }
   },
@@ -36,11 +37,10 @@ nightfox.setup({
 		transparent = true,
 		styles = {
 			comments = "italic",
-            keywords = "bold",
 		},
 	},
     specs = {
-      nightfox = {
+      carbonfox = {
       diag = {
         error = "#E12B21",
         warn = "#E19921",
@@ -59,7 +59,7 @@ nightfox.setup({
 })
 
 
-cmd("colorscheme nightfox")
+cmd("colorscheme carbonfox")
 
 -- g.tokyonight_style = "night"
 -- g.tokyonight_terminal_colors = true

@@ -1,53 +1,60 @@
 local status_ok, lsp_installer = pcall(require, "mason-lspconfig")
 if not status_ok then
-  return
+	return
 end
 
 local lspconfig = require("lspconfig")
 
 local servers = {
-  'cssls',
-  'dockerls',
-  'eslint',
-  'html',
-  'jsonls',
-  'marksman', -- Markdown
-  'sumneko_lua',
-  'rust_analyzer',
-  -- 'pyright',
-  'jedi_language_server',
-  'yamlls',
-  'bashls',
-  'taplo', -- Toml
+	"cssls",
+	"dockerls",
+	"eslint",
+	"html",
+	"jsonls",
+	"marksman", -- Markdown
+	"sumneko_lua",
+	"rust_analyzer",
+	-- 'pyright',
+	"jedi_language_server",
+	"yamlls",
+	"bashls",
+	"taplo", -- Toml
 }
 
 lsp_installer.setup({
-  ensure_installed = servers,
+	ensure_installed = servers,
 })
 
 for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup({
-    on_attach = require("emptybrain.lsp.handlers").on_attach,
-    capabilities = require("emptybrain.lsp.handlers").capabilities,
-  })
+	lspconfig[lsp].setup({
+		on_attach = require("emptybrain.lsp.handlers").on_attach,
+		capabilities = require("emptybrain.lsp.handlers").capabilities,
+	})
+
+	if lsp == "rust_analyzer" then
+		local rust_opts = require("emptybrain.plugins.config.rust-tools")
+		local rust_tools_status_ok, rust_tools = pcall(require, "rust-tools")
+		if not rust_tools_status_ok then
+			return
+		end
+	end
 end
 
 require("lspconfig").pyright.setup({
-  settings = {
+	settings = {
 
-    python = {
-      analysis = {
-        autoSearchPaths = true,
-        diagnosticMode = "workspace",
-        useLibraryCodeForTypes = true
-      }
-    },
-    pyright = {
-      disableLanguageServices = true,
-      disableOrganizeImports = true,
-    }
-
-  }
+		python = {
+			analysis = {
+				autoSearchPaths = true,
+				diagnosticMode = "workspace",
+				useLibraryCodeForTypes = true,
+			},
+		},
+		pyright = {
+			disableLanguageServices = true,
+			disableOrganizeImports = true,
+		},
+	},
 })
 
 -- require("lspconfig").rust_analyzer.setup({

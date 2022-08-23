@@ -32,7 +32,6 @@ keymap("n", "<leader>dl", "<cmd>lua vim.diagnostic.config({ virtual_text = true,
 keymap("n", "<leader>dd", "<cmd>lua vim.diagnostic.config({ virtual_text = false, underline = false})<cr>")
 
 --  Comment
-
 keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<cr>", opts)
 keymap("n", "<leader>c/",  "<cmd>lua require('Comment.api').toggle.blockwise.current()<cr>", opts)
 keymap("v", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<cr>", opts)
@@ -45,7 +44,7 @@ vim.cmd([[
   imap <C-l> <Right>
   imap <C-h> <Left>
   nnoremap <ESC> :noh<cr>
-  set guicursor+=n-v-c:blinkon1
+  set guicursor+=i-n-v-c:blinkon1
 
 
   nnoremap ; :
@@ -66,6 +65,7 @@ keymap("n", "A", "I", opts)
 --
 
 keymap("n", "<C-p>", "%", opts)
+keymap("v", "<C-p>", "%", opts)
 ---
 -- keymap("n", "<C-l>", "$a", opts) -- end line
 -- keymap("n", "<C-h>", "_i", opts) -- start line
