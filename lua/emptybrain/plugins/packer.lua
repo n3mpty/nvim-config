@@ -125,6 +125,8 @@ return packer.startup(function(use)
 
   use {'simrat39/rust-tools.nvim'}
 
+  use {'APZelos/blamer.nvim'}
+
   use { "wbthomason/packer.nvim" } -- Have packer manage itself
   use { "nvim-lua/plenary.nvim" } -- Useful lua functions used by lots of plugins
   use { "windwp/nvim-autopairs" } -- Autopairs, integrates with both cmp and treesitter

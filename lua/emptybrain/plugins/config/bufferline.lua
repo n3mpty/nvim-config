@@ -11,8 +11,11 @@ bufferline.setup({
 			{ filetype = "NvimTree", text = "", padding = 1 },
 			{ filetype = "Outline", text = "", padding = 1 },
 		},
+		indicator = {
+      icon = '❘ ',
+      style = 'icon'
+    },
 		separator_style = "thin", -- { '', '' }, -- | "thick" | "thin" | { 'any', 'any' },
-		indicator_icon = "|",
 		modified_icon = "",
 		max_prefix_length = 13,
 		max_name_length = 14,

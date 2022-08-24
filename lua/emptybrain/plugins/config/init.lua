@@ -21,3 +21,5 @@ require "emptybrain.plugins.config.mason"
 require "emptybrain.plugins.config.hop"
 require "emptybrain.plugins.config.neoscroll"
 require "emptybrain.plugins.config.autosave"
+require "emptybrain.plugins.config.blamer"
+
