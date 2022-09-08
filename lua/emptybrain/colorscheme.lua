@@ -9,7 +9,7 @@ local g = vim.g
 nightfox.setup({
     groups = {
       all = {
-      CursorLine = { fg="", bg = "#000000"},
+      CursorLine = { fg="NONE", bg = "#222222"},
       CursorColumn = { bg = "#1F1A1A"},
       --
       HopNextKey = { fg = "#F72626", style = "bold"},
@@ -29,7 +29,7 @@ nightfox.setup({
       VisualNOS = { fg = "NONE", bg = "#5c2b2b" },
       Search = { fg = "#d3dbd9", bg = "#5fa38d" },
       IncSearch = { fg = "#d3dbd9", bg = "#5fa38d" },
-      ---
+      --
       
     }
   },
@@ -37,10 +37,13 @@ nightfox.setup({
 		transparent = true,
 		styles = {
 			comments = "italic",
+      keywords = "italic",
+      operators = "bold",
+      functions = "italic",
 		},
 	},
     specs = {
-      carbonfox = {
+      nightfox = {
       diag = {
         error = "#E12B21",
         warn = "#E19921",
@@ -59,7 +62,7 @@ nightfox.setup({
 })
 
 
-cmd("colorscheme carbonfox")
+cmd("colorscheme nightfox")
 
 -- g.tokyonight_style = "night"
 -- g.tokyonight_terminal_colors = true

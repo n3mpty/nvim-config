@@ -13,7 +13,7 @@ M.setup = function()
 	local signs = {
 
 		{ name = "DiagnosticSignError", text = '🔥' },
-		{ name = "DiagnosticSignWarn", text =  '☢ '},
+		{ name = "DiagnosticSignWarn", text =  '⚠'},
 		{ name = "DiagnosticSignHint", text = "" },
 		{ name = "DiagnosticSignInfo", text = "" },
 	}
@@ -28,7 +28,7 @@ M.setup = function()
 			active = signs, -- show signs
 		},
 		update_in_insert = true,
-		underline = false,
+		underline = true,
 		severity_sort = true,
 		float = {
 			focusable = true,

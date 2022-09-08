@@ -155,8 +155,8 @@ rt.setup({
       vim.keymap.set("n", "K", rt.hover_actions.hover_actions, { buffer = bufnr })
       vim.keymap.set("n", "gl","<cmd>lua vim.diagnostic.open_float()<CR>", { buffer = bufnr } )
       vim.keymap.set("n", "<leader>rr", rt.runnables.runnables, { buffer = bufnr, desc = "Rust runnables " })
-      vim.keymap.set("n", "<leader>is", rt.inlay_hints.enable, { buffer = bufnr, desc = "Rust enable inlay hints"   })
-      vim.keymap.set("n", "<leader>iu", rt.inlay_hints.disable, { buffer = bufnr, desc = "Rust disable inlay hints" })
+      vim.keymap.set("n", "<leader>ris", rt.inlay_hints.enable, { buffer = bufnr, desc = "Rust enable inlay hints"   })
+      vim.keymap.set("n", "<leader>riu", rt.inlay_hints.disable, { buffer = bufnr, desc = "Rust disable inlay hints" })
       
       
     end,

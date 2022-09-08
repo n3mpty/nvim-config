@@ -2,7 +2,6 @@ local opt = vim.opt
 local cmd = vim.cmd
 local g = vim.g
 
-
 opt.backup = false                          -- creates a backup file
 opt.clipboard = "unnamedplus"               -- allows neovim to access the system clipboard
 opt.cmdheight = 1                           -- more space in the neovim command line for displaying messages
@@ -20,7 +19,7 @@ opt.smartindent = true                      -- make indenting smarter again
 opt.splitbelow = true                       -- force all horizontal splits to go below current window
 opt.splitright = true                       -- force all vertical splits to go to the right of current window
 opt.swapfile = false                       -- creates a swapfile
-opt.termguicolors = true                    -- set term gui colors (most terminals support this)
+opt.termguicolors = true                  -- set term gui colors (most terminals support this)
 opt.timeoutlen = 700                        -- time to wait for a mapped sequence to complete (in milliseconds)
 opt.undofile = true                         -- enable persistent undo
 opt.updatetime = 300                        -- faster completion (4000ms default)
@@ -38,6 +37,7 @@ opt.scrolloff = 8                           -- is one of my fav
 opt.sidescrolloff = 8
 opt.laststatus = 3                          -- Global statusline
 -- opt.guifont = "monospace:h17"               -- the font used in graphical neovim applications
+
 
 opt.shortmess:append "c"
 opt.whichwrap:append("<,>,[,],h,l")

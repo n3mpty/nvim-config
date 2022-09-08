@@ -7,6 +7,7 @@ local lspconfig = require("lspconfig")
 
 local servers = {
 	"cssls",
+	"clangd",
 	"dockerls",
 	"eslint",
 	"html",
@@ -19,7 +20,9 @@ local servers = {
 	"yamlls",
 	"bashls",
 	"taplo", -- Toml
+  "tsserver",
 }
+
 
 lsp_installer.setup({
 	ensure_installed = servers,

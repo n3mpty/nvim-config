@@ -12,15 +12,40 @@ bufferline.setup({
 			{ filetype = "Outline", text = "", padding = 1 },
 		},
 		indicator = {
-      icon = '❘ ',
-      style = 'icon'
-    },
-		separator_style = "thin", -- { '', '' }, -- | "thick" | "thin" | { 'any', 'any' },
+			icon = '',
+			style = "underline",
+		},
+		separator_style = {"", ""}, -- { '', '' }, -- | "thick" | "thin" | { 'any', 'any' },
 		modified_icon = "",
 		max_prefix_length = 13,
 		max_name_length = 14,
 		tab_size = 20,
 		color_icons = true,
 		diagnostics = "nvim_lsp",
+	},
+	highlights = {
+    buffer_selected = {
+      fg = "",
+      bg = "",
+      italic = false,
+      bold = true,
+      underline = true,
+    },
+    separator_selected = {
+        fg = 'NONE',
+        bg = 'NONE'
+    },
+    separator_visible = {
+      fg = "NONE",
+      bg = "NONE",
+    },
+    separator = {
+      fg = "NONE",
+      bg = "NONE",
+    },
+		indicator_selected = {
+      fg = "NONE",
+      bg = "NONE",
+		},
 	},
 })

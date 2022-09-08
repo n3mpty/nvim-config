@@ -29,7 +29,7 @@ keymap("i", "<C-s>", "<cmd>w!<cr>", opts)
 
 -- Inline text
 keymap("n", "<leader>dl", "<cmd>lua vim.diagnostic.config({ virtual_text = true, underline = true})<cr>")
-keymap("n", "<leader>dd", "<cmd>lua vim.diagnostic.config({ virtual_text = false, underline = false})<cr>")
+keymap("n", "<leader>dd", "<cmd>lua vim.diagnostic.config({ virtual_text = false, underline = true})<cr>")
 
 --  Comment
 keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<cr>", opts)
@@ -45,12 +45,6 @@ vim.cmd([[
   imap <C-h> <Left>
   nnoremap <ESC> :noh<cr>
   set guicursor+=i-n-v-c:blinkon1
-
-
-  nnoremap ; :
-  nnoremap : ;
-  vnoremap ; :
-  vnoremap : ;
 
 ]])
 --
