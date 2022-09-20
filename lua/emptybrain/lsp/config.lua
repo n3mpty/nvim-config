@@ -6,6 +6,7 @@ end
 local lspconfig = require("lspconfig")
 
 local servers = {
+	"gopls",
 	"cssls",
 	"clangd",
 	"dockerls",
@@ -20,9 +21,9 @@ local servers = {
 	"yamlls",
 	"bashls",
 	"taplo", -- Toml
-  "tsserver",
+	"tsserver",
+	"elixirls",
 }
-
 
 lsp_installer.setup({
 	ensure_installed = servers,
@@ -45,35 +46,29 @@ end
 
 require("lspconfig").pyright.setup({
 	settings = {
-
 		python = {
 			analysis = {
-				autoSearchPaths = true,
+				autoSearchPaths = false,
 				diagnosticMode = "workspace",
 				useLibraryCodeForTypes = true,
+				autoImportCompletions = false,
+                logLevel = "Information",
 			},
 		},
 		pyright = {
+            typeCheckingMode = "basic",
 			disableLanguageServices = true,
 			disableOrganizeImports = true,
 		},
 	},
 })
 
--- require("lspconfig").rust_analyzer.setup({
---     -- on_attach is a callback called when the language server attachs to the buffer
---     -- on_attach = on_attach,
---     settings = {
---       -- to enable rust-analyzer settings visit:
---       -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
---       ["rust-analyzer"] = {
---         -- enable clippy diagnostics on save
---         checkOnSave = {
---           command = "clippy"
---         },
---       }
---     }
--- })
+require("lspconfig").elixirls.setup({
+	cmd = { "/home/emptyuser/.elixir-ls/language_server.sh" },
+})
+
+require("lspconfig").gopls.setup({})
+
 -- local pylsp_opts = {
 --   settings = {
 --     pylsp = {

@@ -4,9 +4,9 @@ local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
 
 --Remap space as leader key
-keymap("", "<Space>", "<Nop>", opts)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+keymap("", ",", "<Nop>", opts)
+vim.g.mapleader = ","
+vim.g.maplocalleader = ","
 
 -- Modes
 --   normal_mode = "n",
@@ -40,15 +40,11 @@ keymap("x", "<leader>/", '<ESC><CMD>lua require("Comment.api").toggle.linewise(v
 -- keymap("v", "<leader>/b", api.toggle.blockwise.count())
 
 --
-vim.cmd([[
-  imap <C-l> <Right>
-  imap <C-h> <Left>
-  nnoremap <ESC> :noh<cr>
-  set guicursor+=i-n-v-c:blinkon1
-
-]])
+--[[ vim.cmd([[ ]]
+--[[   nnoremap <ESC> :noh<cr> ]]
+--[[ ]]
 --
-
+keymap("n", "<ESC>", "<cmd>:noh<cr>")
 
 --
 keymap("n", "i", "a", opts)
@@ -101,7 +97,6 @@ keymap("i", "<C-p>", "<Esc>pi", opts)
 
 -- Visual --
 -- Stay in indent mode
-keymap("v", "s", "<cmd>HopWord<cr>", opts)
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 

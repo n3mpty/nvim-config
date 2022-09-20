@@ -2,6 +2,11 @@ local opt = vim.opt
 local cmd = vim.cmd
 local g = vim.g
 
+
+cmd( [[
+  set guicursor+=i-n-v-c:blinkon1
+]])
+
 opt.backup = false                          -- creates a backup file
 opt.clipboard = "unnamedplus"               -- allows neovim to access the system clipboard
 opt.cmdheight = 1                           -- more space in the neovim command line for displaying messages
@@ -25,8 +30,8 @@ opt.undofile = true                         -- enable persistent undo
 opt.updatetime = 300                        -- faster completion (4000ms default)
 opt.writebackup = false                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 opt.expandtab = true                        -- convert tabs to spaces
-opt.shiftwidth = 2                          -- the number of spaces inserted for each indentation
-opt.tabstop = 2                             -- insert 4 spaces for a tab
+opt.shiftwidth = 4                          -- the number of spaces inserted for each indentation
+opt.tabstop = 4                             -- insert 4 spaces for a tab
 opt.cursorline = true                       -- highlight the current line
 opt.number = true                           -- set numbered lines
 opt.relativenumber = false                  -- set relative numbered lines
@@ -37,6 +42,10 @@ opt.scrolloff = 8                           -- is one of my fav
 opt.sidescrolloff = 8
 opt.laststatus = 3                          -- Global statusline
 -- opt.guifont = "monospace:h17"               -- the font used in graphical neovim applications
+opt.title = true -- window title
+opt.titlestring = "%t" -- format window title 
+opt.number = true
+opt.relativenumber = true -- relative numbers
 
 
 opt.shortmess:append "c"
@@ -44,6 +53,4 @@ opt.whichwrap:append("<,>,[,],h,l")
 opt.iskeyword:append("-")
 
 opt.list = false 
--- opt.listchars:append "eol:⏎"
--- opt.listchars:append "space:⋅"
 

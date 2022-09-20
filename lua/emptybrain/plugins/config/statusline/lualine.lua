@@ -29,8 +29,8 @@ local lsp_progress = {
 			local percentage = result.percentage or 0
 			local title = result.title or ""
 
-			local spinners = { "", "", "" }
-			local success_icon = { "", "", "" }
+			local spinners = { "", " ", "" }
+			local success_icon = { " ", " ", " " }
 
 			local ms = vim.loop.hrtime() / 1000000
 			local frame = math.floor(ms / 120) % #spinners
@@ -54,7 +54,7 @@ local lsp_info = {
 		if next(buf_clients) == nil then
 			-- TODO: clean up this if statement
 			if type(msg) == "boolean" or #msg == 0 then
-				return "LS Inactive"
+				return "LSP OFFLINE"
 			end
 			return msg
 		end
@@ -90,7 +90,7 @@ local diagnostics = {
 	"diagnostics",
 	sources = { "nvim_diagnostic" },
 	sections = { "error", "warn" },
-	symbols = { error = " ", warn = " " },
+	symbols = { error = "🔥", warn = "⚠ " },
 	colored = true,
 	update_in_insert = false,
 	always_visible = true,
@@ -98,13 +98,8 @@ local diagnostics = {
 
 local diff = {
 	"diff",
-	colored = false,
-	symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
-}
-
-local mode = {
-	"mode",
-    icon = '',
+	colored = true,
+	symbols = { added = "[+]", modified = "[~]", removed = "[-]" }, -- changes diff symbols
 }
 
 local filetype = {
@@ -142,34 +137,34 @@ local python_env = {
 local theme = {
 	normal = {
 		a = { fg = colors.black, bg = colors.red },
-		b = { fg = colors.grey, bg = colors.blue },
-		c = { fg = colors.white, bg = colors.black },
-		x = { fg = colors.white, bg = colors.black },
-		y = { fg = colors.white, bg = colors.black },
-		z = { fg = colors.white, bg = colors.black },
+		b = { fg = colors.white, bg = colors.black },
+		c = { fg = colors.white, bg = "NONE" },
+		x = { fg = colors.white, bg = "NONE" },
+		y = { fg = colors.white, bg = "NONE" },
+		z = { fg = colors.black, bg = colors.red },
 	},
 	insert = {
 		a = { fg = colors.black, bg = colors.green },
 		-- b = { fg = colors.black, bg = colors.blue },
-		-- c = { fg = colors.black, bg = colors.blue },
-		-- x = { fg = colors.black, bg = colors.blue },
-		y = { fg = colors.white, bg = colors.black },
+		c = { fg = colors.white, bg = "NONE" },
+		x = { fg = colors.white, bg = "NONE" },
+		y = { fg = colors.white, bg = "NONE" },
 		z = { fg = colors.white, bg = colors.black },
 	},
 	visual = {
 		a = { fg = colors.black, bg = colors.purple },
 		-- b = { fg = colors.black, bg = colors.blue },
-		-- c = { fg = colors.black, bg = colors.blue },
-		-- x = { fg = colors.black, bg = colors.blue },
-		y = { fg = colors.white, bg = colors.black },
+		c = { fg = colors.white, bg = "NONE" },
+		x = { fg = colors.white, bg = "NONE" },
+		y = { fg = colors.white, bg = "NONE" },
 		-- z = { fg = colors.black, bg = colors.blue },
 	},
 	command = {
 		a = { fg = colors.white, bg = colors.black },
 		b = { fg = colors.white, bg = colors.black },
-		c = { fg = colors.white, bg = colors.black },
-		x = { fg = colors.white, bg = colors.black },
-		y = { fg = colors.white, bg = colors.black },
+		c = { fg = colors.white, bg = "NONE" },
+		x = { fg = colors.white, bg = "NONE" },
+		y = { fg = colors.white, bg = "NONE" },
 		z = { fg = colors.white, bg = colors.black },
 	},
 	terminal = {
@@ -198,17 +193,17 @@ lualine.setup({
 	options = {
 		icons_enabled = true,
 		theme = theme,
-		component_separators = { left = "", right = "" },
-		section_separators = { left = "", right = "" },
+		component_separators = { left = "", right = "" },
+		section_separators = { left = "", right = "" },
 		disabled_filetypes = { "alpha", "NvimTree", "Outline", "TelescopePrompt", "TelescopeResults" },
 	},
 	sections = {
-		lualine_a = { mode },
+        lualine_a = { "mode" },
 		lualine_b = { branch, diff },
-		lualine_c = { filetype, "filename", python_env },
+		lualine_c = { "filename", python_env },
 		lualine_x = { lsp_progress },
 		lualine_y = { diagnostics, lsp_info },
-		lualine_z = { spaces, "location" },
+		lualine_z = { spaces },
 	},
 	inactive_sections = {
 		lualine_a = { "filename" },
