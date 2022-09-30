@@ -4,23 +4,39 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   callback = function()
     vim.cmd [[
       nnoremap <silent> <buffer> q :close<CR> 
+      nnoremap <silent> <buffer> <esc> :close<CR> 
       set nobuflisted 
     ]]
   end,
 })
+
+
 
 -- Remove statusline and tabline when in Alpha
 vim.api.nvim_create_autocmd({ "User" }, {
   pattern = { "AlphaReady" },
   callback = function()
     vim.cmd [[
-      set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
       set laststatus=0 | autocmd BufUnload <buffer> set laststatus=3
     ]]
   end,
 })
 
--- Set wrap and spell in markdown and gitcommit
+
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+  pattern = { "" },
+  callback = function()
+    local get_project_dir = function()
+      local cwd = vim.fn.getcwd()
+      local project_dir = vim.split(cwd, "/")
+      local project_name = project_dir[#project_dir]
+      return project_name
+    end
+
+    vim.opt.titlestring = get_project_dir() .. " - nvim"
+  end,
+})
+
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "gitcommit", "markdown" },
   callback = function()

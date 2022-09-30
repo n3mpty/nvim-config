@@ -1,22 +1,105 @@
 local status_ok, nightfox = pcall(require, "nightfox")
 if not status_ok then
+      vim.notify('Failed loading ' .. req_file, vim.log.levels.ERROR)
 	return
 end
 
 local status_catpputin_ok, catppuccin = pcall(require, "catppuccin")
 if not status_catpputin_ok then
+      vim.notify('Failed loading ' .. req_file, vim.log.levels.ERROR)
 	return
 end
 
+local status_tokyonight_ok, tokyonight = pcall(require, "tokyonight")
+if not status_catpputin_ok then
+      vim.notify('Failed loading ' .. req_file, vim.log.levels.ERROR)
+	return
+end
 
 local cmd = vim.cmd
 local g = vim.g
+tokyonight.setup({
+	style = "night",
+	transparent = true,
+	terminal_colors = true,
+	styles = {
+		comments = { italic = true },
+		keywords = {  },
+		functions = { italic = true },
+		variables = {},
+		--
+		sidebars = "transparent",
+		floats = "transparent",
+	},
+	sidebars = { "qf", "help", "nvim-tree", "packer" },
+	---- override
+	on_highlights = function(hl, c)
+		local prompt = "#2d3149"
+		-- [[ hl.TelescopeNormal = { ]]
+		--[[ 	bg = c.bg_dark, ]]
+		--[[ 	fg = c.fg_dark, ]]
+		--[[ } ]]
+		--[[ hl.TelescopeBorder = { ]]
+		--[[ 	bg = c.bg_dark, ]]
+		--[[ 	fg = c.bg_dark, ]]
+		--[[ } ]]
+		--[[ hl.TelescopePromptNormal = { ]]
+		--[[ 	bg = prompt, ]]
+		--[[ } ]]
+		--[[ hl.TelescopePromptBorder = { ]]
+		--[[ 	bg = prompt, ]]
+		--[[ 	fg = prompt, ]]
+		--[[ } ]]
+		--[[ hl.TelescopePromptTitle = { ]]
+		--[[ 	bg = prompt, ]]
+		--[[ 	fg = prompt, ]]
+		--[[ } ]]
+		--[[ hl.TelescopePreviewTitle = { ]]
+		--[[ 	bg = c.bg_dark, ]]
+		--[[ 	fg = c.bg_dark, ]]
+		--[[ } ]]
+		--[[ hl.TelescopeResultsTitle = { ]]
+		--[[ 	bg = c.bg_dark, ]]
+		--[[ 	fg = c.bg_dark, ]]
+		--[[ } ]]
+		--
+		hl.String = {
+			fg = "#AD8D59",
+		}
+		--
+		hl.TSParameter = {
+			fg = "#ff6961",
+		}
+		--
+		hl.CursorLine = {
+			fg = "NONE",
+			bg = "#111111",
+		}
+		--
+		hl.HopNextKey = {
+			fg = "#F72626",
+			bold = true,
+		}
+		hl.HopNextKey1 = {
+			fg = "#F76726",
+			bold = true,
+		}
+		hl.HopNextKey2 = {
+			fg = "#3374CA",
+		}
+		--
+		--[[ hl.NormalFloat = { ]]
+		--[[ bg = "NONE"  ]]
+		--[[ } ]]
+		--
+	end,
+})
 
 catppuccin.setup({
 	transparent_background = true,
 	term_colors = true,
 	compile = {
-		enabled = true,
+		enabled = false,
 		path = vim.fn.stdpath("cache") .. "/catppuccin",
 	},
 	dim_inactive = {
@@ -59,11 +142,12 @@ catppuccin.setup({
 	color_overrides = {},
 	highlight_overrides = {
 		syntax = {
-			String = { fg = "#D8E3A1" },
+			String = { fg = "#C87648" },
 		},
 	},
 
 	custom_highlights = {
+		String = { fg = "#C87648" },
 		--
 		CursorLine = { fg = "NONE", bg = "#222222" },
 		CursorColumn = { bg = "#1F1A1A" },
@@ -74,15 +158,13 @@ catppuccin.setup({
 		--
 		NormalFloat = { bg = "NONE" },
 		--
-		SignatureMarkLine = { bg = "#474747" },
-		SignatureMarkText = { fg = "#474747" },
 	},
 })
 
 nightfox.setup({
 	groups = {
 		all = {
-			String = { fg = "#D8E3A1" },
+			--[[ String = { fg = "#C87648" }, ]]
 			--
 			CursorLine = { fg = "NONE", bg = "#222222" },
 			CursorColumn = { bg = "#1F1A1A" },
@@ -97,8 +179,6 @@ nightfox.setup({
 			--
 			NormalFloat = { bg = "NONE" },
 			--
-			SignatureMarkLine = { bg = "#474747" },
-			SignatureMarkText = { fg = "#474747" },
 			--
 			--[[ Visual = { fg = "NONE", bg = "#5c2b2b" }, ]]
 			--[[ VisualNOS = { fg = "NONE", bg = "#5c2b2b" }, ]]
@@ -112,8 +192,8 @@ nightfox.setup({
 		styles = {
 			comments = "italic",
 			keywords = "italic",
-			operators = "bold",
-			functions = "italic",
+			--[[ operators = "bold", ]]
+			--[[ functions = "italic", ]]
 		},
 	},
 	specs = {
@@ -135,16 +215,5 @@ nightfox.setup({
 	},
 })
 
-g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
-cmd("colorscheme catppuccin")
-
--- g.tokyonight_style = "night"
--- g.tokyonight_terminal_colors = true
--- g.tokyonight_italic_comments = true
--- g.tokyonight_italic_keywords = false
--- g.tokyonight_italic_functions = false
--- g.tokyonight_italic_variables = false
--- g.tokyonight_transparent = true
--- g.tokyonight_transparent_sidebar = true
--- g.tokyonight_dark_sidebar = true
--- g.tokyonight_dark_float = true
+--[[ g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha ]]
+cmd("colorscheme tokyonight")
