@@ -79,14 +79,20 @@ local opts = {
 	nowait = true, -- use `nowait` when creating keymaps
 }
 
+
+
 local mappings = {
-	["a"] = { "<cmd>Alpha<cr>", "Alpha" },
+	[";"] = { "<cmd>Alpha<cr>", "Alpha" },
 	["b"] = {
 		"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
 		"Buffers",
 	},
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 	["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+  
+  ["f"] = { "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+			"Find Files",
+		},
 
 	p = {
 		name = "Packer",
@@ -121,39 +127,38 @@ local mappings = {
 	},
 
 	l = {
-		name = "LSP",
-		a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-		d = {
-			"<cmd>Telescope lsp_document_diagnostics<cr>",
-			"Document Diagnostics",
-		},
-		w = {
-			"<cmd>Telescope lsp_workspace_diagnostics<cr>",
-			"Workspace Diagnostics",
-		},
-		f = { "<cmd>lua vim.lsp.buf.formatting_sync(nil, 2000)<cr>", "Format" },
-		i = { "<cmd>LspInfo<cr>", "Info" },
-		I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
-		j = {
-			"<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",
-			"Next Diagnostic",
-		},
-		k = {
-			"<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",
-			"Prev Diagnostic",
-		},
-		l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-		q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
-		r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-		s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-		S = {
-			"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-			"Workspace Symbols",
-		},
+    name = "LSP",
+    a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
+    d = {
+      "<cmd>Telescope lsp_document_diagnostics<cr>",
+      "Document Diagnostics",
+    },
+    w = {
+      "<cmd>Telescope lsp_workspace_diagnostics<cr>",
+      "Workspace Diagnostics",
+    },
+    f = { "<cmd>lua vim.lsp.buf.format{async=true}<cr>", "Format" },
+    i = { "<cmd>LspInfo<cr>", "Info" },
+    I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
+    j = {
+      "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",
+      "Next Diagnostic",
+    },
+    k = {
+      "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",
+      "Prev Diagnostic",
+    },
+    l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
+    q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
+    r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
+    s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
+    S = {
+      "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
+      "Workspace Symbols",
+    },
 	},
 	s = {
 		name = "Search",
-		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
 		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
 		h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
 		M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
@@ -161,14 +166,12 @@ local mappings = {
 		R = { "<cmd>Telescope registers<cr>", "Registers" },
 		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
 		C = { "<cmd>Telescope commands<cr>", "Commands" },
+    a = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find All" },
+    g = { "<cmd> Telescope live_grep <CR>", "Live Grep" },
 	},
 
 	t = {
 		name = "Terminal",
-		n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
-		u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
-		t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
-		p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
 		f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
 		h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
 		v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
@@ -202,15 +205,6 @@ local mappings = {
 		l = { "<cmd>lua require'dap'.run_last()<cr>", "Last" },
 		u = { "<cmd>lua require'dapui'.toggle()<cr>", "UI" },
 		x = { "<cmd>lua require'dap'.terminate()<cr>", "Exit" },
-	},
-	f = {
-		name = "Telescope",
-		f = {
-			"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-			"Find Files",
-		},
-		a = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find All" },
-		g = { "<cmd> Telescope live_grep <CR>", "Live Grep" },
 	},
 	o = {
 		name = "Options",

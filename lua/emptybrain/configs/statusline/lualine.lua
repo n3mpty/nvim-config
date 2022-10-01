@@ -88,9 +88,9 @@ local lsp_info = {
             vim.list_extend(buf_client_names, linter)
         end
 
-		--[[ return "LSP ON" .. table.concat(buf_client_names, ", ") .. "" ]]
+    return " " .. table.concat(buf_client_names, ", ") .. ""
         
-		return "LSP ON" 
+		-- return "LSP ON" 
 	end,
 	color = { gui = "bold" },
 	cond = hide_in_width,
@@ -112,6 +112,7 @@ local diff = {
 	colored = true,
 	symbols = { added = "+", modified = "~", removed = "-" }, -- changes diff symbols
 }
+
 
 local filetype = {
 	"filetype",
@@ -149,25 +150,25 @@ local theme = {
 	normal = {
 		a = { fg = colors.black, bg = colors.red },
 		b = { fg = colors.white, bg = colors.black },
-		c = { fg = colors.white, bg = colors.transparent },
-		x = { fg = colors.white, bg = colors.transparent },
-		y = { fg = colors.white, bg = colors.transparent },
+		c = { fg = colors.white, bg = colors.black },
+		x = { fg = colors.white, bg = colors.black },
+		y = { fg = colors.white, bg = colors.black },
 		z = { fg = colors.black, bg = colors.red },
 	},
 	insert = {
 		a = { fg = colors.black, bg = colors.green },
 		-- b = { fg = colors.black, bg = colors.blue },
-		c = { fg = colors.white, bg = colors.transparent },
-		x = { fg = colors.white, bg = colors.transparent },
-		y = { fg = colors.white, bg = colors.transparent },
-		z = { fg = colors.white, bg = colors.transparent },
+		c = { fg = colors.white, bg = colors.black },
+		x = { fg = colors.white, bg = colors.black },
+		y = { fg = colors.white, bg = colors.black },
+		z = { fg = colors.white, bg = colors.black },
 	},
 	visual = {
 		a = { fg = colors.black, bg = colors.purple },
 		-- b = { fg = colors.black, bg = colors.blue },
-		c = { fg = colors.white, bg = colors.transparent },
-		x = { fg = colors.white, bg = colors.transparent },
-		y = { fg = colors.white, bg = colors.transparent },
+		c = { fg = colors.white, bg = colors.black },
+		x = { fg = colors.white, bg = colors.black },
+		y = { fg = colors.white, bg = colors.black },
 		-- z = { fg = colors.black, bg = colors.blue },
 	},
 	command = {
@@ -196,31 +197,46 @@ local theme = {
 	},
 }
 
-
 lualine.setup({
-	options = {
-		icons_enabled = true,
-		theme = theme,
-		component_separators = { left = "", right = "" },
-		section_separators = { left = "", right = "" },
-		disabled_filetypes = { "alpha", "NvimTree", "Outline", "TelescopePrompt", "TelescopeResults" },
-	},
-	sections = {
-        lualine_a = { "mode" },
-		lualine_b = { branch, diff },
-		lualine_c = { "filename", python_env },
-		lualine_x = {  },
-		lualine_y = { diagnostics, "filetype", lsp_info },
-		lualine_z = { "location" },
-	},
-	inactive_sections = {
-		lualine_a = { "filename" },
-		lualine_b = {},
-		lualine_c = {},
-		lualine_x = {},
-		lualine_y = {},
-		lualine_z = {},
-	},
-	tabline = {},
-	extensions = { "nvim-tree" },
-})
+ options = {
+    icons_enabled = true,
+    theme = theme,
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
+    disabled_filetypes = {
+      statusline = {},
+      winbar = {},
+    },
+    ignore_focus = {
+      "NvimTree", "Outline", "Packer"
+    },
+    always_divide_middle = true,
+    globalstatus = true,
+    refresh = {
+      statusline = 3000,
+      tabline = 3000,
+      winbar = 3000,
+    }
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'filename', 'branch', diff},
+    lualine_c = { python_env },
+    lualine_x = {},
+    lualine_y = {diagnostics, lsp_info},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {"filename"},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  tabline = {},
+  winbar = {},
+  inactive_winbar = {},
+  extensions = {}
+} 
+)

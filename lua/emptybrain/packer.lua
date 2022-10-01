@@ -46,16 +46,15 @@ return packer.startup(function(use)
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
 	use("nvim-lua/popup.nvim")
 	--
-    
-    -- ui 
-    use("stevearc/dressing.nvim")
 
+	-- ui
+	use("stevearc/dressing.nvim")
 
 	-- Session
 	use("rmagatti/auto-session")
 	use("rmagatti/session-lens")
 	--
-    
+
 	use({
 		"phaazon/hop.nvim",
 		branch = "v2",
@@ -70,7 +69,7 @@ return packer.startup(function(use)
 		"max397574/better-escape.nvim",
 		config = function()
 			require("better_escape").setup({
-				mapping = { "jj"},
+				mapping = { "jj" },
 			})
 		end,
 	})
@@ -81,60 +80,62 @@ return packer.startup(function(use)
 	})
 
 	use({ "Pocco81/auto-save.nvim" })
-    -- Color
+	-- Color
 	use({ "norcalli/nvim-colorizer.lua" })
-    -- Better Scroll
+	-- Better Scroll
 	use({ "karb94/neoscroll.nvim" })
-    
-    -- Rust
+
+	-- Rust
 	use({ "simrat39/rust-tools.nvim" })
 
-    --- Comment
+	--- Comment
 	use({ "numToStr/Comment.nvim", commit = "2c26a00f32b190390b664e56e32fd5347613b9e2" })
-    -- Explorer
+	-- Explorer
 	use({ "kyazdani42/nvim-tree.lua" })
 
-    
-    --- Bufferline
-	use({ "akinsho/bufferline.nvim" })
+	--- Bufferline
+	-- use({ "akinsho/bufferline.nvim" })
 	use({ "moll/vim-bbye" })
+  use({ "emptybrain/winbar.nvim" })
+  use({"ghillb/cybu.nvim"})
+  use({"nanozuki/tabby.nvim"})
 
-    
-    -- Icons
-    use("kyazdani42/nvim-web-devicons" )
-    
-    -- Statusline
+	-- Icons
+	use("kyazdani42/nvim-web-devicons")
+
+	-- Statusline
 	use({ "nvim-lualine/lualine.nvim" })
+
+  -- Terminal
 	use({ "akinsho/toggleterm.nvim" })
-    -- Project
+  
+	-- Project
 	use({ "ahmedkhalf/project.nvim" })
-    -- Optimaizeer
+	-- Optimaizeer
 	use({ "lewis6991/impatient.nvim" })
-    -- Indent
+	-- Indent
 	use({ "lukas-reineke/indent-blankline.nvim" })
-    -- Dashboard
+	-- Dashboard
 	use({ "goolord/alpha-nvim" })
-    -- 
+	--
 	use({ "folke/which-key.nvim" })
-    
-    
+
 	use({ "ellisonleao/glow.nvim" })
-    -- Auto close pairs
+	-- Auto close pairs
 	use({ "windwp/nvim-autopairs" })
-	--[[ use({ "rstacruz/vim-closer" }) ]]
-    -- Notify
+	-- Notify
 	use({ "rcarriga/nvim-notify" })
-    --
+	--
 	use({ "tversteeg/registers.nvim" })
-    --
+	--
 	use("MattesGroeger/vim-bookmarks")
-    
+
 	--
 
 	-- Colorschemes
-	use({ "EdenEast/nightfox.nvim"})
+	use({ "EdenEast/nightfox.nvim" })
 	use({ "catppuccin/nvim", as = "catppuccin" })
-    use("folke/tokyonight.nvim")
+	use("folke/tokyonight.nvim")
 
 	-- cmp plugins
 	use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
@@ -152,13 +153,14 @@ return packer.startup(function(use)
 	use({ "williamboman/mason.nvim" })
 	use({ "williamboman/mason-lspconfig.nvim" })
 	use({ "neovim/nvim-lspconfig" })
-	use({ "jose-elias-alvarez/null-ls.nvim" }) 
+	use({ "jose-elias-alvarez/null-ls.nvim" })
 	--[[ use("RRethy/vim-illuminate") ]]
 	use("j-hui/fidget.nvim")
-	use({"ray-x/lsp_signature.nvim"})
+	use({ "ray-x/lsp_signature.nvim" })
 	use("simrat39/symbols-outline.nvim")
-	use({ "folke/trouble.nvim", cmd = "TroubleToggle", })
-    use("p00f/nvim-ts-rainbow")
+	use({ "folke/trouble.nvim", cmd = "TroubleToggle" })
+	use("p00f/nvim-ts-rainbow")
+	use("SmiteshP/nvim-navic")
 
 	-- Telescope
 	use({ "nvim-telescope/telescope.nvim" })
@@ -170,7 +172,7 @@ return packer.startup(function(use)
 
 	-- Git
 	use({ "lewis6991/gitsigns.nvim" })
-    use( { "sindrets/diffview.nvim" } )
+	use({ "sindrets/diffview.nvim" })
 
 	-- DAP
 	use({ "mfussenegger/nvim-dap" })

@@ -5,7 +5,7 @@ if not status_ok then
 end
 
 toggleterm.setup({
-	size = 20,
+	size = 15,
 	open_mapping = [[<c-\>]],
 	hide_numbers = true,
 	shade_terminals = true,
@@ -17,7 +17,7 @@ toggleterm.setup({
 	close_on_exit = true,
 	shell = vim.o.shell,
 	float_opts = {
-		border = "curved",
+		border = "single",
 	},
 })
 

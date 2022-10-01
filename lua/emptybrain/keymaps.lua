@@ -63,6 +63,8 @@ keymap("n", "|", "<cmd>vsplit<cr>", opts) -- Vertical split
 
 -- Buffer
 keymap("n", "C", "<cmd>Bdelete<cr>", opts) -- Close buffer
+keymap("n", "<S-l>", ":CybuNext<CR>", opts)
+keymap("n", "<S-h>", ":CybuPrev<CR>", opts)
 --
 
 -- Quit
@@ -80,9 +82,6 @@ keymap("n", "<C-Down>", ":resize +2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
--- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Move text up and down
 -- keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
