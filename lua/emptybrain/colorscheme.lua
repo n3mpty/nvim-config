@@ -73,7 +73,7 @@ tokyonight.setup({
 		--
 		hl.CursorLine = {
 			fg = "NONE",
-			bg = "#111111",
+			bg = "#0f0b0b",
 		}
 		--
 		hl.HopNextKey = {

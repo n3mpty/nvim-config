@@ -126,7 +126,12 @@ return packer.startup(function(use)
 	-- Notify
 	use({ "rcarriga/nvim-notify" })
 	--
-	use({ "tversteeg/registers.nvim" })
+	-- use({ "tversteeg/registers.nvim",
+ --    config = function()
+	-- 	require("registers").setup()
+	-- end,
+ --  })
+  
 	--
 	use("MattesGroeger/vim-bookmarks")
 
