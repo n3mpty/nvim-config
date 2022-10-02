@@ -6,15 +6,15 @@ end
 
 
 local colors = {
-	blue = "#3FCBFC",
-	cyan = "#3FFCD5",
+	blue = "#349bb3",
+	cyan = "#34b392",
 	black = "#000000",
-	white = "#D4D4D4",
-	red = "#FC3F3F",
-	violet = "#E53FFC",
-	grey = "#343434",
-	green = "#3FFC4B",
-	purple = "#EF3FFC",
+	white = "#ebebeb",
+	red = "#b33434",
+	violet = "#b334b0",
+	grey = "#7a7a7a",
+	green = "#34b346",
+	purple = "#6a34b3",
     transparent = "NONE",
 }
 
@@ -105,6 +105,8 @@ local diagnostics = {
 	colored = true,
 	update_in_insert = false,
 	always_visible = true,
+  separator = { left = '', right = ''},
+  color = { bg = colors.black },
 }
 
 local diff = {
@@ -121,10 +123,29 @@ local filetype = {
 	-- color = { fg = colors.white, bg = colors.black },
 }
 
+local filename = {
+  "filename",
+  path = 1,
+  icons_enabled = true,
+  color = { fg = colors.black},
+  separator = { left = '', right = ''},
+
+  symbols= {
+    modified = '●',
+    readonly = ''
+  }
+
+}
+
 local branch = {
 	"branch",
 	icons_enabled = true,
 	icon = "",
+}
+
+local mode = {
+  "mode",
+  separator = { left = '', right = ' '},
 }
 
 local python_env = {
@@ -146,6 +167,17 @@ local python_env = {
 	color = { fg = colors.green },
 	cond = hide_in_width,
 }
+
+
+
+local navic = require("nvim-navic")
+
+local winbar = {
+    lualine_a = { filename },
+    lualine_b = { diagnostics },
+    lualine_c = { { navic.get_location, cond = navic.is_available },  { separator = { left = '', right = '' }} },
+}
+
 local theme = {
 	normal = {
 		a = { fg = colors.black, bg = colors.red },
@@ -202,7 +234,7 @@ lualine.setup({
     icons_enabled = true,
     theme = theme,
     component_separators = { left = '', right = ''},
-    section_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
     disabled_filetypes = {
       statusline = {},
       winbar = {},
@@ -219,12 +251,12 @@ lualine.setup({
     }
   },
   sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'filename', 'branch', diff},
+    lualine_a = {mode},
+    lualine_b = {'branch', diff},
     lualine_c = { python_env },
     lualine_x = {},
-    lualine_y = {diagnostics, lsp_info},
-    lualine_z = {'location'}
+    lualine_y = { lsp_info},
+    lualine_z = { 'location' }
   },
   inactive_sections = {
     lualine_a = {"filename"},
@@ -235,8 +267,14 @@ lualine.setup({
     lualine_z = {}
   },
   tabline = {},
-  winbar = {},
-  inactive_winbar = {},
+  winbar = winbar,
+  inactive_winbar = {
+    lualine_a = { diagnostics },
+    lualine_b = { },
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {}
+  },
   extensions = {}
-} 
-)
+} )
