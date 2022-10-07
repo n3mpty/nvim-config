@@ -1,4 +1,3 @@
---[[ require "emptybrain" ]]
 function requirePath(path)
 	local files = io.popen('find "$HOME"/.config/nvim/lua' .. path .. " -type f")
 
@@ -12,5 +11,5 @@ function requirePath(path)
 	end
 end
 
-requirePath("/emptybrain")
-require("emptybrain.lsp.handlers").setup()
+requirePath("/empb")
+require("empb.lsp.handlers").setup()
