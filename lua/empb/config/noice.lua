@@ -1,0 +1,31 @@
+-- local status_ok, noice = load("noice")
+-- if not status_ok then
+--   vim.notify("Failed loading " .. req_file, vim.log.levels.ERROR)
+--   return
+-- end
+--
+-- noice.setup({
+--   views = {
+--     cmdline_popup = {
+--       border = {
+--         style = "none",
+--         padding = { 2, 3 },
+--       },
+--     },
+--   },
+--   --
+--   routes = {
+--     filter = {
+--       event = "msg_show",
+--       kind = "",
+--       find = "writter",
+--     },
+--     opts = { skip = true },
+--   },
+--   --
+--   filter_options = {},
+--   win_options = {
+--     winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
+--   },
+--   --
+-- })
