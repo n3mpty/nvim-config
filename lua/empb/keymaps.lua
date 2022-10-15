@@ -91,7 +91,7 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Insert --
 keymap("i", "jj", "<Esc>", opts)
-keymap("i", "<C-c>", "<Esc>", opts)
+keymap("i", "<C-'>", "<Esc>", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -102,7 +102,12 @@ keymap("v", ">", ">gv", opts)
 keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 keymap("v", "<A-k>", ":m .-2<CR>==", opts)
 --
+
+keymap("x", "p", '"_dP', opts)
 keymap("v", "p", '"_dP', opts)
+--
+keymap("v", "d", '"_d', opts)
+
 
 -- Visual Block --
 -- Move text up and down

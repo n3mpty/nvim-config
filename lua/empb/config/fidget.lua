@@ -4,4 +4,9 @@ if not status_ok then
     return
 end
 
-fidget.setup()
+fidget.setup({
+  align = {
+    bottom = false,
+  }
+}
+)

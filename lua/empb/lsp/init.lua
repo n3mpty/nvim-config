@@ -53,7 +53,7 @@ for _, lsp in ipairs(servers) do
   })
 
   if lsp == "rust_analyzer" then
-    local rust_opts = require("emptybrain.configs.rust-tools")
+    local rust_opts = require("empb.config.rust-tools")
     local rust_tools_status_ok, rust_tools = pcall(require, "rust-tools")
     if not rust_tools_status_ok then
       return
@@ -80,8 +80,7 @@ require("lspconfig").pyright.setup({
 	},
 })
 
-require("lspconfig").elixirls.setup({
-  cmd = { "/home/emptyuser/.elixir-ls/language_server.sh" },
-})
-
 require("lspconfig").gopls.setup({})
+
+---
+require("empb.lsp.handlers").setup()

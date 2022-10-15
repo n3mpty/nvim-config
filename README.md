@@ -1,6 +1,6 @@
 ## Install 
 ```sh
-git clone https://github.com/emptybrain/notvim.git ~/.config/nvim
+git clone https://github.com/emptybrain/nvim-config.git ~/.config/nvim
 ```
 
 

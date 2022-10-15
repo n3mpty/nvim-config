@@ -7,7 +7,7 @@ end
 cybu.setup({
    position = {
     relative_to = "win",          -- win, editor, cursor
-    anchor = "topleft",         -- topleft, topcenter, topright,
+    anchor = "bottomleft",         -- topleft, topcenter, topright,
                                     -- centerleft, center, centerright,
                                     -- bottomleft, bottomcenter, bottomright
     -- vertical_offset = 10,         -- vertical offset from anchor in lines

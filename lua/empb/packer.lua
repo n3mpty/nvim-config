@@ -107,11 +107,10 @@ return packer.startup(function(use)
   use({ "kyazdani42/nvim-tree.lua" })
 
   --- Bufferline
-  -- use({ "akinsho/bufferline.nvim" })
+  use({ "akinsho/bufferline.nvim" })
   use({ "moll/vim-bbye" })
   -- use({ "emptybrain/winbar.nvim" })
   use({ "ghillb/cybu.nvim" })
-  use({ "nanozuki/tabby.nvim" })
 
   -- Icons
   use("kyazdani42/nvim-web-devicons")

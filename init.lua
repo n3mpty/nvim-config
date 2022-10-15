@@ -11,5 +11,12 @@ function requirePath(path)
 	end
 end
 
-requirePath("/empb")
-require("empb.lsp.handlers").setup()
+
+
+require("empb.autocommands")
+require("empb.options")
+require("empb.keymaps")
+require("empb.packer")
+requirePath("/empb/colorscheme")
+requirePath("/empb/config")
+requirePath("/empb/lsp")

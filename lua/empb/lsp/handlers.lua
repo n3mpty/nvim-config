@@ -32,12 +32,12 @@ M.setup = function()
 		underline = true,
 		severity_sort = true,
 		float = {
-			focusable = true,
+			focusable = false,
 			style = "minimal",
 			border = "single",
 			source = "always",
 			header = "",
-			prefix = "",
+            prefix = '■',
 		},
 	}
 
