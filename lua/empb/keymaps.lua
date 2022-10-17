@@ -1,11 +1,13 @@
-local opts = { noremap = true, silent = true }
+local noremap = { noremap = true, silent = true }
+local remap = { noremap = false, silent = true }
+local silent = { silent = true }
 
 -- Shorten function name
-local keymap = vim.keymap.set
+local map = vim.keymap.set
 
 
---Remap space as leader key
-keymap("", ",", "<Nop>", opts)
+-- leader key
+map("", ",", "<Nop>", noremap)
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 
@@ -18,71 +20,71 @@ vim.g.maplocalleader = ","
 --   command_mode = "c",
 
 -- Write
-keymap("n", "<C-s>", "<cmd>w!<cr>", opts)
-keymap("i", "<C-s>", "<cmd>w!<cr>", opts)
+map("n", "<C-s>", "<cmd>w!<cr>", noremap)
+map("i", "<C-s>", "<cmd>w!<cr>", noremap)
 
 -- Normal --
 
-keymap("n", "<space>c", "<CMD>source $MYVIMRC<CR>")
+map("n", "<space>c", "<CMD>source $MYVIMRC<CR>", silent)
 
 -- Hop
-keymap("n", "F", "<CMD>HopWord<CR>", opts)
+map("n", "F", "<CMD>HopWord<CR>", noremap)
 -- keymap("n", "s", "<CMD>HopWordCurrentLine<CR>", opts)
 -- keymap("v", "s", "<CMD>HopWord<CR>", opts)
 
 -- Inline text
-keymap("n", "<space>dl", "<cmd>lua vim.diagnostic.config({ virtual_text = true, underline = true})<cr>")
-keymap("n", "<space>dd", "<cmd>lua vim.diagnostic.config({ virtual_text = false, underline = true})<cr>")
+map("n", "<space>dl", "<cmd>lua vim.diagnostic.config({ virtual_text = true, underline = true})<cr>", noremap)
+map("n", "<space>dd", "<cmd>lua vim.diagnostic.config({ virtual_text = false, underline = true})<cr>", noremap)
 
 --  Comment
-keymap("n", "<space>/", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
-keymap("x", "<space>/", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>')
+map("n", "<space>/", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", noremap)
+map("x", "<space>/", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', noremap)
 
 --[[ keymap("n", "<space>/", "<cmd>lua require('Comment.api').toggle.linewise.current('line')<cr>", opts) ]]
 --[[ keymap("v", "<space>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<cr>", opts) ]]
 --[[ keymap("x", "<space>/", '<ESC><CMD>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>', opts) ]]
 --
-keymap("n", "<ESC>", "<cmd>:noh<cr>")
+map("n", "<ESC>", "<cmd>:noh<cr>")
 
 -- Invert insert keys
-keymap("n", "i", "a", opts)
-keymap("n", "I", "A", opts)
-keymap("n", "a", "i", opts)
-keymap("n", "A", "I", opts)
+map("n", "i", "a", noremap)
+map("n", "I", "A", noremap)
+map("n", "a", "i", noremap)
+map("n", "A", "I", noremap)
 --
 
-keymap("n", "<C-p>", "%", opts)
-keymap("v", "<C-p>", "%", opts)
+map("n", "<C-p>", "%", noremap)
+map("v", "<C-p>", "%", noremap)
 ---
-keymap("n", "<space>l", "$") -- end line
-keymap("n", "<space>h", "^") -- start line
-keymap("v", "<space>l", "$") -- end line
-keymap("v", "<space>h", "^") -- start line
+map("n", "<space>l", "$") -- end line
+map("n", "<space>h", "^") -- start line
+map("v", "<space>l", "$") -- end line
+map("v", "<space>h", "^") -- start line
 --
 -- Split View
-keymap("n", "\\", "<cmd>split<cr>", opts) -- Horizontal split
-keymap("n", "|", "<cmd>vsplit<cr>", opts) -- Vertical split
+map("n", "\\", "<cmd>split<cr>", remap) -- Horizontal split
+map("n", "|", "<cmd>vsplit<cr>", remap) -- Vertical split
 
 -- Buffer
-keymap("n", "C", "<cmd>Bdelete<cr>", opts) -- Close buffer
-keymap("n", "<S-l>", ":CybuNext<CR>", opts)
-keymap("n", "<S-h>", ":CybuPrev<CR>", opts)
+map("n", "C", "<cmd>Bdelete<cr>",  silent) -- Close buffer
+map("n", "<S-l>", ":CybuNext<CR>", silent)
+map("n", "<S-h>", ":CybuPrev<CR>", silent)
 --
 
 -- Quit
-keymap("n", "<C-q>", "<cmd>q!<cr>", opts)
+map("n", "<C-q>", "<cmd>q!<cr>", noremap)
 
 -- Better window navigation
-keymap("n", "<M-h>", "<C-w>h", opts)
-keymap("n", "<M-j>", "<C-w>j", opts)
-keymap("n", "<M-k>", "<C-w>k", opts)
-keymap("n", "<M-l>", "<C-w>l", opts)
+map("n", "<M-h>", "<C-w>h", noremap)
+map("n", "<M-j>", "<C-w>j", noremap)
+map("n", "<M-k>", "<C-w>k", noremap)
+map("n", "<M-l>", "<C-w>l", noremap)
 
 -- Resize with arrows
-keymap("n", "<C-Up>", ":resize -2<CR>", opts)
-keymap("n", "<C-Down>", ":resize +2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+map("n", "<C-Up>", ":resize -2<CR>", silent)
+map("n", "<C-Down>", ":resize +2<CR>", silent)
+map("n", "<C-Left>", ":vertical resize -2<CR>", silent)
+map("n", "<C-Right>", ":vertical resize +2<CR>", silent)
 
 
 -- Move text up and down
@@ -90,29 +92,29 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
 -- Insert --
-keymap("i", "jj", "<Esc>", opts)
-keymap("i", "<C-'>", "<Esc>", opts)
+map("i", "jj", "<Esc>", silent)
+map("i", "<C-'>", "<Esc>", silent)
 
 -- Visual --
 -- Stay in indent mode
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
+map("v", "<", "<gv", noremap)
+map("v", ">", ">gv", noremap)
 
 -- Move text up and down
-keymap("v", "<A-j>", ":m .+1<CR>==", opts)
-keymap("v", "<A-k>", ":m .-2<CR>==", opts)
+map("v", "<A-j>", ":m .+1<CR>==", noremap)
+map("v", "<A-k>", ":m .-2<CR>==", noremap)
 --
 
-keymap("x", "p", '"_dP', opts)
-keymap("v", "p", '"_dP', opts)
+map("x", "p", '"_dP', noremap)
+map("v", "p", '"_dP', noremap)
 --
-keymap("v", "d", '"_d', opts)
+map("v", "d", '"_d', noremap)
 
 
 -- Visual Block --
 -- Move text up and down
-keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
-keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
-keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
+map("x", "K", ":move '<-2<CR>gv-gv", noremap)
+map("x", "J", ":move '>+1<CR>gv-gv", noremap)
+map("x", "<A-k>", ":move '<-2<CR>gv-gv", noremap)
+map("x", "<A-j>", ":move '>+1<CR>gv-gv", noremap)
 

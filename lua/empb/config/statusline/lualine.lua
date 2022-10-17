@@ -204,7 +204,7 @@ local theme = {
         c = { fg = colors.white, bg = colors.black },
         x = { fg = colors.white, bg = colors.black },
         y = { fg = colors.white, bg = colors.black },
-        z = { fg = colors.black, bg = colors.blue },
+        z = { fg = colors.white, bg = colors.black },
     },
     command = {
     	a = { fg = colors.white, bg = colors.black },
@@ -224,11 +224,11 @@ local theme = {
     },
     inactive = {
         a = { fg = colors.white, bg = colors.black },
-        b = { fg = colors.black, bg = colors.blue },
-        c = { fg = colors.black, bg = colors.blue },
-        x = { fg = colors.black, bg = colors.blue },
-        y = { fg = colors.black, bg = colors.blue },
-        z = { fg = colors.black, bg = colors.blue },
+        b = { fg = colors.white, bg = colors.black },
+        c = { fg = colors.white, bg = colors.black },
+        x = { fg = colors.white, bg = colors.black },
+        y = { fg = colors.white, bg = colors.black },
+        z = { fg = colors.white, bg = colors.black },
     },
 }
 
@@ -239,8 +239,8 @@ lualine.setup({
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
         disabled_filetypes = {
-            statusline = { "NvimTree", "Outline", "Packer, Alpha" },
-            winbar = { "NvimTree", "Outline", "Packer", "Trouble", "Alpha" },
+            statusline = { "NvimTree", "Outline", "Packer", "AlphaReady" },
+            winbar = { "NvimTree", "Outline", "Packer", "Trouble", "AlphaReady" },
         },
         ignore_focus = {
             "NvimTree",
@@ -272,7 +272,10 @@ lualine.setup({
         lualine_y = {},
         lualine_z = {},
     },
-    tabline = {},
+    tabline = {
+        -- lualine_a = { { "buffers", mode = 2 } },
+        -- lualine_z = { "tabs" },
+    },
     winbar = winbar,
     inactive_winbar = {
         lualine_a = { "filename" },

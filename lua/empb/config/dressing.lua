@@ -10,7 +10,7 @@ dressing.setup({
     enabled = true,
 
     -- Default prompt string
-    default_prompt = "Input:",
+    default_prompt = " ",
 
     -- Can be 'left', 'right', or 'center'
     prompt_align = "left",
@@ -23,7 +23,7 @@ dressing.setup({
 
     -- These are passed to nvim_open_win
     anchor = "SW",
-    border = "single",
+    border = "rounded",
     -- 'editor' and 'win' will default to being centered
     relative = "cursor",
 
@@ -36,7 +36,7 @@ dressing.setup({
     min_width = { 20, 0.2 },
 
     -- Window transparency (0-100)
-    winblend = 10,
+    winblend = 30,
     -- Change default highlight groups (see :help winhl)
     winhighlight = "",
 
