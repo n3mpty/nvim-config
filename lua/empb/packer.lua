@@ -45,24 +45,13 @@ return packer.startup(function(use)
 
     use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
     use("nvim-lua/popup.nvim")
+    use({ "rcarriga/nvim-notify" })
+    use({ "MunifTanjim/nui.nvim" })
     --
 
     -- ui
     use({ "stevearc/dressing.nvim" })
-    use({ "MunifTanjim/nui.nvim" })
-    -- use({
-    --   "folke/noice.nvim",
-    --   event = "VimEnter",
-    --   config = function()
-    --     require("noice").setup()
-    --   end,
-    --   requires = {
-    --     -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-    --     "MunifTanjim/nui.nvim",
-    --     "rcarriga/nvim-notify",
-    --   },
-    -- })
-
+    use({ "folke/noice.nvim" })
     -- Session
     use("rmagatti/auto-session")
     use("rmagatti/session-lens")
@@ -96,7 +85,13 @@ return packer.startup(function(use)
     -- Color
     use({ "norcalli/nvim-colorizer.lua" })
     -- Better Scroll
-    use({ "karb94/neoscroll.nvim" })
+    -- use({ "karb94/neoscroll.nvim" })
+    use({
+        "declancm/cinnamon.nvim",
+        config = function()
+            require("cinnamon").setup()
+        end,
+    })
 
     -- Rust
     use({ "simrat39/rust-tools.nvim" })
@@ -110,7 +105,6 @@ return packer.startup(function(use)
     use({ "akinsho/bufferline.nvim" })
     use({ "moll/vim-bbye" })
     -- use({ "emptybrain/winbar.nvim" })
-    use({ "ghillb/cybu.nvim" })
 
     -- Icons
     use("kyazdani42/nvim-web-devicons")
@@ -142,8 +136,6 @@ return packer.startup(function(use)
     })
     -- Auto close pairs
     use({ "windwp/nvim-autopairs" })
-    -- Notify
-    use({ "rcarriga/nvim-notify" })
     --
     -- use({ "tversteeg/registers.nvim",
     --    config = function()
@@ -159,7 +151,7 @@ return packer.startup(function(use)
     -- Colorschemes
     use({ "catppuccin/nvim", as = "catppuccin" })
     use({ "folke/tokyonight.nvim" })
-    use({ "marko-cerovac/material.nvim" })
+    use({ "marko-cerovac/material.nvim", commit = "3bb4fc0cf487854346e9cd49a3e043f3096feaf7" })
 
     -- cmp plugins
     use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
@@ -191,7 +183,8 @@ return packer.startup(function(use)
     use("tom-anders/telescope-vim-bookmarks.nvim")
 
     -- Treesitter
-    use({ "nvim-treesitter/nvim-treesitter", commit = "addc129a4f272aba0834bd0a7b6bd4ad5d8c801b" })
+    -- use({ "nvim-treesitter/nvim-treesitter", commit = "addc129a4f272aba0834bd0a7b6bd4ad5d8c801b" })
+    use({ "nvim-treesitter/nvim-treesitter" })
     use({ "JoosepAlviste/nvim-ts-context-commentstring" })
 
     -- Git

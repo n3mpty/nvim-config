@@ -29,8 +29,7 @@ map("n", "<space>c", "<CMD>source $MYVIMRC<CR>", silent)
 
 -- Hop
 map("n", "F", "<CMD>HopWord<CR>", noremap)
--- keymap("n", "s", "<CMD>HopWordCurrentLine<CR>", opts)
--- keymap("v", "s", "<CMD>HopWord<CR>", opts)
+map("v", "S", "<CMD>HopWord<CR>", noremap)
 
 -- Inline text
 map("n", "<space>dl", "<cmd>lua vim.diagnostic.config({ virtual_text = true, underline = true})<cr>", noremap)
@@ -67,8 +66,8 @@ map("n", "|", "<cmd>vsplit<cr>", remap) -- Vertical split
 
 -- Buffer
 map("n", "C", "<cmd>Bdelete<cr>",  silent) -- Close buffer
-map("n", "<S-l>", ":CybuNext<CR>", silent)
-map("n", "<S-h>", ":CybuPrev<CR>", silent)
+map("n", "<S-l>", ":BufferLineCycleNext<CR>", silent)
+map("n", "<S-h>", ":BufferLineCyclePrev<CR>", silent)
 --
 
 -- Quit

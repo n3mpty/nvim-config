@@ -239,8 +239,8 @@ lualine.setup({
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
         disabled_filetypes = {
-            statusline = { "NvimTree", "Outline", "Packer", "AlphaReady" },
-            winbar = { "NvimTree", "Outline", "Packer", "Trouble", "AlphaReady" },
+            statusline = { "NvimTree", "Outline", "Packer", "AlphaReady", "DiffviewFilePanel" },
+            winbar = { "NvimTree", "Outline", "Packer", "Trouble", "AlphaReady", "DiffviewFilePanel" },
         },
         ignore_focus = {
             "NvimTree",

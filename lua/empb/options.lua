@@ -7,6 +7,8 @@ cmd([[
   set guicursor+=i-n-v-c:blinkon1
 ]])
 
+
+--
 opt.showmode = false
 opt.swapfile = false
 opt.wrap = false
@@ -23,6 +25,7 @@ opt.fileencoding = "utf-8"
 opt.hlsearch = true -- highlight all matches on previous search pattern
 --
 opt.cursorline = true
+opt.cursorcolumn = true
 opt.scrolloff = 8
 opt.sidescrolloff = 8
 opt.laststatus = 3 -- Global statusline

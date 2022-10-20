@@ -4,33 +4,31 @@ if not status_ok then
     return
 end
 
-vim.g.material_style = "darker"
+local colors = require("material.colors")
+
 material.setup({
     contrast = {
+        terminal = false, -- Enable contrast for the built-in terminal
         sidebars = false, -- Enable contrast for sidebar-like windows ( for example Nvim-Tree )
         floating_windows = false, -- Enable contrast for floating windows
         cursor_line = false, -- Enable darker background for the cursor line
-        non_current_windows = true, -- Enable darker background for non-current windows
-        popup_menu = false, -- Enable lighter background for the popup menu
+        non_current_windows = false, -- Enable darker background for non-current windows
+        filetypes = {}, -- Specify which filetypes get the contrasted (darker) background
     },
 
-    italics = {
-        comments = true, -- Enable italic comments
-        keywords = false, -- Enable italic keywords
-        functions = true, -- Enable italic functions
-        strings = false, -- Enable italic strings
-        variables = false, -- Enable italic variables
-    },
-
-    contrast_filetypes = { -- Specify which filetypes get the contrasted (darker) background
-        "terminal", -- Darker terminal background
-        "packer", -- Darker packer background
-        "qf", -- Darker qf list background
+    styles = { -- Give comments style such as bold, italic, underline etc.
+        comments = { italic = true },
+        strings = {},
+        keywords = {},
+        functions = { italic = true },
+        variables = {},
+        operators = { bold = true },
+        types = {},
     },
 
     high_visibility = {
         lighter = false, -- Enable higher contrast text for lighter style
-        darker = true, -- Enable higher contrast text for darker style
+        darker = false, -- Enable higher contrast text for darker style
     },
 
     disable = {
@@ -42,55 +40,63 @@ material.setup({
     },
 
     lualine_style = "default", -- Lualine style ( can be 'stealth' or 'default' )
-
     async_loading = true, -- Load parts of the theme asyncronously for faster startup (turned on by default)
-
+    plugins = { -- Uncomment the plugins that you use to highlight them
+        -- Available plugins:
+        -- "dap",
+        -- "dashboard",
+        "gitsigns",
+        -- "hop",
+        "indent-blankline",
+        -- "lspsaga",
+        -- "mini",
+        -- "neogit",
+        "nvim-cmp",
+        -- "nvim-navic",
+        "nvim-tree",
+        -- "sneak",
+        "telescope",
+        "trouble",
+        "which-key",
+    },
+    --
     custom_highlights = {
-        String = { fg = "#81a97b" },
-        TSField = { fg = "#52719d" },
-        TSVariableBuiltin = { fg = "#c94f6d" },
-        --
+        String = { fg = "#90a97b" },
+        ["@variable.builtin"] = { fg = "#f7768e" },
+        ["@field"] = { fg = "#2c3559" },
+        ["@parameter"] = { fg = "#ad8d59" },
+        ["@parameter.reference"] = { link = "@parameter" },
+
         HopNextKey = { fg = "#F72626", bold = true },
         HopNextKey1 = { fg = "#F76726", bold = true },
         HopNextKey2 = { fg = "#3374CA" },
-        --
+
         NormalFloat = { bg = "NONE" },
-        --
+
         WinBar = { fg = "NONE", bg = "NONE", bold = false },
         WinBarNC = { fg = "NONE", bg = "NONE", bold = false },
-        --
-        CursorLine = { fg = "NONE", bg = "#141414" },
-        CursorColumn = { bg = "#1F1A1A" },
-        --
-        TabLineFill = { fg = "#b0bec5" },
-        TabLineSel = { bg = "#FF9800", fg = "#212121" },
-        Tabline = { fg = "#b0bec5" },
-        --
-        BufferLineIndicatorSelected = { fg = "#FF9800" },
-        BufferLineFill = { bg = "#212121" },
-    }, -- Overwrite highlights with your own
 
-    plugins = { -- Here, you can disable(set to false) plugins that you don't use or don't want to apply the theme to
-        trouble = true,
-        nvim_cmp = true,
-        neogit = true,
-        gitsigns = true,
-        git_gutter = true,
-        telescope = true,
-        nvim_tree = false,
-        sidebar_nvim = false,
-        lsp_saga = true,
-        nvim_dap = true,
-        nvim_navic = false,
-        which_key = true,
-        sneak = true,
-        hop = false,
-        indent_blankline = true,
-        nvim_illuminate = true,
-        mini = true,
+        CursorLine = { fg = "NONE", bg = "#1e1e1e" },
+        CursorColumn = { fg = "NONE", bg = "#1e1e1e" },
+
+        -- TabLineFill = { fg = "#b0bec5" },
+        -- TabLineSel = { bg = "#FF9800", fg = "#212121" },
+        -- Tabline = { fg = "#b0bec5" },
+
+        -- BufferLineIndicatorSelected = { fg = "#FF9800" },
+        -- BufferLineFill = { bg = "#212121" },
+        --
+        -- DiagnosticUnderlineError = { underline = true, sp = "#ff5370" },
+        -- DiagnosticUnderlineWarn = { underline = true, sp = "#ffcb6b" },
+        -- DiagnosticUnderlineHint = { underline = true, sp = "#c792ea" },
+        -- DiagnosticUnderlineInfo = { underline = true, sp = "#b0c9ff" },
     },
-
     --
+    -- custom_colors = function(colors)
+    --     colors.editor.fg_dark = "#2c3559"
+    --     colors.syntax.string = "#90a97b"
+    -- end,
 })
 
+vim.g.material_style = "darker"
 vim.cmd("colorscheme material")

@@ -38,7 +38,7 @@ M.setup = function()
 			border = "single",
 			source = "always",
 			header = "",
-            prefix = '■',
+            prefix = '■ ',
 		},
 	}
 
