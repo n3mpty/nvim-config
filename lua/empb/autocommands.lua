@@ -55,7 +55,7 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   end,
 })
 -- Don't auto comment new lines
-autocmd('BufEnter', {
+vim.api.nvim_create_autocmd({'BufEnter'}, {
     pattern = '*',
     command = 'set fo-=c fo-=r fo-=o'
 })
