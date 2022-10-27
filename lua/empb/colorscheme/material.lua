@@ -20,9 +20,9 @@ material.setup({
         comments = { italic = true },
         strings = {},
         keywords = {},
-        functions = { italic = true },
+        functions = {},
         variables = {},
-        operators = { bold = true },
+        operators = {},
         types = {},
     },
 
@@ -43,7 +43,8 @@ material.setup({
     async_loading = true, -- Load parts of the theme asyncronously for faster startup (turned on by default)
     plugins = { -- Uncomment the plugins that you use to highlight them
         -- Available plugins:
-        -- "dap",
+        --[[ "bufferline", ]]
+        "dap",
         -- "dashboard",
         "gitsigns",
         -- "hop",
@@ -63,7 +64,7 @@ material.setup({
     custom_highlights = {
         String = { fg = "#90a97b" },
         ["@variable.builtin"] = { fg = "#f7768e" },
-        ["@field"] = { fg = "#2c3559" },
+        ["@field"] = { fg = "#3e4d84" },
         ["@parameter"] = { fg = "#ad8d59" },
         ["@parameter.reference"] = { link = "@parameter" },
 
@@ -79,13 +80,36 @@ material.setup({
         CursorLine = { fg = "NONE", bg = "#1e1e1e" },
         CursorColumn = { fg = "NONE", bg = "#1e1e1e" },
 
-        -- TabLineFill = { fg = "#b0bec5" },
-        -- TabLineSel = { bg = "#FF9800", fg = "#212121" },
-        -- Tabline = { fg = "#b0bec5" },
-
-        -- BufferLineIndicatorSelected = { fg = "#FF9800" },
-        -- BufferLineFill = { bg = "#212121" },
         --
+        BufferLineBuffer = { fg = "#b0bec5", bg = "#181818" },
+        BufferLineBufferVisible = { fg = "#515151", bg = "#181818" },
+        BufferLineBufferSelected = { bg = "#181818", bold = true },
+        BufferLineCloseButton = { fg = "#515151", bg = "#181818" },
+        BufferLineBackground = { fg = "#515151", bg = "#181818" },
+        BufferLineCloseButtonSelected = { bg = "#181818" },
+        BufferLineCloseButtonVisible = { bg = "#181818" },
+        --
+        BufferLineSeparator = { fg = "#121212", bg = "#181818" },
+        BufferLineSeparatorVisible = { fg = "#121212", bg = "#181818" },
+        BufferLineSeparatorSelected = { fg = "#121212", bg = "#181818" },
+        BufferLineOffsetSeparator = { fg = "#181818", bg = "#181818" },
+        -- --
+        BufferLineIndicatorSelected = { fg = "#181818", bg = "#181818" },
+        BufferLineIndicatorVisible = { fg = "#181818", bg = "#181818" },
+        BufferLineFill = { bg = "#212121" },
+        --
+        BufferLineTab = { fg = "#515151", bg = "#181818" },
+        BufferLineTabClose = { fg = "#515151", bg = "#181818" },
+        BufferLineTabSeparator = { fg = "#121212", bg = "#181818" },
+        BufferLineTabSeparatorSelected = { fg = "#121212", bg = "#212121" },
+        BufferLineTabSelected = { bg = "#212121" },
+        --
+        BufferLineModified = {  fg = "green", bg = "#181818" },
+        BufferLineModifiedVisible = { link = "BufferLineModified" },
+        BufferLineModifiedSelected = { link = "BufferLineModified"},
+        --
+        NoicePopupmenu = { bg = "#181818" },
+        NoicePopupmenuSelected = { bg = "#515151" },
         -- DiagnosticUnderlineError = { underline = true, sp = "#ff5370" },
         -- DiagnosticUnderlineWarn = { underline = true, sp = "#ffcb6b" },
         -- DiagnosticUnderlineHint = { underline = true, sp = "#c792ea" },

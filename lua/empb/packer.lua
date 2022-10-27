@@ -51,7 +51,16 @@ return packer.startup(function(use)
 
     -- ui
     use({ "stevearc/dressing.nvim" })
-    use({ "folke/noice.nvim" })
+    use({
+        "folke/noice.nvim",
+        requires = {
+            -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+            "MunifTanjim/nui.nvim",
+            "rcarriga/nvim-notify",
+            "hrsh7th/nvim-cmp",
+        },
+    })
+
     -- Session
     use("rmagatti/auto-session")
     use("rmagatti/session-lens")
@@ -97,14 +106,18 @@ return packer.startup(function(use)
     use({ "simrat39/rust-tools.nvim" })
 
     --- Comment
-    use({ "numToStr/Comment.nvim", commit = "2c26a00f32b190390b664e56e32fd5347613b9e2" })
+    use({ "numToStr/Comment.nvim" })
     -- Explorer
-    use({ "kyazdani42/nvim-tree.lua" })
+    --[[ use({ "kyazdani42/nvim-tree.lua" }) ]]
+    use({
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v2.x"
+    })
 
     --- Bufferline
     use({ "akinsho/bufferline.nvim" })
     use({ "moll/vim-bbye" })
-    -- use({ "emptybrain/winbar.nvim" })
+    use({ "emptybrain/winbar.nvim" })
 
     -- Icons
     use("kyazdani42/nvim-web-devicons")
@@ -170,7 +183,7 @@ return packer.startup(function(use)
     use({ "williamboman/mason-lspconfig.nvim" })
     use({ "neovim/nvim-lspconfig" })
     use({ "jose-elias-alvarez/null-ls.nvim" })
-    --[[ use("RRethy/vim-illuminate") ]]
+    use("RRethy/vim-illuminate")
     use("j-hui/fidget.nvim")
     use({ "ray-x/lsp_signature.nvim" })
     use("simrat39/symbols-outline.nvim")
@@ -183,7 +196,6 @@ return packer.startup(function(use)
     use("tom-anders/telescope-vim-bookmarks.nvim")
 
     -- Treesitter
-    -- use({ "nvim-treesitter/nvim-treesitter", commit = "addc129a4f272aba0834bd0a7b6bd4ad5d8c801b" })
     use({ "nvim-treesitter/nvim-treesitter" })
     use({ "JoosepAlviste/nvim-ts-context-commentstring" })
 
@@ -195,6 +207,9 @@ return packer.startup(function(use)
     use({ "mfussenegger/nvim-dap" })
     use({ "rcarriga/nvim-dap-ui" })
     use({ "ravenxrz/DAPInstall.nvim" })
+    --
+    use({ "mbbill/undotree" })
+    --
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

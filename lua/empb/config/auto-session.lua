@@ -28,9 +28,11 @@ local opts = {
 	},
 	auto_session_use_git_branch = nil,
 	-- the configs below are lua only
-	bypass_session_save_file_types = { "alpha" },
+	bypass_session_save_file_types = { "Alpha", "neo-tree"},
+    pre_save_cmds = { "tabdo NeoTreeClose" }
 }
 
+vim.g.auto_session_pre_save_cmds = "tabdo NeoTreeClose"
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
 
 telescope.load_extension("session-lens")

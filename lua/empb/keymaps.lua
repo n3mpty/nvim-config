@@ -25,31 +25,31 @@ map("i", "<C-s>", "<cmd>w!<cr>", noremap)
 
 -- Normal --
 
-map("n", "<space>c", "<CMD>source $MYVIMRC<CR>", silent)
+map("n", "<space>c", "<CMD>source $MYVIMRC<CR>", noremap)
 
 -- Hop
 map("n", "F", "<CMD>HopWord<CR>", noremap)
-map("v", "S", "<CMD>HopWord<CR>", noremap)
+map("v", "F", "<CMD>HopWord<CR>", noremap)
 
 -- Inline text
 map("n", "<space>dl", "<cmd>lua vim.diagnostic.config({ virtual_text = true, underline = true})<cr>", noremap)
 map("n", "<space>dd", "<cmd>lua vim.diagnostic.config({ virtual_text = false, underline = true})<cr>", noremap)
 
 --  Comment
-map("n", "<space>/", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", noremap)
-map("x", "<space>/", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', noremap)
+-- map("n", "<space>/", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", noremap)
+-- map("x", "<space>/", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', noremap)
 
---[[ keymap("n", "<space>/", "<cmd>lua require('Comment.api').toggle.linewise.current('line')<cr>", opts) ]]
---[[ keymap("v", "<space>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<cr>", opts) ]]
---[[ keymap("x", "<space>/", '<ESC><CMD>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>', opts) ]]
+map("n", "<space>/", "<cmd>lua require('Comment.api').toggle.linewise.current('line')<cr>", noremap)
+map("v", "<space>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<cr>", noremap)
+map("x", "<space>/", '<ESC><CMD>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>', noremap)
 --
 map("n", "<ESC>", "<cmd>:noh<cr>")
 
 -- Invert insert keys
-map("n", "i", "a", noremap)
-map("n", "I", "A", noremap)
-map("n", "a", "i", noremap)
-map("n", "A", "I", noremap)
+-- map("n", "i", "a", noremap)
+-- map("n", "I", "A", noremap)
+-- map("n", "a", "i", noremap)
+-- map("n", "A", "I", noremap)
 --
 
 map("n", "<C-p>", "%", noremap)
@@ -61,8 +61,8 @@ map("v", "<space>l", "$") -- end line
 map("v", "<space>h", "^") -- start line
 --
 -- Split View
-map("n", "\\", "<cmd>split<cr>", remap) -- Horizontal split
-map("n", "|", "<cmd>vsplit<cr>", remap) -- Vertical split
+map("n", "|", "<cmd>split<cr>", remap) -- Horizontal split
+map("n", "\\", "<cmd>vsplit<cr>", remap) -- Vertical split
 
 -- Buffer
 map("n", "C", "<cmd>Bdelete<cr>",  silent) -- Close buffer
@@ -104,11 +104,9 @@ map("v", "<A-j>", ":m .+1<CR>==", noremap)
 map("v", "<A-k>", ":m .-2<CR>==", noremap)
 --
 
-map("x", "p", '"_dP', noremap)
-map("v", "p", '"_dP', noremap)
+map("x", "p", "\"_dP", noremap)
 --
-map("v", "d", '"_d', noremap)
-
+map("n", "Q", "<nop>", noremap)
 
 -- Visual Block --
 -- Move text up and down

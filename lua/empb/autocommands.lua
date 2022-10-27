@@ -46,12 +46,18 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 vim.cmd "autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif"
+vim.cmd "autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'neo-tree filesystem' . tabpagenr() | quit | endif"
 
 -- Fixes Autocomment
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   callback = function()
     vim.cmd "set formatoptions-=cro"
   end,
+})
+-- Don't auto comment new lines
+autocmd('BufEnter', {
+    pattern = '*',
+    command = 'set fo-=c fo-=r fo-=o'
 })
 
 -- Highlight Yanked Text

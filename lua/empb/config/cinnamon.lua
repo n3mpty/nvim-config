@@ -22,5 +22,5 @@ cinnamon.setup({
     scroll_limit = -1, -- Max number of lines moved before scrolling is skipped. Setting
     -- to -1 will disable this option.
 })
-vim.keymap.set({ 'n', 'x' }, '<C-k>', "<Cmd>lua Scroll('<C-u>', 1, 1)<CR>")
-vim.keymap.set({ 'n', 'x' }, '<C-j>', "<Cmd>lua Scroll('<C-d>', 1, 1)<CR>")
+vim.keymap.set('n', '<C-k>', "<Cmd>lua Scroll('<C-y>', 0, 1)<CR>")
+vim.keymap.set('n', '<C-j>', "<Cmd>lua Scroll('<C-e>', 0, 1)<CR>")

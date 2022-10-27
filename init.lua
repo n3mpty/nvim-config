@@ -14,9 +14,9 @@ end
 
 
 require("empb.autocommands")
+require("empb.packer")
 require("empb.options")
 require("empb.keymaps")
-require("empb.packer")
 requirePath("/empb/colorscheme")
 requirePath("/empb/config")
 requirePath("/empb/lsp")

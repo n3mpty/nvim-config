@@ -4,7 +4,7 @@ local g = vim.g
 
 cmd([[
   set titlestring=%t%f 
-  set guicursor+=i-n-v-c:blinkon1
+  set guicursor+=i:blinkon1
 ]])
 
 
@@ -16,7 +16,7 @@ opt.wrap = false
 opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 opt.mouse = "a" -- allow the mouse to be used in neovim
 --
-opt.cmdheight = 1
+opt.cmdheight = 2
 --
 opt.conceallevel = 0 -- so that `` is visible in markdown files
 --
@@ -26,8 +26,8 @@ opt.hlsearch = true -- highlight all matches on previous search pattern
 --
 opt.cursorline = true
 opt.cursorcolumn = true
-opt.scrolloff = 8
-opt.sidescrolloff = 8
+opt.scrolloff = 5
+opt.sidescrolloff = 5
 opt.laststatus = 3 -- Global statusline
 --
 opt.signcolumn = "yes"
@@ -39,8 +39,8 @@ opt.undofile = true
 
 -- indenting
 opt.expandtab = true
-opt.shiftwidth = 4
 opt.smartindent = true
+opt.shiftwidth = 4
 opt.tabstop = 4
 opt.softtabstop = 4
 

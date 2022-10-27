@@ -98,7 +98,7 @@ local diagnostics = {
     "diagnostics",
     sources = { "nvim_diagnostic" },
     sections = { "error", "warn" },
-    symbols = { error = " ", warn = " " },
+    symbols = { error = " ", warn = " " },
     colored = true,
     update_in_insert = false,
     always_visible = true,
@@ -116,7 +116,10 @@ local diff = {
 local filetype = {
     "filetype",
     icons_enabled = true,
+    icon_only = true,
     icon = nil,
+    colored= true,
+    color = { bg = colors.black },
     -- color = { fg = colors.white, bg = colors.black },
 }
 
@@ -173,12 +176,12 @@ local navic = require("nvim-navic")
 
 local winbar = {
     lualine_a = {
-        { "filename", icons_enabled = true, color = { bg = colors.black, fg = colors.white }, separator = { left = "", right = "" }, path = 1 },
+        { "filename", icons_enabled = true, color = { bg = colors.transparent, fg = colors.blue },  path = 1, separator = { left = "", right = "" } },
     },
     lualine_c = {
-        { navic.get_location, cond = navic.is_available },
+        { navic.get_location, cond = navic.is_available, color = { bg = colors.transparent, fg = colors.blue }, separator = { left = "", right = "" } },
     },
-    lualine_z = {  diagnostics },
+    --[[ lualine_z = {  diagnostics }, ]]
 }
 
 local theme = {
@@ -236,11 +239,11 @@ lualine.setup({
     options = {
         icons_enabled = true,
         theme = theme,
-        component_separators = { left = "", right = "" },
+        component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
         disabled_filetypes = {
-            statusline = { "NvimTree", "Outline", "Packer", "AlphaReady", "DiffviewFilePanel" },
-            winbar = { "NvimTree", "Outline", "Packer", "Trouble", "AlphaReady", "DiffviewFilePanel" },
+            statusline = { "NvimTree", "neo-tree", "Outline", "Packer", "AlphaReady", "DiffviewFilePanel" },
+            winbar = { "NvimTree", "neo-tree", "Outline", "Packer", "Trouble", "AlphaReady", "DiffviewFilePanel" },
         },
         ignore_focus = {
             "NvimTree",
@@ -260,7 +263,7 @@ lualine.setup({
         lualine_a = { mode },
         lualine_b = { branch, diff },
         lualine_c = { python_env },
-        lualine_x = {},
+        lualine_x = { diagnostics },
         lualine_y = { lsp_info },
         lualine_z = { location },
     },
@@ -268,7 +271,7 @@ lualine.setup({
         lualine_a = { "filename" },
         lualine_b = {},
         lualine_c = { "filename" },
-        lualine_x = { "location" },
+        lualine_x = { diagnostics },
         lualine_y = {},
         lualine_z = {},
     },
@@ -283,7 +286,7 @@ lualine.setup({
         lualine_c = {},
         lualine_x = {},
         lualine_y = {},
-        lualine_z = { diagnostics },
+        lualine_z = {  },
     },
     extensions = {},
 })
