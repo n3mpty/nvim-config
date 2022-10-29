@@ -28,8 +28,8 @@ local opts = {
 	},
 	auto_session_use_git_branch = nil,
 	-- the configs below are lua only
-	bypass_session_save_file_types = { "Alpha", "neo-tree"},
-    pre_save_cmds = { "tabdo NeoTreeClose" }
+	bypass_session_save_file_types = { "Alpha", "neo-tree" },
+	pre_save_cmds = { "tabdo NeoTreeClose" },
 }
 
 vim.g.auto_session_pre_save_cmds = "tabdo NeoTreeClose"

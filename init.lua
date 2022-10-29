@@ -11,8 +11,6 @@ function requirePath(path)
 	end
 end
 
-
-
 require("empb.autocommands")
 require("empb.packer")
 require("empb.options")

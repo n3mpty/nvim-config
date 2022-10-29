@@ -26,7 +26,7 @@ notify.setup({
 	-- Minimum width for notification windows
 	minimum_width = 10,
 
-    top_down = true,
+	top_down = true,
 
 	-- Icons for the different levels
 })

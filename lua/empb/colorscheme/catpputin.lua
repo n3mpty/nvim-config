@@ -4,7 +4,6 @@ if not status_catpputin_ok then
 	return
 end
 
-
 catppuccin.setup({
 	transparent_background = true,
 	term_colors = true,

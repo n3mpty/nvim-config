@@ -5,7 +5,6 @@ local silent = { silent = true }
 -- Shorten function name
 local map = vim.keymap.set
 
-
 -- leader key
 map("", ",", "<Nop>", noremap)
 vim.g.mapleader = ","
@@ -25,8 +24,7 @@ map("i", "<C-s>", "<cmd>w!<cr>", noremap)
 
 -- Normal --
 
-map("n", "<space>c", "<CMD>source $MYVIMRC<CR>", noremap)
-
+map("n", "<space>b", "<cmd>NeoTreeFloatToggle<cr>")
 -- Hop
 map("n", "F", "<CMD>HopWord<CR>", noremap)
 map("v", "F", "<CMD>HopWord<CR>", noremap)
@@ -65,7 +63,7 @@ map("n", "|", "<cmd>split<cr>", remap) -- Horizontal split
 map("n", "\\", "<cmd>vsplit<cr>", remap) -- Vertical split
 
 -- Buffer
-map("n", "C", "<cmd>Bdelete<cr>",  silent) -- Close buffer
+map("n", "C", "<cmd>Bdelete<cr>", silent) -- Close buffer
 map("n", "<S-l>", ":BufferLineCycleNext<CR>", silent)
 map("n", "<S-h>", ":BufferLineCyclePrev<CR>", silent)
 --
@@ -85,7 +83,6 @@ map("n", "<C-Down>", ":resize +2<CR>", silent)
 map("n", "<C-Left>", ":vertical resize -2<CR>", silent)
 map("n", "<C-Right>", ":vertical resize +2<CR>", silent)
 
-
 -- Move text up and down
 -- keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
 -- keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
@@ -104,7 +101,7 @@ map("v", "<A-j>", ":m .+1<CR>==", noremap)
 map("v", "<A-k>", ":m .-2<CR>==", noremap)
 --
 
-map("x", "p", "\"_dP", noremap)
+map("x", "p", '"_dP', noremap)
 --
 map("n", "Q", "<nop>", noremap)
 
@@ -114,4 +111,3 @@ map("x", "K", ":move '<-2<CR>gv-gv", noremap)
 map("x", "J", ":move '>+1<CR>gv-gv", noremap)
 map("x", "<A-k>", ":move '<-2<CR>gv-gv", noremap)
 map("x", "<A-j>", ":move '>+1<CR>gv-gv", noremap)
-

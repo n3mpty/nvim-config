@@ -7,7 +7,6 @@ cmd([[
   set guicursor+=i:blinkon1
 ]])
 
-
 --
 opt.showmode = false
 opt.swapfile = false
@@ -16,7 +15,7 @@ opt.wrap = false
 opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 opt.mouse = "a" -- allow the mouse to be used in neovim
 --
-opt.cmdheight = 2
+opt.cmdheight = 1
 --
 opt.conceallevel = 0 -- so that `` is visible in markdown files
 --

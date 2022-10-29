@@ -1,7 +1,7 @@
 local status_ok, telescope = pcall(require, "telescope")
 if not status_ok then
-  vim.notify('Failed loading ' .. req_file, vim.log.levels.ERROR)
-    return
+	vim.notify("Failed loading " .. req_file, vim.log.levels.ERROR)
+	return
 end
 
 local actions = require("telescope.actions")
@@ -73,8 +73,8 @@ telescope.setup({
 				["<C-k>"] = actions.move_selection_previous,
 			},
 		},
-        extensions = {
-            find_cmd = "rg"
-        }
+		extensions = {
+			find_cmd = "rg",
+		},
 	},
 })

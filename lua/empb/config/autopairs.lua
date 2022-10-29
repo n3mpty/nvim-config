@@ -1,8 +1,8 @@
 -- Setup nvim-cmp.
 local status_ok, npairs = pcall(require, "nvim-autopairs")
 if not status_ok then
-      vim.notify('Failed loading ' .. req_file, vim.log.levels.ERROR)
-    return
+	vim.notify("Failed loading " .. req_file, vim.log.levels.ERROR)
+	return
 end
 
 local Rule = require("nvim-autopairs.rule")
@@ -14,7 +14,6 @@ npairs.setup({
 	check_ts = true, -- treesitter integration
 	map_cr = true,
 })
-
 
 --[[ local cmp_autopairs = require("nvim-autopairs.completion.cmp") ]]
 --[[ local cmp_status_ok, cmp = pcall(require, "cmp") ]]
