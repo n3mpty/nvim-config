@@ -1,18 +1,18 @@
 -- Setup nvim-cmp.
 local status_ok, npairs = pcall(require, "nvim-autopairs")
 if not status_ok then
-	vim.notify("Failed loading " .. req_file, vim.log.levels.ERROR)
-	return
+    vim.notify("Failed loading " .. req_file, vim.log.levels.ERROR)
+    return
 end
 
 local Rule = require("nvim-autopairs.rule")
 
 npairs.setup({
-	disable_filetype = { "TelescopePrompt" },
-	enable_bracket_in_quote = false,
-	enable_moveright = false,
-	check_ts = true, -- treesitter integration
-	map_cr = true,
+    disable_filetype = { "TelescopePrompt" },
+    enable_bracket_in_quote = false,
+    enable_moveright = false,
+    check_ts = true, -- treesitter integration
+    map_cr = true,
 })
 
 --[[ local cmp_autopairs = require("nvim-autopairs.completion.cmp") ]]
@@ -24,42 +24,42 @@ npairs.setup({
 
 -- https://github.com/rstacruz/vim-closer/blob/master/autoload/closer.vim
 local get_closing_for_line = function(line)
-	local i = -1
-	local clo = ""
+    local i = -1
+    local clo = ""
 
-	while true do
-		i, _ = string.find(line, "[%(%)%{%}%[%]]", i + 1)
-		if i == nil then
-			break
-		end
-		local ch = string.sub(line, i, i)
-		local st = string.sub(clo, 1, 1)
+    while true do
+        i, _ = string.find(line, "[%(%)%{%}%[%]]", i + 1)
+        if i == nil then
+            break
+        end
+        local ch = string.sub(line, i, i)
+        local st = string.sub(clo, 1, 1)
 
-		if ch == "{" then
-			clo = "}" .. clo
-		elseif ch == "}" then
-			if st ~= "}" then
-				return ""
-			end
-			clo = string.sub(clo, 2)
-		elseif ch == "(" then
-			clo = ")" .. clo
-		elseif ch == ")" then
-			if st ~= ")" then
-				return ""
-			end
-			clo = string.sub(clo, 2)
-		elseif ch == "[" then
-			clo = "]" .. clo
-		elseif ch == "]" then
-			if st ~= "]" then
-				return ""
-			end
-			clo = string.sub(clo, 2)
-		end
-	end
+        if ch == "{" then
+            clo = "}" .. clo
+        elseif ch == "}" then
+            if st ~= "}" then
+                return ""
+            end
+            clo = string.sub(clo, 2)
+        elseif ch == "(" then
+            clo = ")" .. clo
+        elseif ch == ")" then
+            if st ~= ")" then
+                return ""
+            end
+            clo = string.sub(clo, 2)
+        elseif ch == "[" then
+            clo = "]" .. clo
+        elseif ch == "]" then
+            if st ~= "]" then
+                return ""
+            end
+            clo = string.sub(clo, 2)
+        end
+    end
 
-	return clo
+    return clo
 end
 
 npairs.remove_rule("(")
@@ -67,8 +67,8 @@ npairs.remove_rule("{")
 npairs.remove_rule("[")
 
 npairs.add_rule(Rule("[%(%{%[]", "")
-	:use_regex(true)
-	:replace_endpair(function(opts)
-		return get_closing_for_line(opts.line)
-	end)
-	:end_wise())
+    :use_regex(true)
+    :replace_endpair(function(opts)
+        return get_closing_for_line(opts.line)
+    end)
+    :end_wise())
