@@ -3,11 +3,14 @@ local cmd = vim.cmd
 local g = vim.g
 
 cmd([[
-  set titlestring=%t%f 
-  set guicursor+=i:blinkon1
+    set titlestring=%t%f 
+    set guicursor+=i:blinkon1
+
+    set t_Co=256
 ]])
 
 --
+cmd("colorscheme nightfox")
 opt.showmode = false
 opt.swapfile = false
 opt.wrap = false
@@ -65,3 +68,6 @@ opt.whichwrap:append("<,>,[,],h,l")
 opt.iskeyword:append("-")
 
 opt.list = false
+
+--
+opt.inccommand = "split"

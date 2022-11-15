@@ -6,7 +6,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
       nnoremap <silent> <buffer> q :close<CR> 
       nnoremap <silent> <buffer> <esc> :close<CR> 
       set nobuflisted 
-    ]])
+    ]]   )
     end,
 })
 
@@ -16,7 +16,7 @@ vim.api.nvim_create_autocmd({ "User" }, {
     callback = function()
         vim.cmd([[
       set laststatus=0 | autocmd BufUnload <buffer> set laststatus=3
-    ]])
+    ]]   )
     end,
 })
 
@@ -65,3 +65,7 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
         vim.highlight.on_yank({ higroup = "Visual", timeout = 200 })
     end,
 })
+
+
+
+

@@ -14,7 +14,7 @@ if not l_status_ok then
     return
 end
 
-local opts = {
+auto_session.setup({
     log_level = "info",
     auto_session_enable_last_session = false,
     auto_session_root_dir = vim.fn.stdpath("data") .. "/sessions/",
@@ -30,12 +30,9 @@ local opts = {
     -- the configs below are lua only
     bypass_session_save_file_types = { "Alpha", "neo-tree" },
     pre_save_cmds = { "tabdo NeoTreeClose" },
-}
+})
 
-vim.g.auto_session_pre_save_cmds = "tabdo NeoTreeClose"
-vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
-
-telescope.load_extension("session-lens")
+vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
 
 session_lens.setup({
     path_display = { "shorten" },
@@ -44,4 +41,4 @@ session_lens.setup({
     prompt_title = "Sessions",
 })
 
-auto_session.setup(opts)
+telescope.load_extension("session-lens")

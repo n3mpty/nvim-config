@@ -23,7 +23,6 @@ map("n", "<C-s>", "<cmd>w!<cr>", noremap)
 map("i", "<C-s>", "<cmd>w!<cr>", noremap)
 
 -- Normal --
-
 map("n", "<space>b", "<cmd>NeoTreeFloatToggle<cr>")
 -- Hop
 map("n", "F", "<CMD>HopWord<CR>", noremap)
@@ -33,13 +32,6 @@ map("v", "F", "<CMD>HopWord<CR>", noremap)
 map("n", "<space>dl", "<cmd>lua vim.diagnostic.config({ virtual_text = true, underline = true})<cr>", noremap)
 map("n", "<space>dd", "<cmd>lua vim.diagnostic.config({ virtual_text = false, underline = true})<cr>", noremap)
 
---  Comment
--- map("n", "<space>/", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", noremap)
--- map("x", "<space>/", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', noremap)
-
-map("n", "<space>/", "<cmd>lua require('Comment.api').toggle.linewise.current('line')<cr>", noremap)
-map("v", "<space>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<cr>", noremap)
-map("x", "<space>/", '<ESC><CMD>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>', noremap)
 --
 map("n", "<ESC>", "<cmd>:noh<cr>")
 
@@ -68,7 +60,11 @@ map("n", "<S-l>", ":BufferLineCycleNext<CR>", silent)
 map("n", "<S-h>", ":BufferLineCyclePrev<CR>", silent)
 --
 
--- Quit
+-- open new line but stay in normal mode
+map('n', 'gO', 'O<esc>')
+map('n', 'go', 'o<esc>')
+
+-- Exit
 map("n", "<C-q>", "<cmd>q!<cr>", noremap)
 
 -- Better window navigation
@@ -89,7 +85,7 @@ map("n", "<C-Right>", ":vertical resize +2<CR>", silent)
 
 -- Insert --
 map("i", "jj", "<Esc>", silent)
-map("i", "<C-'>", "<Esc>", silent)
+map("i", "<C-v>", "<Esc>pa", noremap)
 
 -- Visual --
 -- Stay in indent mode
@@ -101,8 +97,17 @@ map("v", "<A-j>", ":m .+1<CR>==", noremap)
 map("v", "<A-k>", ":m .-2<CR>==", noremap)
 --
 
-map("x", "p", '"_dP', noremap)
---
+-- Clipboard
+-- paste selected text without yanking
+map("x", "p", '\"_dp', noremap)
+map("x", "P", '\"_dP', noremap)
+map('n', 'vaa', 'ggVG', noremap) -- select all buffer
+map('n', 'yaa', 'ggVGy', noremap) -- copy all buffer
+-- cursor position after paste
+map('n', 'P', 'gP', noremap)
+map('n', 'gP', 'P', noremap)
+map('n', 'p', 'p`]', noremap)
+
 map("n", "Q", "<nop>", noremap)
 
 -- Visual Block --
@@ -111,3 +116,6 @@ map("x", "K", ":move '<-2<CR>gv-gv", noremap)
 map("x", "J", ":move '>+1<CR>gv-gv", noremap)
 map("x", "<A-k>", ":move '<-2<CR>gv-gv", noremap)
 map("x", "<A-j>", ":move '>+1<CR>gv-gv", noremap)
+
+-- Undotree
+map("n", "<F5>", "<cmd>UndotreeToggle<cr>", noremap)

@@ -7,7 +7,7 @@ require("illuminate").configure({
         "regex",
     },
     -- delay: delay in milliseconds
-    delay = 300,
+    delay = 130,
     -- filetypes_denylist: filetypes to not illuminate, this overrides filetypes_allowlist
     filetypes_denylist = {
         "dirvish",

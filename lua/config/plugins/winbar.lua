@@ -15,7 +15,7 @@ winbar.setup({
 
     ---filetypes not to enable winbar in
     ---@type table<string>
-    exclude_filetypes = { "toggleterm", "noice" },
+    exclude_filetypes = { "toggleterm", "noice", "NvimTree" },
 
     ---returns a string to be shown at the end of winbar
     ---@type function(bufnr: number): string
@@ -34,7 +34,7 @@ winbar.setup({
     ---@type table<string, string>
     symbols = {
         prefix = " ",
-        separator = "",
+        separator = "❯",
         modified = "",
         default_context = "…",
     },

@@ -87,7 +87,7 @@ local mappings = {
         "<cmd>lua require('telescope.builtin').buffers({ sort_lastused = true, ignore_current_buffer = true })<cr>",
         "Buffers",
     },
-    ["e"] = { "<cmd>NeoTreeRevealToggle<cr>", "Explorer" },
+    ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
     ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
 
     ["f"] = {
@@ -210,7 +210,7 @@ local mappings = {
     o = {
         name = "Lsp text line",
         d = { "<cmd>lua vim.diagnostic.config({ virtual_text = false, underline = true})<cr>", "Disable Lsp text" },
-        e = { "<cmd>lua vim.diagnostic.config({ virtual_text = true, underline = true})<cr>", "Enable Lsp text" },
+        e = { '<cmd>lua vim.diagnostic.config({ virtual_text = { prefix = "•", spacing = 6, severity = { min = vim.diagnostic.severity.WARN, }, }, underline = true})<cr>', "Enable Lsp text" },
     },
 }
 

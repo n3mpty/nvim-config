@@ -10,28 +10,30 @@ M.capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_
 M.capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 M.setup = function()
-    vim.api.nvim_set_hl(0, "DiagnosticLineError", { fg = "", bg = "#2d202a" })
-    vim.api.nvim_set_hl(0, "DiagnosticLineWarn", { fg = "", bg = "#2e2a2d" })
-    vim.api.nvim_set_hl(0, "DiagnosticLineHint", { fg = "", bg = "" })
-    vim.api.nvim_set_hl(0, "DiagnosticLineInfo", { fg = "", bg = "" })
     local signs = {
-        { name = "DiagnosticSignError", text = "", line = "DiagnosticLineError" },
-        { name = "DiagnosticSignWarn", text = "", line = "DiagnosticLineWarn" },
-        { name = "DiagnosticSignHint", text = "", line = "DiagnosticLineHint" },
-        { name = "DiagnosticSignInfo", text = "", line = "DiagnosticLineInfo" },
+        { name = "DiagnosticSignError", text = "" },
+        { name = "DiagnosticSignWarn", text = "" },
+        { name = "DiagnosticSignHint", text = "" },
+        { name = "DiagnosticSignInfo", text = "" },
     }
 
     for _, sign in ipairs(signs) do
-        vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = sign.name, linehl = sign.line })
+        vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = sign.name, linehl = "" })
     end
 
     local config = {
-        virtual_text =  false,
+        virtual_text = {
+            prefix = "•",
+            spacing = "6",
+            severity = {
+                min = vim.diagnostic.severity.WARN,
+            },
+        },
         signs = {
             active = signs, -- show signs
         },
         update_in_insert = true,
-        underline = true,
+        underline = false,
         severity_sort = true,
         float = {
             focusable = false,
@@ -39,7 +41,7 @@ M.setup = function()
             border = "single",
             source = "always",
             header = "",
-            prefix = "",
+            prefix = " ",
         },
     }
 

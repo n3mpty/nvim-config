@@ -27,10 +27,16 @@ noice.setup({
         -- Icons for completion item kinds (see defaults at noice.config.icons.kinds)
         kind_icons = {}, -- set to `false` to disable icons
     },
+    hover = {
+        enabled = true,
+        view = nil, -- when nil, use defaults from documentation
+        ---@type NoiceViewOptions
+        opts = {}, -- merged with defaults from documentation
+    },
     signature = {
         enabled = false,
         auto_open = {
-            enabled = true,
+            enabled = false,
             trigger = true, -- Automatically show signature help when typing a trigger character from the LSP
             luasnip = true, -- Will open signature help when jumping to Luasnip insert nodes
             throttle = 50, -- Debounce lsp signature help request by 50ms
@@ -38,14 +44,7 @@ noice.setup({
         view = nil, -- when nil, use defaults from documentation
         ---@type NoiceViewOptions
         opts = {}, -- merged with defaults from documentation
-    },
-    hover = {
-        enabled = false,
-        view = "popup", -- when nil, use defaults from documentation
-        ---@type NoiceViewOptions
-        opts = {}, -- merged with defaults from documentation
-    },
-    documentation = {
+    }, documentation = {
         view = "hover",
         ---@type NoiceViewOptions
         opts = {
@@ -60,7 +59,7 @@ noice.setup({
         -- NOTE: If you enable messages, then the cmdline is enabled automatically.
         -- This is a current Neovim limitation.
         enabled = true, -- enables the Noice messages UI
-        view = "mini", -- default view for messages
+        view = "notify", -- default view for messages
         view_error = "notify", -- view for errors
         view_warn = "notify", -- view for warnings
         view_history = "split", -- view for :messages
@@ -86,7 +85,7 @@ noice.setup({
             enter = false,
             zindex = 60,
             position = {
-                row = 5,
+                row = 2,
                 col = "50%",
             },
             size = {
@@ -153,6 +152,15 @@ noice.setup({
                 wrap = true,
                 linebreak = true,
             },
+        },
+        presets = {
+            -- you can enable a preset by setting it to true, or a table that will override the preset config
+            -- you can also add custom presets that you can enable/disable with enabled=true
+            bottom_search = false, -- use a classic bottom cmdline for search
+            command_palette = false, -- position the cmdline and popupmenu together
+            long_message_to_split = true, -- long messages will be sent to a split
+            inc_rename = true, -- enables an input dialog for inc-rename.nvim
+            lsp_doc_border = false, -- add a border to hover docs and signature help
         },
     },
 })

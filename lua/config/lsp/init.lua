@@ -48,12 +48,12 @@ end
 
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup({
-        on_attach = require("empb.lsp.handlers").on_attach,
-        capabilities = require("empb.lsp.handlers").capabilities,
+        on_attach = require("config.lsp.handlers").on_attach,
+        capabilities = require("config.lsp.handlers").capabilities,
     })
 
     if lsp == "rust_analyzer" then
-        local rust_opts = require("empb.config.rust-tools")
+        local rust_opts = require("config.plugins.rust-tools")
         local rust_tools_status_ok, rust_tools = pcall(require, "rust-tools")
         if not rust_tools_status_ok then
             vim.notify("Failed loading " .. req_file, vim.log.levels.ERROR)
@@ -85,4 +85,4 @@ require("lspconfig").pyright.setup({
 require("lspconfig").gopls.setup({})
 
 ---
-require("empb.lsp.handlers").setup()
+require("config.lsp.handlers").setup()

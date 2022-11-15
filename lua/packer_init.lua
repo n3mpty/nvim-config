@@ -19,7 +19,7 @@ end
 vim.cmd([[
   augroup packer_user_config
     autocmd!
-    autocmd BufWritePost packer.lua source <afile> | PackerSync
+    autocmd BufWritePost packer_init.lua source <afile> | PackerSync
   augroup end
 ]])
 
@@ -55,7 +55,6 @@ return packer.startup(function(use)
         "folke/noice.nvim",
         requires = {
             -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-            "MunifTanjim/nui.nvim",
             "rcarriga/nvim-notify",
             "hrsh7th/nvim-cmp",
         },
@@ -80,7 +79,7 @@ return packer.startup(function(use)
         "max397574/better-escape.nvim",
         config = function()
             require("better_escape").setup({
-                mapping = { "jj" },
+                mapping = { "jj"},
             })
         end,
     })
@@ -103,11 +102,11 @@ return packer.startup(function(use)
     --- Comment
     use({ "numToStr/Comment.nvim" })
     -- Explorer
-    --[[ use({ "kyazdani42/nvim-tree.lua" }) ]]
-    use({
-        "nvim-neo-tree/neo-tree.nvim",
-        branch = "v2.x",
-    })
+    use({ "kyazdani42/nvim-tree.lua" })
+    --[[ use({ ]]
+    --[[     "nvim-neo-tree/neo-tree.nvim", ]]
+    --[[     branch = "v2.x", ]]
+    --[[ }) ]]
 
     --- Bufferline
     use({ "akinsho/bufferline.nvim" })
@@ -158,33 +157,43 @@ return packer.startup(function(use)
     --
 
     -- Colorschemes
+    use({ "EdenEast/nightfox.nvim" })
     use({ "catppuccin/nvim", as = "catppuccin" })
     use({ "folke/tokyonight.nvim" })
-    use({ "marko-cerovac/material.nvim", commit = "3bb4fc0cf487854346e9cd49a3e043f3096feaf7" })
+    use({ "marko-cerovac/material.nvim" })
+    use({ "olimorris/onedarkpro.nvim" })
 
     -- cmp plugins
-    use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
-    use({ "hrsh7th/cmp-buffer" }) -- buffer completions
-    use({ "hrsh7th/cmp-path" }) -- path completions
-    use({ "saadparwaiz1/cmp_luasnip" }) -- snippet completions
-    use({ "hrsh7th/cmp-nvim-lsp" })
-    use({ "hrsh7th/cmp-nvim-lua" })
+    use({
+        "hrsh7th/nvim-cmp",
+        requires = {
+            -- The completion plugin
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-path",
+            "saadparwaiz1/cmp_luasnip",
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-nvim-lua",
+        },
+    })
 
     -- snippets
     use({ "L3MON4D3/LuaSnip" }) --snippet engine
     use({ "rafamadriz/friendly-snippets" }) -- a bunch of snippets to use
 
     -- LSP
-    use({ "williamboman/mason.nvim" })
-    use({ "williamboman/mason-lspconfig.nvim" })
-    use({ "neovim/nvim-lspconfig" })
-    use({ "jose-elias-alvarez/null-ls.nvim" })
+    use({ "williamboman/mason.nvim",
+        requires = {
+           "williamboman/mason-lspconfig.nvim",  
+            "neovim/nvim-lspconfig", 
+            "jose-elias-alvarez/null-ls.nvim", 
+            "p00f/nvim-ts-rainbow",
+        }
+    })
     use("RRethy/vim-illuminate")
     use("j-hui/fidget.nvim")
     use({ "ray-x/lsp_signature.nvim" })
     use("simrat39/symbols-outline.nvim")
     use({ "folke/trouble.nvim", cmd = "TroubleToggle" })
-    use("p00f/nvim-ts-rainbow")
     use("SmiteshP/nvim-navic")
 
     -- Telescope
@@ -192,17 +201,23 @@ return packer.startup(function(use)
     use("tom-anders/telescope-vim-bookmarks.nvim")
 
     -- Treesitter
-    use({ "nvim-treesitter/nvim-treesitter" })
-    use({ "JoosepAlviste/nvim-ts-context-commentstring" })
+    use({ "nvim-treesitter/nvim-treesitter",
+        requires = {
+           "JoosepAlviste/nvim-ts-context-commentstring",  
+        }
+    })
 
     -- Git
     use({ "lewis6991/gitsigns.nvim" })
     use({ "sindrets/diffview.nvim" })
 
     -- DAP
-    use({ "mfussenegger/nvim-dap" })
-    use({ "rcarriga/nvim-dap-ui" })
-    use({ "ravenxrz/DAPInstall.nvim" })
+    use({ "mfussenegger/nvim-dap",
+        requires = {
+           "rcarriga/nvim-dap-ui",  
+        "ravenxrz/DAPInstall.nvim", 
+        }
+    })
     --
     use({ "mbbill/undotree" })
     --

@@ -12,7 +12,7 @@ local code_actions = null_ls.builtins.code_actions
 local hover = null_ls.builtins.hover
 
 null_ls.setup({
-    on_attach = require("empb.lsp.handlers").on_attach,
+    on_attach = require("config.lsp.handlers").on_attach,
     debug = false,
     sources = {
         formatting.prettier.with({

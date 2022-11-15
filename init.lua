@@ -1,5 +1,5 @@
 function requirePath(path)
-    local files = io.popen('find "$HOME"/.config/nvim/lua' .. path .. " -type f")
+    local files = io.popen('find "$HOME"/.config/nvim/lua/' .. path .. " -type f")
 
     for file in files:lines() do
         local req_file = file:gmatch("%/lua%/(.+).lua$")({ 0 }):gsub("/", ".")
@@ -11,10 +11,11 @@ function requirePath(path)
     end
 end
 
-require("empb.autocommands")
-require("empb.packer")
-require("empb.options")
-require("empb.keymaps")
-requirePath("/empb/colorscheme")
-requirePath("/empb/config")
-requirePath("/empb/lsp")
+
+require("options.autocommands")
+requirePath("config/plugins")
+requirePath("config/lsp")
+require("packer_init")
+require("options.options")
+require("options.keymaps")
+requirePath("options/statusline")

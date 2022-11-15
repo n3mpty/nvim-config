@@ -21,3 +21,8 @@ comment.setup({
         })
     end,
 })
+
+
+vim.keymap.set("n", "<space>/", "<cmd>lua require('Comment.api').toggle.linewise.current('line')<cr>", { noremap = true, silent = true } )
+vim.keymap.set("v", "<space>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<cr>", { noremap = true, silent = true })
+vim.keymap.set("x", "<space>/", '<ESC><CMD>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>', { noremap = true, silent = true })

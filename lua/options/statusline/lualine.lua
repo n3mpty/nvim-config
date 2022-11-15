@@ -109,7 +109,7 @@ local diagnostics = {
 local diff = {
     "diff",
     colored = true,
-    symbols = { added = "✚ ", modified = " ", removed = "✖ " }, -- changes diff symbols
+    --[[ symbols = { added = "+ ", modified = "~! ", removed = "✘" }, -- changes diff symbols ]]
     color = { bg = colors.grey },
     separator = { left = "", right = "" },
 }
@@ -155,7 +155,7 @@ local location = {
 
 local python_env = {
     function()
-        local utils = require("empb.config.statusline.utils")
+        local utils = require("config.statusline.utils")
         if vim.bo.filetype == "python" then
             local venv = os.getenv("CONDA_DEFAULT_ENV")
             if venv then
