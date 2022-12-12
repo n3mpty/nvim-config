@@ -28,10 +28,6 @@ map("n", "<space>b", "<cmd>NeoTreeFloatToggle<cr>")
 map("n", "F", "<CMD>HopWord<CR>", noremap)
 map("v", "F", "<CMD>HopWord<CR>", noremap)
 
--- Inline text
-map("n", "<space>dl", "<cmd>lua vim.diagnostic.config({ virtual_text = true, underline = true})<cr>", noremap)
-map("n", "<space>dd", "<cmd>lua vim.diagnostic.config({ virtual_text = false, underline = true})<cr>", noremap)
-
 --
 map("n", "<ESC>", "<cmd>:noh<cr>")
 
@@ -68,10 +64,10 @@ map('n', 'go', 'o<esc>')
 map("n", "<C-q>", "<cmd>q!<cr>", noremap)
 
 -- Better window navigation
-map("n", "<M-h>", "<C-w>h", noremap)
-map("n", "<M-j>", "<C-w>j", noremap)
-map("n", "<M-k>", "<C-w>k", noremap)
-map("n", "<M-l>", "<C-w>l", noremap)
+map("n", "<C-h>", "<C-w>h", noremap)
+map("n", "<C-j>", "<C-w>j", noremap)
+map("n", "<C-k>", "<C-w>k", noremap)
+map("n", "<C-l>", "<C-w>l", noremap)
 
 -- Resize with arrows
 map("n", "<C-Up>", ":resize -2<CR>", silent)

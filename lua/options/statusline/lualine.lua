@@ -110,8 +110,8 @@ local diff = {
     "diff",
     colored = true,
     --[[ symbols = { added = "+ ", modified = "~! ", removed = "✘" }, -- changes diff symbols ]]
-    color = { bg = colors.grey },
-    separator = { left = "", right = "" },
+    --[[ color = { bg = colors.grey }, ]]
+    separator = { left = "", right = "" },
 }
 
 local filetype = {
@@ -251,8 +251,8 @@ lualine.setup({
     options = {
         icons_enabled = true,
         theme = theme,
-        component_separators = { left = "", right = "" },
-        section_separators = { left = "", right = "" },
+        component_separators = { left = "", right = "" },
+        section_separators = { left = "", right = "" },
         disabled_filetypes = {
             statusline = { "NvimTree", "neo-tree", "Outline", "Packer", "AlphaReady", "DiffviewFilePanel" },
             --[[ winbar = { "NvimTree", "neo-tree", "Outline", "Packer", "Trouble", "AlphaReady", "DiffviewFilePanel" }, ]]

@@ -61,7 +61,7 @@ return packer.startup(function(use)
     })
 
     -- Session
-    use("rmagatti/auto-session")
+    use({ "rmagatti/auto-session", commit = "9639b071d9680764b6e57b08c9fa4a336453558d" })
     use("rmagatti/session-lens")
     --
 
@@ -79,7 +79,7 @@ return packer.startup(function(use)
         "max397574/better-escape.nvim",
         config = function()
             require("better_escape").setup({
-                mapping = { "jj"},
+                mapping = { "jj" },
             })
         end,
     })
@@ -93,8 +93,8 @@ return packer.startup(function(use)
     -- Color
     use({ "norcalli/nvim-colorizer.lua" })
     -- Better Scroll
-    -- use({ "karb94/neoscroll.nvim" })
-    use({ "declancm/cinnamon.nvim" })
+    use({ "karb94/neoscroll.nvim" })
+    --[[ use({ "declancm/cinnamon.nvim" }) ]]
 
     -- Rust
     use({ "simrat39/rust-tools.nvim" })
@@ -110,9 +110,14 @@ return packer.startup(function(use)
 
     --- Bufferline
     use({ "akinsho/bufferline.nvim" })
+    use({ "tiagovla/scope.nvim",
+        config = function()
+            require("scope").setup()
+        end
+    })
     use({ "moll/vim-bbye" })
     --[[ use({ "emptybrain/winbar.nvim" }) ]]
-    use({ "utilyre/barbecue.nvim" })
+    --[[ use({ "n3mpty/barbecue.nvim"}) ]]
 
     -- Icons
     use("kyazdani42/nvim-web-devicons")
@@ -151,42 +156,57 @@ return packer.startup(function(use)
     -- end,
     --  })
 
-    --
-    use("MattesGroeger/vim-bookmarks")
-
-    --
-
     -- Colorschemes
     use({ "EdenEast/nightfox.nvim" })
     use({ "catppuccin/nvim", as = "catppuccin" })
     use({ "folke/tokyonight.nvim" })
     use({ "marko-cerovac/material.nvim" })
-    use({ "olimorris/onedarkpro.nvim" })
+    use({ "sam4llis/nvim-tundra" })
 
     -- cmp plugins
-    use({
-        "hrsh7th/nvim-cmp",
-        requires = {
-            -- The completion plugin
-            "hrsh7th/cmp-buffer",
-            "hrsh7th/cmp-path",
-            "saadparwaiz1/cmp_luasnip",
-            "hrsh7th/cmp-nvim-lsp",
-            "hrsh7th/cmp-nvim-lua",
-        },
-    })
+    --[[ use({ ]]
+    --[[     "hrsh7th/nvim-cmp", ]]
+    --[[     requires = { ]]
+    --[[         -- The completion plugin ]]
+    --[[         "hrsh7th/cmp-buffer", ]]
+    --[[         "hrsh7th/cmp-path", ]]
+    --[[         "saadparwaiz1/cmp_luasnip", ]]
+    --[[         "hrsh7th/cmp-nvim-lsp", ]]
+    --[[         "hrsh7th/cmp-nvim-lua", ]]
+    --[[     }, ]]
+    --[[ }) ]]
 
     -- snippets
-    use({ "L3MON4D3/LuaSnip" }) --snippet engine
-    use({ "rafamadriz/friendly-snippets" }) -- a bunch of snippets to use
+    --[[ use({ "L3MON4D3/LuaSnip" }) --snippet engine ]]
+    --[[ use({ "rafamadriz/friendly-snippets" }) -- a bunch of snippets to use ]]
 
     -- LSP
-    use({ "williamboman/mason.nvim",
+    --[[ use({ "williamboman/mason.nvim", ]]
+    --[[     requires = { ]]
+    --[[         "williamboman/mason-lspconfig.nvim", ]]
+    --[[         "neovim/nvim-lspconfig", ]]
+    --[[         "jose-elias-alvarez/null-ls.nvim", ]]
+    --[[     } ]]
+    --[[ }) ]]
+    use({
+        "VonHeikemen/lsp-zero.nvim",
         requires = {
-           "williamboman/mason-lspconfig.nvim",  
-            "neovim/nvim-lspconfig", 
-            "jose-elias-alvarez/null-ls.nvim", 
-            "p00f/nvim-ts-rainbow",
+            -- LSP Support
+            { "neovim/nvim-lspconfig" },
+            { "williamboman/mason.nvim" },
+            { "williamboman/mason-lspconfig.nvim" },
+
+            -- Autocompletion
+            { "hrsh7th/nvim-cmp" },
+            { "hrsh7th/cmp-buffer" },
+            { "hrsh7th/cmp-path" },
+            { "saadparwaiz1/cmp_luasnip" },
+            { "hrsh7th/cmp-nvim-lsp" },
+            { "hrsh7th/cmp-nvim-lua" },
+
+            -- Snippets
+            { "L3MON4D3/LuaSnip" },
+            { "rafamadriz/friendly-snippets" },
         }
     })
     use("RRethy/vim-illuminate")
@@ -203,7 +223,8 @@ return packer.startup(function(use)
     -- Treesitter
     use({ "nvim-treesitter/nvim-treesitter",
         requires = {
-           "JoosepAlviste/nvim-ts-context-commentstring",  
+            "JoosepAlviste/nvim-ts-context-commentstring",
+            "p00f/nvim-ts-rainbow",
         }
     })
 
@@ -214,12 +235,14 @@ return packer.startup(function(use)
     -- DAP
     use({ "mfussenegger/nvim-dap",
         requires = {
-           "rcarriga/nvim-dap-ui",  
-        "ravenxrz/DAPInstall.nvim", 
+            "rcarriga/nvim-dap-ui",
+            "ravenxrz/DAPInstall.nvim",
         }
     })
-    --
+    -- Visualise undo
     use({ "mbbill/undotree" })
+    --
+    use({ "ntpeters/vim-better-whitespace" })
     --
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

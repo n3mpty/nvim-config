@@ -4,6 +4,22 @@ if not status_ok then
     return
 end
 
+--[[ #0C0603 ]]
+local palletes = {
+    nightfox = {
+        red = "#CD3543",
+        green = "#58D8BC",
+        yellow = "#F4BA60",
+        blue = "#1CB7BB",
+        magenta = "#7E2882",
+        cyan = "#70cddc",
+        white = "#dfdfe0",
+        orange = "#C3642E",
+        pink = "#9D4376",
+
+    }
+}
+
 nightfox.setup({
     options = {
         -- Compiled file's destination location
@@ -40,7 +56,7 @@ nightfox.setup({
             },
         },
     },
-    palettes = {},
+    palettes = {palletes},
     specs = {},
     groups = {
         all = {
@@ -48,23 +64,21 @@ nightfox.setup({
             String = { fg = "#738091" },
             Comment = { fg = "#5a6369" },
             ["@variable"] = { fg = "#a3a3a3" },
-            ["@field"] = { fg = "#3e4d84" },
-            ["@parameter"] = { fg = "#ad8d59" },
-            ["@parameter.reference"] = { link = "@parameter" },
+            --[[ ["@field"] = { fg = "#3e4d84" }, ]]
             --
             HopNextKey = { fg = "#F72626", style = "bold" },
             HopNextKey1 = { fg = "#F76726", style = "bold" },
             HopNextKey2 = { fg = "#3374CA" },
             --
-            CursorLine = { fg = "NONE", bg = "#0a0a0a" },
-            CursorColumn = { fg = "NONE", bg = "#434852" },
-            CursorLineNr = { fg = "#900e0e", bg = "NONE"},
+            CursorLine = { fg = "NONE", bg = "#222222" },
+            CursorColumn = { fg = "NONE", bg = "#222222" },
+            CursorLineNr = { fg = "#900e0e", bg = "NONE" },
             --
-            Visual = { fg = "NONE", bg = "#25253e", style = "bold,italic" },
+            Visual = { fg = "NONE", bg = "#3F3F3F", style = "bold,italic" },
             --
             --
-            NormalFloat = { bg = "NONE" },
-            FloatBorder = { fg = "Black", bg = "NONE" },
+            NormalFloat = { bg = "#0a0a0a" },
+            FloatBorder = { fg = "#0a0a0a", bg = "#0a0a0a" },
             --
             --[[ DiagnosticUnderlineError = { style = "underline" }, ]]
             --[[ DiagnosticUnderlineWarn = { style = "underline" }, ]]
@@ -97,10 +111,16 @@ nightfox.setup({
             BufferLineModified = { fg = "green", bg = "#181818" },
             BufferLineModifiedVisible = { link = "BufferLineModified" },
             BufferLineModifiedSelected = { link = "BufferLineModified" },
+            
             --
-            LspReferenceRead = { link = "CursorLine" },
-            LspReferenceText = { link = "LspReferenceRead" },
-            LspReferenceWrite = { link = "LspReferenceRead" },
+            BufferLineDuplicate = { bg = "#181818", style = "bold"},
+            BufferLineDuplicateVisible = { bg = "#181818", style = "bold" },
+            BufferLineDuplicateSelected = {  bg = "#181818", style = "bold"  },
+
+            
+            --[[ LspReferenceRead = { bg = "#55392c" }, ]]
+            --[[ LspReferenceText = { link = "LspReferenceRead" }, ]]
+            --[[ LspReferenceWrite = { link = "LspReferenceRead" }, ]]
             --
             DiagnosticVirtualTextError = { bg = "NONE", style = "bold" },
             DiagnosticVirtualTextWarn = { bg = "NONE", style = "bold" },
@@ -109,4 +129,3 @@ nightfox.setup({
         },
     },
 })
-

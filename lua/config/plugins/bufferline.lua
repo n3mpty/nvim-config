@@ -9,8 +9,8 @@ bufferline.setup({
         max_name_length = 14,
         max_prefix_length = 13,
         tab_size = 16,
-        --[[ separator_style = "thin", ]]
-        separator_style = { "", "" },
+        separator_style = "thin",
+        --[[ separator_style = { "", "" }, ]]
         color_icons = false,
         show_buffer_icons = false,
         offsets = {

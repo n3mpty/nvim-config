@@ -5,10 +5,10 @@ if not status_ok then
 end
 
 configs.setup({
-    ensure_installed = "all", -- one of "all" or a list of languages
+    ensure_installed = {"help", "python", "c", "cpp", "lua", "rust"}, -- one of "all" or a list of languages
+    auto_install = true, -- Automatically install missing parsers when entering buffer
     sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
     ignore_install = { "" }, -- List of parsers to ignore installing
-    auto_install = true, -- Automatically install missing parsers when entering buffer
     highlight = {
         -- use_languagetree = true,
         enable = true, -- false will disable the whole extension

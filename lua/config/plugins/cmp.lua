@@ -29,31 +29,31 @@ local border = {
 }
 
 local kind_icons = {
-    Text = "  ",
-    Method = "  ",
-    Function = "  ",
-    Constructor = "  ",
-    Field = "  ",
-    Variable = "  ",
-    Class = "  ",
-    Interface = "  ",
-    Module = "  ",
-    Property = "  ",
-    Unit = "  ",
-    Value = "  ",
-    Enum = "  ",
-    Keyword = "  ",
-    Snippet = "  ",
-    Color = "  ",
-    File = "  ",
-    Reference = "  ",
-    Folder = "  ",
-    EnumMember = "  ",
-    Constant = "  ",
-    Struct = "  ",
-    Event = "  ",
-    Operator = "  ",
-    TypeParameter = "  ",
+    Text = " [Text]",
+    Method = " [Method]",
+    Function = " [Function]",
+    Constructor = " [Constructor]",
+    Field = " [Field]",
+    Variable = " [Variable]",
+    Class = " [Class]",
+    Interface = " [Interface]",
+    Module = " [Module]",
+    Property = " [Property]",
+    Unit = " [Unit]",
+    Value = " [Value]" ,
+    Enum = " [Enum]",
+    Keyword = " [Keyword]",
+    Snippet = " [Snippet]",
+    Color = " [Color]",
+    File = " [File]",
+    Reference = " [Reference]",
+    Folder = " [Folder]",
+    EnumMember = " [EnumMember]",
+    Constant = " [Constant]",
+    Struct = " [Struct]",
+    Event = " [Event]",
+    Operator = " [Operator]",
+    TypeParameter = " [TypeParameter]",
 }
 
 cmp.setup({
@@ -106,15 +106,15 @@ cmp.setup({
         }),
     }),
     formatting = {
-        fields = { "kind", "abbr", "menu" },
+        fields = { "abbr", "kind", "menu" },
         format = function(entry, vim_item)
             vim_item.kind = kind_icons[vim_item.kind]
             vim_item.menu = ({
-                nvim_lsp = "",
-                nvim_lua = "",
-                luasnip = "",
-                buffer = "",
-                path = "",
+                nvim_lsp = "[LSP]",
+                nvim_lua = "[Nvim]",
+                luasnip = "[Snippet]",
+                buffer = "[Buffer]",
+                path = "[Path]",
                 emoji = "",
             })[entry.source.name]
             return vim_item
@@ -133,10 +133,10 @@ cmp.setup({
     },
     window = {
         completion = cmp.config.window.bordered({
-            border = border,
+            border = "single",
         }),
         documentation = cmp.config.window.bordered({
-            border = border,
+            border = "single",
         }),
     },
     experimental = {

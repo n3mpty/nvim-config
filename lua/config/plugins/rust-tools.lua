@@ -36,11 +36,11 @@ M.rust_opts = {
 
             -- prefix for parameter hints
             -- default: "<-"
-            parameter_hints_prefix = "<== ",
+            parameter_hints_prefix = "<~~~ ",
 
             -- prefix for all the other hints (type, chaining)
             -- default: "=>"
-            other_hints_prefix = " ==> ",
+            other_hints_prefix = " ~~~> ",
 
             -- whether to align to the lenght of the longest line in the file
             max_len_align = false,
