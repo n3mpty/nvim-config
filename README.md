@@ -1,6 +1,6 @@
 ## Install 
 ```sh
-git clone https://github.com/n3mptybrain/nvim-config.git ~/.config/nvim
+git clone https://github.com/n3mpty/nvim-config.git ~/.config/nvim
 ```
 
 
