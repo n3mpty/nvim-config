@@ -10,10 +10,10 @@ dressing.setup({
         enabled = true,
 
         -- Default prompt string
-        default_prompt = " ",
+        default_prompt = "Input: ",
 
         -- Can be 'left', 'right', or 'center'
-        prompt_align = "left",
+        prompt_align = "right",
 
         -- When true, <Esc> will close the modal
         insert_only = true,
@@ -23,7 +23,7 @@ dressing.setup({
 
         -- These are passed to nvim_open_win
         anchor = "SW",
-        border = "rounded",
+        border = "single",
         -- 'editor' and 'win' will default to being centered
         relative = "cursor",
 
@@ -35,10 +35,13 @@ dressing.setup({
         max_width = { 140, 0.9 },
         min_width = { 20, 0.2 },
 
-        -- Window transparency (0-100)
-        winblend = 30,
-        -- Change default highlight groups (see :help winhl)
-        winhighlight = "",
+        buf_options = {},
+        win_options = {
+            -- Window transparency (0-100)
+            winblend = 5,
+            -- Disable line wrapping
+            wrap = false,
+        },
 
         -- Set to `false` to disable
         mappings = {
@@ -68,7 +71,7 @@ dressing.setup({
         enabled = true,
 
         -- Priority list of preferred vim.select implementations
-        backend = { "telescope", "builtin", "nui" },
+        backend = { "nui" },
 
         -- Trim trailing `:` from prompt
         trim_prompt = true,
@@ -78,13 +81,29 @@ dressing.setup({
         -- telescope = require('telescope.themes').get_ivy({...})
         telescope = nil,
 
+        -- Options for fzf selector
+        fzf = {
+            window = {
+                width = 0.5,
+                height = 0.4,
+            },
+        },
+
+        -- Options for fzf_lua selector
+        fzf_lua = {
+            winopts = {
+                width = 0.5,
+                height = 0.4,
+            },
+        },
+
         -- Options for nui Menu
         nui = {
             position = "50%",
             size = nil,
             relative = "editor",
             border = {
-                style = "none",
+                style = "single",
             },
             buf_options = {
                 swapfile = false,
@@ -107,10 +126,11 @@ dressing.setup({
             -- 'editor' and 'win' will default to being centered
             relative = "editor",
 
-            -- Window transparency (0-100)
-            winblend = 10,
-            -- Change default highlight groups (see :help winhl)
-            winhighlight = "",
+            buf_options = {},
+            win_options = {
+                -- Window transparency (0-100)
+                winblend = 10,
+            },
 
             -- These can be integers or a float between 0 and 1 (e.g. 0.4 for 40%)
             -- the min_ and max_ options can be a list of mixed types.

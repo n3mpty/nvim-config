@@ -61,7 +61,7 @@ lsp.on_attach(function(client, bufnr)
         end,
     })
 
-    
+
 end)
 
 
@@ -110,7 +110,6 @@ lsp.use("pyright", {
     }
 })
 
-
 lsp.setup()
 
 local status_ok, null_ls = pcall(require, "null-ls")
@@ -118,8 +117,8 @@ if not status_ok then
     return
 end
 
-
 local null_opts = lsp.build_options("null-ls", {})
+
 
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
@@ -135,6 +134,3 @@ null_ls.setup({
         formatting.rustfmt,
     },
 })
-
-
-

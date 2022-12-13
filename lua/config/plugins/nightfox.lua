@@ -28,6 +28,7 @@ nightfox.setup({
         transparent = true, -- Disable setting background
         terminal_colors = false, -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
         dim_inactive = false, -- Non focused panes set to alternative background
+        module_default = true,
         styles = { -- Style to be applied to different syntax groups
             comments = "italic", -- Value is any valid attr-list value `:help attr-list`
             conditionals = "NONE",
@@ -42,18 +43,17 @@ nightfox.setup({
         },
         inverse = { -- Inverse highlight for different types
             match_paren = false,
-            visual = true,
+            visual = false,
             search = false,
         },
-        modules = { -- List of various plugins and additional options
+        module = {
             whichkey = {
-                enabled = false,
                 background = false,
             },
-            gitsigns = {
+            barbar = {
                 enabled = false,
-                background = false,
             },
+            
         },
     },
     palettes = {palletes},
@@ -64,7 +64,7 @@ nightfox.setup({
             String = { fg = "#738091" },
             Comment = { fg = "#5a6369" },
             ["@variable"] = { fg = "#a3a3a3" },
-            --[[ ["@field"] = { fg = "#3e4d84" }, ]]
+            ["@field"] = { fg = "#3e4d84" },
             --
             HopNextKey = { fg = "#F72626", style = "bold" },
             HopNextKey1 = { fg = "#F76726", style = "bold" },
@@ -85,37 +85,37 @@ nightfox.setup({
             --[[ DiagnosticUnderlineHint = { style = "underline" }, ]]
             --[[ DiagnosticUnderlineInfo = { style = "underline" }, ]]
 
-            BufferLineBuffer = { fg = "#b0bec5", bg = "#181818" },
-            BufferLineBufferVisible = { fg = "#515151", bg = "#181818" },
-            BufferLineBufferSelected = { bg = "#181818", style = "bold" },
-            BufferLineCloseButton = { fg = "#515151", bg = "#181818" },
-            BufferLineBackground = { fg = "#515151", bg = "#181818" },
-            BufferLineCloseButtonSelected = { bg = "#181818" },
-            BufferLineCloseButtonVisible = { bg = "#181818" },
-            --
-            BufferLineSeparator = { fg = "#121212", bg = "#181818" },
-            BufferLineSeparatorVisible = { fg = "#121212", bg = "#181818" },
-            BufferLineSeparatorSelected = { fg = "#121212", bg = "#181818" },
-            BufferLineOffsetSeparator = { fg = "#181818", bg = "#181818" },
-            -- --
-            BufferLineIndicatorSelected = { fg = "#181818", bg = "#181818" },
-            BufferLineIndicatorVisible = { fg = "#181818", bg = "#181818" },
-            BufferLineFill = { bg = "#212121" },
-            --
-            BufferLineTab = { fg = "#515151", bg = "#181818" },
-            BufferLineTabClose = { fg = "#515151", bg = "#181818" },
-            BufferLineTabSeparator = { fg = "#121212", bg = "#181818" },
-            BufferLineTabSeparatorSelected = { fg = "#121212", bg = "#212121" },
-            BufferLineTabSelected = { bg = "#212121" },
-            --
-            BufferLineModified = { fg = "green", bg = "#181818" },
-            BufferLineModifiedVisible = { link = "BufferLineModified" },
-            BufferLineModifiedSelected = { link = "BufferLineModified" },
-            
-            --
-            BufferLineDuplicate = { bg = "#181818", style = "bold"},
-            BufferLineDuplicateVisible = { bg = "#181818", style = "bold" },
-            BufferLineDuplicateSelected = {  bg = "#181818", style = "bold"  },
+            --[[ BufferLineBuffer = { fg = "#b0bec5", bg = "#181818" }, ]]
+            --[[ BufferLineBufferVisible = { fg = "#515151", bg = "#181818" }, ]]
+            --[[ BufferLineBufferSelected = { bg = "#181818", style = "bold" }, ]]
+            --[[ BufferLineCloseButton = { fg = "#515151", bg = "#181818" }, ]]
+            --[[ BufferLineBackground = { fg = "#515151", bg = "#181818" }, ]]
+            --[[ BufferLineCloseButtonSelected = { bg = "#181818" }, ]]
+            --[[ BufferLineCloseButtonVisible = { bg = "#181818" }, ]]
+            --[[ -- ]]
+            --[[ BufferLineSeparator = { fg = "#121212", bg = "#181818" }, ]]
+            --[[ BufferLineSeparatorVisible = { fg = "#121212", bg = "#181818" }, ]]
+            --[[ BufferLineSeparatorSelected = { fg = "#121212", bg = "#181818" }, ]]
+            --[[ BufferLineOffsetSeparator = { fg = "#181818", bg = "#181818" }, ]]
+            --[[ -- -- ]]
+            --[[ BufferLineIndicatorSelected = { fg = "#181818", bg = "#181818" }, ]]
+            --[[ BufferLineIndicatorVisible = { fg = "#181818", bg = "#181818" }, ]]
+            --[[ BufferLineFill = { bg = "#212121" }, ]]
+            --[[ -- ]]
+            --[[ BufferLineTab = { fg = "#515151", bg = "#181818" }, ]]
+            --[[ BufferLineTabClose = { fg = "#515151", bg = "#181818" }, ]]
+            --[[ BufferLineTabSeparator = { fg = "#121212", bg = "#181818" }, ]]
+            --[[ BufferLineTabSeparatorSelected = { fg = "#121212", bg = "#212121" }, ]]
+            --[[ BufferLineTabSelected = { bg = "#212121" }, ]]
+            --[[ -- ]]
+            --[[ BufferLineModified = { fg = "green", bg = "#181818" }, ]]
+            --[[ BufferLineModifiedVisible = { link = "BufferLineModified" }, ]]
+            --[[ BufferLineModifiedSelected = { link = "BufferLineModified" }, ]]
+            --[[  ]]
+            --[[ -- ]]
+            --[[ BufferLineDuplicate = { bg = "#181818", style = "bold"}, ]]
+            --[[ BufferLineDuplicateVisible = { bg = "#181818", style = "bold" }, ]]
+            --[[ BufferLineDuplicateSelected = {  bg = "#181818", style = "bold"  }, ]]
 
             
             --[[ LspReferenceRead = { bg = "#55392c" }, ]]

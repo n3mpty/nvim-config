@@ -52,8 +52,8 @@ map("n", "\\", "<cmd>vsplit<cr>", remap) -- Vertical split
 
 -- Buffer
 map("n", "C", "<cmd>Bdelete<cr>", silent) -- Close buffer
-map("n", "<S-l>", ":BufferLineCycleNext<CR>", silent)
-map("n", "<S-h>", ":BufferLineCyclePrev<CR>", silent)
+map("n", "<S-l>", ":BufferNext<CR>", silent)
+map("n", "<S-h>", ":BufferPrevious<CR>", silent)
 --
 
 -- open new line but stay in normal mode
@@ -74,6 +74,10 @@ map("n", "<C-Up>", ":resize -2<CR>", silent)
 map("n", "<C-Down>", ":resize +2<CR>", silent)
 map("n", "<C-Left>", ":vertical resize -2<CR>", silent)
 map("n", "<C-Right>", ":vertical resize +2<CR>", silent)
+
+-- ZenMode
+map("n", "<leader>zz", "<cmd>ZenMode<cr>", silent)
+
 
 -- Move text up and down
 -- keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)

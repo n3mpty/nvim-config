@@ -273,9 +273,9 @@ lualine.setup({
     },
     sections = {
         lualine_a = { mode },
-        lualine_b = { branch, diff },
-        lualine_c = { python_env },
-        lualine_x = { diagnostics },
+        lualine_b = { branch, diff, "filename" },
+        lualine_c = { diagnostics },
+        lualine_x = {},
         lualine_y = { lsp_info },
         lualine_z = { location },
     },

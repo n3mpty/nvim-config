@@ -109,7 +109,8 @@ return packer.startup(function(use)
     --[[ }) ]]
 
     --- Bufferline
-    use({ "akinsho/bufferline.nvim" })
+    --[[ use({ "akinsho/bufferline.nvim" }) ]]
+    use({ "romgrk/barbar.nvim" })
     use({ "tiagovla/scope.nvim",
         config = function()
             require("scope").setup()
@@ -161,7 +162,6 @@ return packer.startup(function(use)
     use({ "catppuccin/nvim", as = "catppuccin" })
     use({ "folke/tokyonight.nvim" })
     use({ "marko-cerovac/material.nvim" })
-    use({ "sam4llis/nvim-tundra" })
 
     -- cmp plugins
     --[[ use({ ]]
@@ -209,7 +209,7 @@ return packer.startup(function(use)
             { "rafamadriz/friendly-snippets" },
         }
     })
-    use("RRethy/vim-illuminate")
+    -- use("RRethy/vim-illuminate")
     use("j-hui/fidget.nvim")
     use({ "ray-x/lsp_signature.nvim" })
     use("simrat39/symbols-outline.nvim")
@@ -241,8 +241,9 @@ return packer.startup(function(use)
     })
     -- Visualise undo
     use({ "mbbill/undotree" })
-    --
-    use({ "ntpeters/vim-better-whitespace" })
+    -- 
+    --[[ use({ "ntpeters/vim-better-whitespace" }) ]]
+    use({ "folke/zen-mode.nvim" })
     --
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

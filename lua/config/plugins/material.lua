@@ -23,12 +23,12 @@ material.setup({
         functions = {},
         variables = {},
         operators = {},
-        types = {},
+        types = { bold = true },
     },
 
     high_visibility = {
         lighter = false, -- Enable higher contrast text for lighter style
-        darker = false, -- Enable higher contrast text for darker style
+        darker = true, -- Enable higher contrast text for darker style
     },
 
     disable = {
@@ -43,127 +43,45 @@ material.setup({
     async_loading = true, -- Load parts of the theme asyncronously for faster startup (turned on by default)
     plugins = { -- Uncomment the plugins that you use to highlight them
         -- Available plugins:
-        --[[ "bufferline", ]]
-        --[[ "dap", ]]
+        -- "dap",
         -- "dashboard",
         "gitsigns",
-        -- "hop",
+        "hop",
         -- "indent-blankline",
         -- "lspsaga",
         -- "mini",
         -- "neogit",
         -- "nvim-cmp",
         -- "nvim-navic",
-        -- "nvim-tree",
+        "nvim-tree",
         -- "sneak",
-        -- "telescope",
+        "telescope",
         -- "trouble",
         -- "which-key",
     },
     --
     custom_highlights = {
-    --[[     String = { fg = "#90a97b" }, ]]
-    --[[     ["@variable.builtin"] = { fg = "#f7768e" }, ]]
-    --[[     ["@field"] = { fg = "#3e4d84" }, ]]
-    --[[     ["@parameter"] = { fg = "#ad8d59" }, ]]
-    --[[     ["@parameter.reference"] = { link = "@parameter" }, ]]
-    --[[]]
-    --[[     HopNextKey = { fg = "#F72626", bold = true }, ]]
-    --[[     HopNextKey1 = { fg = "#F76726", bold = true }, ]]
-    --[[     HopNextKey2 = { fg = "#3374CA" }, ]]
-    --[[]]
-    --[[     NormalFloat = { bg = "NONE" }, ]]
-    --[[     FloatBorder = { fg = "Black", bg = "NONE" }, ]]
-    --[[]]
-    --[[     WinBar = { fg = "NONE", bg = "NONE", bold = false }, ]]
-    --[[     WinBarNC = { fg = "NONE", bg = "NONE", bold = false }, ]]
-    --[[     NavicText = { fg = "#80c6f0" }, ]]
-    --[[]]
-    --[[     CursorLine = { fg = "NONE", bg = "#1e1e1e" }, ]]
-    --[[     CursorColumn = { fg = "NONE", bg = "#1e1e1e" }, ]]
-    --[[     -- ]]
-    --[[     Visual = { fg = "NONE", bg = "#25253e", bold = true, italic = true }, ]]
-    --[[     LspReferenceRead = { link = "CursorLine" }, ]]
-    --[[     LspReferenceText = { link = "LspReferenceRead" }, ]]
-    --[[]]
-    --[[     -- ]]
-    BufferLineBuffer = { fg = "#b0bec5", bg = "#181818" },
-    BufferLineBufferVisible = { fg = "#515151", bg = "#181818" },
-    BufferLineBufferSelected = { bg = "#181818", bold = true },
-    BufferLineCloseButton = { fg = "#515151", bg = "#181818" },
-    BufferLineBackground = { fg = "#515151", bg = "#181818" },
-    BufferLineCloseButtonSelected = { bg = "#181818" },
-    BufferLineCloseButtonVisible = { bg = "#181818" },
-    --
-    BufferLineSeparator = { fg = "#121212", bg = "#181818" },
-    BufferLineSeparatorVisible = { fg = "#121212", bg = "#181818" },
-    BufferLineSeparatorSelected = { fg = "#121212", bg = "#181818" },
-    BufferLineOffsetSeparator = { fg = "#181818", bg = "#181818" },
-    -- --
-    BufferLineIndicatorSelected = { fg = "#181818", bg = "#181818" },
-    BufferLineIndicatorVisible = { fg = "#181818", bg = "#181818" },
-    BufferLineFill = { bg = "#212121" },
-    --
-    BufferLineTab = { fg = "#515151", bg = "#181818" },
-    BufferLineTabClose = { fg = "#515151", bg = "#181818" },
-    BufferLineTabSeparator = { fg = "#121212", bg = "#181818" },
-    BufferLineTabSeparatorSelected = { fg = "#121212", bg = "#212121" },
-    BufferLineTabSelected = { bg = "#212121" },
-    --
-    BufferLineModified = { fg = "green", bg = "#181818" },
-    BufferLineModifiedVisible = { link = "BufferLineModified" },
-    BufferLineModifiedSelected = { link = "BufferLineModified" },
-    --[[     -- ]]
-    --[[     NoicePopupmenu = { bg = "#181818" }, ]]
-    --[[     NoicePopupmenuSelected = { bg = "#515151" }, ]]
-    --[[     NoiceMini = { bg = "NONE" }, ]]
-    --
-    -- DiagnosticUnderlineError = { underline = true, sp = "#ff5370" },
-    -- DiagnosticUnderlineWarn = { underline = true, sp = "#ffcb6b" },
-    -- DiagnosticUnderlineHint = { underline = true, sp = "#c792ea" },
-    -- DiagnosticUnderlineInfo = { underline = true, sp = "#b0c9ff" },
+        String = { fg = "#738091" },
+        ["@field"] = { fg = "#2c3852" },
+        ["@parameter"] = { fg = "#ad8d59" },
+        ["@parameter.reference"] = { link = "@parameter" },
+
+        HopNextKey = { fg = "#F72626", bold = true },
+        HopNextKey1 = { fg = "#F76726", bold = true },
+        HopNextKey2 = { fg = "#3374CA" },
+
+        CursorLine = { fg = "NONE", bg = "#222222" },
+        CursorColumn = { fg = "NONE", bg = "#222222" },
+        --
+        Visual = { bg = "#424242", bold = true, italic = true },
+        --
+        DiagnosticUnderlineError = { undercurl = true, sp = "#99000b" },
+        DiagnosticUnderlineWarn = { undercurl = true, sp = "#994400" },
+        DiagnosticUnderlineHint = { undercurl = true, sp = "#990077" },
+        DiagnosticUnderlineInfo = { undercurl = true, sp = "#004399" },
     },
     --
 
-    custom_colors = function(colors)
-        colors.editor.bg        = "#131313"
-        colors.editor.bg_alt    = "#1A1A1A"
-        colors.editor.fg        = "#B0BEC5"
-        colors.editor.fg_dark   = "#8C8B8B"
-        colors.editor.selection = "#404040"
-        colors.editor.contrast  = "#1A1A1A"
-        colors.editor.active    = "#323232"
-        colors.editor.border    = "#343434"
-        colors.editor.highlight = "#3F3F3F"
-        colors.editor.disabled  = "#474747"
-        colors.editor.accent    = "#FF9800"
-        --
-        colors.white            = "#EEFFFF"
-        colors.black            = "#000000"
-        colors.gray             = "#717CB4"
-        colors.red              = "#F07178"
-        colors.green            = "#C3E88D"
-        colors.yellow           = "#FFCB6B"
-        colors.blue             = "#82AAFF"
-        colors.paleblue         = "#B0C9FF"
-        colors.cyan             = "#89DDFF"
-        colors.purple           = "#C792EA"
-        colors.orange           = "#F78C6C"
-
-        colors.darkred = "#DC6068"
-        colors.darkgreen = "#ABCF76"
-        colors.darkyellow = "#E6B455"
-        colors.darkblue = "#6E98EB"
-        colors.darkcyan = "#71C6E7"
-        colors.darkpurple = "#B480D6"
-        colors.darkorange = "#E2795B"
-        ---
-
-        colors.editor.line_numbers = "#424242"
-
-        --
-        colors.syntax.comments = "#515151"
-    end,
 })
 
 vim.g.material_style = "darker"

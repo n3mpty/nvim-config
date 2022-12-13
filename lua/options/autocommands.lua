@@ -1,5 +1,7 @@
+local autocmd = vim.api.nvim_create_autocmd
+
 -- -- Use 'q' to quit from common plugins
-vim.api.nvim_create_autocmd({ "FileType" }, {
+autocmd({ "FileType" }, {
     pattern = { "qf", "help", "man", "lspinfo", "spectre_panel", "lir" },
     callback = function()
         vim.cmd([[
@@ -11,7 +13,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 -- Remove statusline and tabline when in Alpha
-vim.api.nvim_create_autocmd({ "User" }, {
+autocmd({ "User" }, {
     pattern = { "AlphaReady" },
     callback = function()
         vim.cmd([[
@@ -20,7 +22,7 @@ vim.api.nvim_create_autocmd({ "User" }, {
     end,
 })
 
-vim.api.nvim_create_autocmd({ "BufEnter" }, {
+autocmd({ "BufEnter" }, {
     pattern = { "" },
     callback = function()
         local get_project_dir = function()
@@ -34,7 +36,7 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
     end,
 })
 
-vim.api.nvim_create_autocmd({ "FileType" }, {
+autocmd({ "FileType" }, {
     pattern = { "gitcommit", "markdown" },
     callback = function()
         vim.opt_local.wrap = true
@@ -48,19 +50,19 @@ vim.cmd(
 )
 
 -- Fixes Autocomment
-vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+autocmd({ "BufWinEnter" }, {
     callback = function()
         vim.cmd("set formatoptions-=cro")
     end,
 })
 -- Don't auto comment new lines
-vim.api.nvim_create_autocmd({ "BufEnter" }, {
+autocmd({ "BufEnter" }, {
     pattern = "*",
     command = "set fo-=c fo-=r fo-=o",
 })
 
 -- Highlight Yanked Text
-vim.api.nvim_create_autocmd({ "TextYankPost" }, {
+autocmd({ "TextYankPost" }, {
     callback = function()
         vim.highlight.on_yank({ higroup = "Visual", timeout = 200 })
     end,
