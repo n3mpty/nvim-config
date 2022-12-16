@@ -10,7 +10,7 @@ cmd([[
 ]])
 
 --
-cmd("colorscheme material")
+cmd("colorscheme nightfox")
 opt.showmode = false
 opt.swapfile = false
 opt.wrap = false

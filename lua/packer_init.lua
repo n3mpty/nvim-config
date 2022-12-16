@@ -117,8 +117,7 @@ return packer.startup(function(use)
         end
     })
     use({ "moll/vim-bbye" })
-    --[[ use({ "emptybrain/winbar.nvim" }) ]]
-    --[[ use({ "n3mpty/barbecue.nvim"}) ]]
+    use({"b0o/incline.nvim"})
 
     -- Icons
     use("kyazdani42/nvim-web-devicons")
@@ -163,31 +162,7 @@ return packer.startup(function(use)
     use({ "folke/tokyonight.nvim" })
     use({ "marko-cerovac/material.nvim" })
 
-    -- cmp plugins
-    --[[ use({ ]]
-    --[[     "hrsh7th/nvim-cmp", ]]
-    --[[     requires = { ]]
-    --[[         -- The completion plugin ]]
-    --[[         "hrsh7th/cmp-buffer", ]]
-    --[[         "hrsh7th/cmp-path", ]]
-    --[[         "saadparwaiz1/cmp_luasnip", ]]
-    --[[         "hrsh7th/cmp-nvim-lsp", ]]
-    --[[         "hrsh7th/cmp-nvim-lua", ]]
-    --[[     }, ]]
-    --[[ }) ]]
-
-    -- snippets
-    --[[ use({ "L3MON4D3/LuaSnip" }) --snippet engine ]]
-    --[[ use({ "rafamadriz/friendly-snippets" }) -- a bunch of snippets to use ]]
-
     -- LSP
-    --[[ use({ "williamboman/mason.nvim", ]]
-    --[[     requires = { ]]
-    --[[         "williamboman/mason-lspconfig.nvim", ]]
-    --[[         "neovim/nvim-lspconfig", ]]
-    --[[         "jose-elias-alvarez/null-ls.nvim", ]]
-    --[[     } ]]
-    --[[ }) ]]
     use({
         "VonHeikemen/lsp-zero.nvim",
         requires = {
@@ -195,6 +170,7 @@ return packer.startup(function(use)
             { "neovim/nvim-lspconfig" },
             { "williamboman/mason.nvim" },
             { "williamboman/mason-lspconfig.nvim" },
+            { "jose-elias-alvarez/null-ls.nvim" },
 
             -- Autocompletion
             { "hrsh7th/nvim-cmp" },

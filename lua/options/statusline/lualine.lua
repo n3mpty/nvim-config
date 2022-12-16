@@ -185,15 +185,6 @@ local winbar = {
             separator = { left = "", right = "" },
         },
     },
-    lualine_c = {
-        {
-            navic.get_location,
-            cond = navic.is_available,
-            color = { bg = colors.transparent, fg = colors.blue },
-            separator = { left = "", right = "" },
-        },
-    },
-    --[[ lualine_z = {  diagnostics }, ]]
 }
 
 local theme = {
@@ -255,7 +246,8 @@ lualine.setup({
         section_separators = { left = "", right = "" },
         disabled_filetypes = {
             statusline = { "NvimTree", "neo-tree", "Outline", "Packer", "AlphaReady", "DiffviewFilePanel" },
-            --[[ winbar = { "NvimTree", "neo-tree", "Outline", "Packer", "Trouble", "AlphaReady", "DiffviewFilePanel" }, ]]
+            winbar = { "NvimTree", "neo-tree", "Outline", "Packer", "Trouble", "AlphaReady", "DiffviewFilePanel" },
+
         },
         ignore_focus = {
             "NvimTree",
@@ -268,7 +260,7 @@ lualine.setup({
         refresh = {
             statusline = 1000,
             tabline = 1000,
-            --[[ winbar = 1000, ]]
+            winbar = 1000,
         },
     },
     sections = {
@@ -291,14 +283,14 @@ lualine.setup({
         -- lualine_a = { { "buffers", mode = 2 } },
         -- lualine_z = { "tabs" },
     },
-    winbar = {},
-    --[[ inactive_winbar = { ]]
-    --[[     lualine_a = { "filename" }, ]]
-    --[[     lualine_b = {  }, ]]
-    --[[     lualine_c = {}, ]]
-    --[[     lualine_x = {}, ]]
-    --[[     lualine_y = {}, ]]
-    --[[     lualine_z = {  }, ]]
-    --[[ }, ]]
+    winbar = { },
+    inactive_winbar = {
+        -- lualine_a = { "filename" },
+        -- lualine_b = {},
+        -- lualine_c = {},
+        -- lualine_x = {},
+        -- lualine_y = {},
+        -- lualine_z = {},
+    },
     extensions = {},
 })

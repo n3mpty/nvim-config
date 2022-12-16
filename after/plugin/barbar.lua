@@ -6,7 +6,7 @@ end
 
 barbar.setup({
     -- Enable/disable animations
-    animation = true,
+    animation = false,
 
     -- Enable/disable auto-hiding the tab bar when there is a single buffer
     auto_hide = false,
@@ -42,7 +42,7 @@ barbar.setup({
     exclude_name = { 'package.json' },
 
     -- Hide inactive buffers and file extensions. Other options are `current` and `visible`
-    hide = { extensions = true, inactive = false },
+    hide = { extensions = false, inactive = false },
 
 
     -- Enable/disable icons

@@ -126,7 +126,9 @@ local code_actions = null_ls.builtins.code_actions
 local hover = null_ls.builtins.hover
 
 null_ls.setup({
-    on_attach = null_opts.on_attach,
+    on_attach = function (client, bufnr)
+        null_opts.on_attach(client, bufnr)
+    end,
     sources = {
         null_ls.builtins.formatting.black.with({ extra_args = { "--fast", "--line-lenght=200" } }),
         -- diagnostics.pylint.with( { filetypes = { "python" }}),

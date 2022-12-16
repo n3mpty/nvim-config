@@ -28,7 +28,7 @@ nightfox.setup({
         transparent = true, -- Disable setting background
         terminal_colors = false, -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
         dim_inactive = false, -- Non focused panes set to alternative background
-        module_default = true,
+        module_default = false,
         styles = { -- Style to be applied to different syntax groups
             comments = "italic", -- Value is any valid attr-list value `:help attr-list`
             conditionals = "NONE",
@@ -48,10 +48,11 @@ nightfox.setup({
         },
         module = {
             whichkey = {
-                background = false,
+                enable = true,
+                background = true,
             },
             barbar = {
-                enabled = false,
+                enable = false,
             },
             
         },
