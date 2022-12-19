@@ -51,14 +51,14 @@ return packer.startup(function(use)
 
     -- ui
     use({ "stevearc/dressing.nvim" })
-    use({
-        "folke/noice.nvim",
-        requires = {
-            -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-            "rcarriga/nvim-notify",
-            "hrsh7th/nvim-cmp",
-        },
-    })
+    -- use({
+    --     "folke/noice.nvim",
+    --     requires = {
+    --         -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+    --         "rcarriga/nvim-notify",
+    --         "hrsh7th/nvim-cmp",
+    --     },
+    -- })
 
     -- Session
     use({ "rmagatti/auto-session", commit = "9639b071d9680764b6e57b08c9fa4a336453558d" })
@@ -89,12 +89,12 @@ return packer.startup(function(use)
         tag = "*", -- Use for stability; omit to use `main` branch for the latest features
     })
 
-    use({ "Pocco81/auto-save.nvim" })
+    -- use({ "Pocco81/auto-save.nvim" })
     -- Color
     use({ "norcalli/nvim-colorizer.lua" })
     -- Better Scroll
-    use({ "karb94/neoscroll.nvim" })
-    --[[ use({ "declancm/cinnamon.nvim" }) ]]
+    -- use({ "karb94/neoscroll.nvim" })
+    use({ "declancm/cinnamon.nvim" })
 
     -- Rust
     use({ "simrat39/rust-tools.nvim" })
@@ -161,6 +161,7 @@ return packer.startup(function(use)
     use({ "catppuccin/nvim", as = "catppuccin" })
     use({ "folke/tokyonight.nvim" })
     use({ "marko-cerovac/material.nvim" })
+    use({ "olimorris/onedarkpro.nvim" })
 
     -- LSP
     use({
