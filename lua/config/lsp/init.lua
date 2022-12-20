@@ -5,6 +5,7 @@ end
 
 
 
+lsp.preset("recommended")
 lsp.ensure_installed({
     "gopls",
     "cssls",
@@ -16,7 +17,7 @@ lsp.ensure_installed({
     "marksman",
     "sumneko_lua",
     "rust_analyzer",
-    -- "pyright",
+    "pyright",
     "jedi_language_server",
     "yamlls",
     "bashls",
@@ -24,7 +25,6 @@ lsp.ensure_installed({
     "tsserver",
     "elixirls",
 })
-lsp.preset("recommended")
 
 lsp.on_attach(function(client, bufnr)
     vim.b.lsp_attached = true
@@ -86,12 +86,48 @@ lsp.set_preferences({
 
 
 
---[[ rust_tools = require("config.plugins.rust-tools") ]]
 require("rust-tools").setup({
+    tools = {
+        inlay_hints = {
+            -- automatically set inlay hints (type hints)
+            -- default: true
+            auto = true,
+
+            -- Only show inlay hints for the current line
+            only_current_line = false,
+
+            -- whether to show parameter hints with the inlay hints or not
+            -- default: true
+            show_parameter_hints = true,
+
+            -- prefix for parameter hints
+            -- default: "<-"
+            parameter_hints_prefix = "<~~~ ",
+
+            -- prefix for all the other hints (type, chaining)
+            -- default: "=>"
+            other_hints_prefix = " ~~~> ",
+
+            -- whether to align to the lenght of the longest line in the file
+            max_len_align = false,
+
+            -- padding from the left if max_len_align is true
+            max_len_align_padding = 1,
+
+            -- whether to align to the extreme right or not
+            right_align = false,
+
+            -- padding from the right if right_align is true
+            right_align_padding = 7,
+
+            -- The color of the hints
+            highlight = "Comment",
+        },
+    },
     server = lsp.build_options("rust_analyzer", {})
 })
 
-lsp.use("pyright", {
+lsp.configure("pyright", {
     settings = {
         python = {
             analysis = {
@@ -126,7 +162,7 @@ local code_actions = null_ls.builtins.code_actions
 local hover = null_ls.builtins.hover
 
 null_ls.setup({
-    on_attach = function (client, bufnr)
+    on_attach = function(client, bufnr)
         null_opts.on_attach(client, bufnr)
     end,
     sources = {

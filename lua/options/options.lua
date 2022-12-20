@@ -10,7 +10,7 @@ cmd([[
 ]])
 
 --
-cmd("colorscheme nightfox")
+-- cmd("colorscheme onedark_dark")
 opt.showmode = false
 opt.swapfile = false
 opt.wrap = false
@@ -42,9 +42,9 @@ opt.undofile = true
 -- indenting
 opt.expandtab = true
 opt.smartindent = true
-opt.shiftwidth = 4
-opt.tabstop = 4
-opt.softtabstop = 4
+opt.shiftwidth = 2
+opt.tabstop = 2
+opt.softtabstop = 2
 
 --
 opt.ignorecase = true

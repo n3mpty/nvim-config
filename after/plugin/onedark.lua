@@ -6,11 +6,41 @@ end
 
 local color = require("onedarkpro.lib.color")
 
+local palette = {
+    bg = "#282c34",
+    fg = "#abb2bf",
+    red = "#ef7385",
+    orange = "#d19a66",
+    yellow = "#e5c07b",
+    green = "#95ca87",
+    cyan = "#70bfc5",
+    blue = "#7cbbef",
+    purple = "#d77fde",
+    white = "#abb2bf",
+    black = "#282c34",
+    gray = "#5c6370",
+    highlight = "#e2be7d",
+    comment = "#7f848e",
+    none = "NONE",
+}
 onedark.setup({
-    theme = "onedark",
+    theme = "onedark_dark",
     caching = true, -- Enable caching
-    colors = {},
+    colors = {
+        onedark_dark = {
+            color.darken(palette.red, 0.85),
+            color.darken(palette.orange, 0.70),
+            color.darken(palette.yellow, 0.70),
+            color.darken(palette.green, 0.70),
+            color.darken(palette.cyan, 0.70),
+            color.darken(palette.blue, 0.70),
+            color.darken(palette.purple, 0.65),
+            color.darken(palette.white, 0.70),
+            color.darken(palette.gray, 0.70),
+        }
+    },
     highlights = {
+        Keyword = { fg = "#de7f84" },
         ["@string"] = { fg = "#767b71" },
         ["@variable"] = { fg = "#a3a3a3" },
         Comment = { fg = "#5a6369", styles = "italic" },
@@ -25,6 +55,8 @@ onedark.setup({
         HopNextKey2 = { fg = "#3374CA" },
         --
         ["@field.lua"] = { fg = "#515a7c" },
+        ["@keyword.rust"] = { fg = "#de7f84" },
+        ["@keyword.operator"] = { fg = "#de7f84" },
     },
     filetypes = {
 
@@ -33,6 +65,7 @@ onedark.setup({
         -- See the 'Supported plugins' section for the available list
         hop = false,
         barbar = false,
+        whichkey = false,
     },
     styles = { -- For example, to apply bold and italic, use "bold,italic"
         types = "bold", -- Style that is applied to types
@@ -42,7 +75,7 @@ onedark.setup({
         keywords = "NONE", -- Style that is applied to keywords
         constants = "NONE", -- Style that is applied to constants
         functions = "NONE", -- Style that is applied to functions
-        operators = "bold", -- Style that is applied to operators
+        operators = "NONE", -- Style that is applied to operators
         variables = "NONE", -- Style that is applied to variables
         conditionals = "NONE", -- Style that is applied to conditionals
         virtual_text = "NONE", -- Style that is applied to virtual text
@@ -51,7 +84,7 @@ onedark.setup({
         bold = true, -- Use bold styles?
         italic = true, -- Use italic styles?
         underline = true, -- Use underline styles?
-        undercurl = false, -- Use undercurl styles?
+        undercurl = true, -- Use undercurl styles?
 
         cursorline = true, -- Use cursorline highlighting?
         transparency = true, -- Use a transparent background?
@@ -61,4 +94,4 @@ onedark.setup({
 })
 
 
-vim.cmd("colorscheme onedark")
+vim.cmd("colorscheme onedark_dark")

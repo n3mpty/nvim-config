@@ -83,10 +83,6 @@ local opts = {
 
 local mappings = {
     [";"] = { "<cmd>Alpha<cr>", "Alpha" },
-    ["b"] = {
-        "<cmd>lua require('telescope.builtin').buffers({ sort_lastused = true, ignore_current_buffer = true })<cr>",
-        "Buffers",
-    },
     ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
     ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
 
@@ -107,17 +103,7 @@ local mappings = {
     g = {
         name = "Git",
         g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
-        j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
-        k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
         l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
-        p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
-        r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
-        R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
-        s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
-        u = {
-            "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
-            "Undo Stage Hunk",
-        },
         o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
         b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
         c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
@@ -160,7 +146,7 @@ local mappings = {
     },
     s = {
         name = "Search",
-        c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+        c = { "<cmd>Telescope colorscheme enable_preview=true<cr>", "Colorscheme" },
         h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
         M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
         r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },

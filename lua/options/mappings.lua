@@ -47,8 +47,8 @@ map("v", "<space>l", "$") -- end line
 map("v", "<space>h", "^") -- start line
 --
 -- Split View
-map("n", "|", "<cmd>split<cr>", remap) -- Horizontal split
-map("n", "\\", "<cmd>vsplit<cr>", remap) -- Vertical split
+map("n", "<space>sh", "<cmd>split<cr>", remap) -- Horizontal split
+map("n", "<space>sv", "<cmd>vsplit<cr>", remap) -- Vertical split
 
 -- Buffer
 map("n", "C", "<cmd>Bdelete<cr>", silent) -- Close buffer
@@ -102,11 +102,13 @@ map("v", "<A-k>", ":m .-2<CR>==", noremap)
 
 -- Clipboard
 -- paste selected text without yanking
-map("x", "<space>p", "\"_dP", noremap)
+map("v", "<space>p", "\"_dP", noremap)
 map("n", "<space>p", "\"_dP", noremap)
+map("x", "<space>p", "\"_dP", noremap)
 
 map("n", "<space>d", "\"_d")
 map("v", "<space>d", "\"_d")
+map("x", "<space>d", "\"_d")
 
 map('n', 'vaa', 'ggVG', noremap) -- select all buffer
 map('n', 'yaa', 'ggVGy', noremap) -- copy all buffer
@@ -124,4 +126,9 @@ map("x", "K", ":move '<-2<CR>gv-gv", noremap)
 map("x", "J", ":move '>+1<CR>gv-gv", noremap)
 map("x", "<A-k>", ":move '<-2<CR>gv-gv", noremap)
 map("x", "<A-j>", ":move '>+1<CR>gv-gv", noremap)
+
+
+
+--- Telescope show open buffers
+map("n", "<space><space>", "<cmd>lua require('telescope.builtin').buffers({ sort_lastused = true, ignore_current_buffer = true })<cr>", noremap)
 
