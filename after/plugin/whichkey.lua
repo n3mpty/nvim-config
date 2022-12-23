@@ -83,11 +83,11 @@ local opts = {
 
 local mappings = {
     [";"] = { "<cmd>Alpha<cr>", "Alpha" },
-    ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+    ["e"] = { "<cmd>NeoTreeFocusToggle<cr>", "Explorer" },
     ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
 
     ["f"] = {
-        "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+        "<cmd>Telescope find_files enable_preview=true<cr>",
         "Find Files",
     },
 

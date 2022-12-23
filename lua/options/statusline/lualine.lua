@@ -120,8 +120,8 @@ local diagnostics = {
 local diff = {
   "diff",
   colored = true,
-  --[[ symbols = { added = "+ ", modified = "~! ", removed = "✘" }, -- changes diff symbols ]]
-  --[[ color = { bg = colors.grey }, ]]
+  symbols = { added = "", modified = "", removed = "" }, -- changes diff symbols
+  color = { bg = colors.grey },
   separator = { left = "", right = "" },
 }
 
@@ -278,7 +278,7 @@ lualine.setup({
     lualine_a = { mode },
     lualine_b = { branch, diff, filename },
     lualine_c = { diagnostics },
-    lualine_x = {  },
+    lualine_x = {},
     lualine_y = { lsp_info },
     lualine_z = { tab_size, location },
   },

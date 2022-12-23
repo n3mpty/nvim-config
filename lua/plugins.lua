@@ -75,11 +75,11 @@ return packer.startup(function(use)
   --- Comment
   use({ "numToStr/Comment.nvim" })
   -- Explorer
-  use({ "kyazdani42/nvim-tree.lua" })
-  --[[ use({ ]]
-  --[[     "nvim-neo-tree/neo-tree.nvim", ]]
-  --[[     branch = "v2.x", ]]
-  --[[ }) ]]
+  -- use({ "kyazdani42/nvim-tree.lua" })
+   use({ 
+       "nvim-neo-tree/neo-tree.nvim", 
+       branch = "v2.x", 
+   }) 
 
   --- Bufferline
   --[[ use({ "akinsho/bufferline.nvim" }) ]]

@@ -40,7 +40,7 @@ onedark.setup({
         }
     },
     highlights = {
-        Keyword = { fg = "#de7f84" },
+        Keyword = { fg = "#bf6e3d" },
         ["@string"] = { fg = "#767b71" },
         ["@variable"] = { fg = "#a3a3a3" },
         Comment = { fg = "#5a6369", styles = "italic" },
@@ -54,9 +54,13 @@ onedark.setup({
         HopNextKey1 = { fg = "#F76726", style = "bold" },
         HopNextKey2 = { fg = "#3374CA" },
         --
-        ["@field.lua"] = { fg = "#515a7c" },
-        ["@keyword.rust"] = { fg = "#de7f84" },
+        ["@conditional"] = { fg = "#de7f84" },
+        ["@repeat"] = { link = "@conditional" },
         ["@keyword.operator"] = { fg = "#de7f84" },
+        ["@keyword.function"] = { fg = "#de7f84" },
+        ["@conditional.python"] = { link = "@conditional" },
+        ["@field.lua"] = { fg = "#515a7c" },
+        ["@keyword.rust"] = { fg = "#bf6e3d" },
     },
     filetypes = {
 

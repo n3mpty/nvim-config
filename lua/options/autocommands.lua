@@ -61,9 +61,7 @@ autocmd({ "FileType" }, {
 })
 
 vim.cmd("autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif")
-vim.cmd(
-  "autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'neo-tree filesystem' . tabpagenr() | quit | endif"
-)
+vim.cmd( "autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'neo-tree filesystem' . tabpagenr() | quit | endif")
 
 -- Fixes Autocomment
 autocmd({ "BufWinEnter" }, {
