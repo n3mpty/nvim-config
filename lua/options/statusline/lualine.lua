@@ -120,7 +120,7 @@ local diagnostics = {
 local diff = {
   "diff",
   colored = true,
-  symbols = { added = "", modified = "", removed = "" }, -- changes diff symbols
+  symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
   color = { bg = colors.grey },
   separator = { left = "", right = "" },
 }

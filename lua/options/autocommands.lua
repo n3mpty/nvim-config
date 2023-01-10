@@ -1,20 +1,5 @@
 local autocmd = vim.api.nvim_create_autocmd
 
--- Install Packer
-local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  PACKER_BOOTSTRAP = vim.fn.system({
-    "git",
-    "clone",
-    "--depth",
-    "1",
-    "https://github.com/wbthomason/packer.nvim",
-    install_path,
-  })
-  print("Installing packer close and reopen Neovim...")
-  vim.cmd([[packadd packer.nvim]])
-end
-
 
 -- Use 'q' to quit from common plugins
 autocmd({ "FileType" }, {
@@ -61,7 +46,7 @@ autocmd({ "FileType" }, {
 })
 
 vim.cmd("autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif")
-vim.cmd( "autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'neo-tree filesystem' . tabpagenr() | quit | endif")
+vim.cmd("autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'neo-tree filesystem' . tabpagenr() | quit | endif")
 
 -- Fixes Autocomment
 autocmd({ "BufWinEnter" }, {
@@ -70,11 +55,59 @@ autocmd({ "BufWinEnter" }, {
   end,
 })
 
--- Don't auto comment new lines
-autocmd({ "BufEnter" }, {
-  pattern = "*",
-  command = "set fo-=c fo-=r fo-=o",
+
+-- Auto toggle cursorline
+autocmd({ "InsertEnter" }, {
+  callback = function()
+    vim.opt.cursorcolumn = false
+  end,
 })
+autocmd({ "InsertLeave" }, {
+  callback = function()
+    vim.opt.cursorcolumn = true
+  end,
+})
+autocmd({ "InsertEnter" }, {
+  callback = function()
+    vim.api.nvim_set_hl(0, "CursorLine", { underline = true, sp = "#9aceeb" })
+  end,
+})
+
+autocmd({ "InsertLeave" }, {
+  callback = function()
+    vim.api.nvim_set_hl(0, "CursorLine", { bg = "#212121" })
+  end,
+})
+
+
+
+-- Autosave
+autocmd({ "BufLeave", "FocusLost" }, {
+  callback = function()
+    local cb = vim.api.nvim_get_current_buf()
+    local file = vim.api.nvim_buf_get_option(cb, "modified")
+    if file == true then
+        vim.cmd("silent! wall")
+        print("Auto saved")
+    end
+  end,
+})
+
+
+
+-- Toggle Bufferline
+autocmd({"CursorHold"}, {
+  callback =  function ()
+    local tabline_status = vim.opt.showtabline._value
+    if tabline_status > 0 then
+      vim.keymap.set("n", "<space>tt", "<cmd>set showtabline=0<cr>")  
+    else
+      vim.keymap.set("n", "<space>tt", "<cmd>set showtabline=2<cr>")  
+    end
+  end
+})
+
+
 
 -- Highlight Yanked Text
 autocmd({ "TextYankPost" }, {
@@ -83,9 +116,8 @@ autocmd({ "TextYankPost" }, {
   end,
 })
 
-local packer_sync_group = vim.api.nvim_create_augroup("PACKER", { clear = true })
-autocmd("BufWritePost", {
-  pattern = "plugins.lua",
-  group = packer_sync_group,
-  command = 'source <afile> | PackerSync',
-})
+
+
+
+
+

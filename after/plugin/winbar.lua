@@ -1,6 +1,5 @@
 local status_ok, incline = pcall(require, "incline")
 if not status_ok then
-    vim.notify("Failed loading " .. req_file, vim.log.levels.ERROR)
     return
 end
 
@@ -32,3 +31,8 @@ incline.setup({
         }
     end,
 })
+
+local status_ok, barbecue = pcall(require, "barbecue")
+if not status_ok then
+    return
+end

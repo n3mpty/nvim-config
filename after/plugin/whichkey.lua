@@ -1,6 +1,5 @@
 local status_ok, which_key = pcall(require, "which-key")
 if not status_ok then
-    vim.notify("Failed loading " .. req_file, vim.log.levels.ERROR)
     return
 end
 
@@ -83,7 +82,7 @@ local opts = {
 
 local mappings = {
     [";"] = { "<cmd>Alpha<cr>", "Alpha" },
-    ["e"] = { "<cmd>NeoTreeFocusToggle<cr>", "Explorer" },
+    ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
     ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
 
     ["f"] = {
@@ -92,12 +91,10 @@ local mappings = {
     },
 
     p = {
-        name = "Packer",
-        c = { "<cmd>PackerCompile<cr>", "Compile" },
-        i = { "<cmd>PackerInstall<cr>", "Install" },
-        s = { "<cmd>PackerSync<cr>", "Sync" },
-        S = { "<cmd>PackerStatus<cr>", "Status" },
-        u = { "<cmd>PackerUpdate<cr>", "Update" },
+        name = "Plugin Manager",
+        i = { "<cmd>Lazy install<cr>", "Install" },
+        s = { "<cmd>Lazy sync<cr>", "Sync" },
+        u = { "<cmd>Lazy Update<cr>", "Update" },
     },
 
     g = {
@@ -195,8 +192,8 @@ local mappings = {
     },
     o = {
         name = "Lsp text line",
-        d = { "<cmd>lua vim.diagnostic.config({ virtual_text = false, underline = true})<cr>", "Disable Lsp text" },
-        e = { '<cmd>lua vim.diagnostic.config({ virtual_text = { prefix = "•", spacing = 6, severity = { min = vim.diagnostic.severity.WARN, }, }, underline = true})<cr>', "Enable Lsp text" },
+        d = { "<cmd>lua vim.diagnostic.config({ virtual_text = false })<cr>", "Disable Lsp text" },
+        e = { '<cmd>lua vim.diagnostic.config({ virtual_text = true})<cr>', "Enable Lsp text" },
     },
 }
 

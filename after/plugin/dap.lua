@@ -1,6 +1,5 @@
 local dap_status_ok, dap = pcall(require, "dap")
 if not dap_status_ok then
-    vim.notify("Failed loading " .. req_file, vim.log.levels.ERROR)
     return
 end
 

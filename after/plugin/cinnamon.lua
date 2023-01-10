@@ -1,6 +1,5 @@
 local status_ok, cinnamon = pcall(require, "cinnamon")
 if not status_ok then
-    vim.notify("Failed loading " .. req_file, vim.log.levels.ERROR)
     return
 end
 

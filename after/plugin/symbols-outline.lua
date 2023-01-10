@@ -1,6 +1,5 @@
 local status_ok, symbols_outline = pcall(require, "symbols-outline")
 if not status_ok then
-    vim.notify("Failed loading " .. req_file, vim.log.levels.ERROR)
     return
 end
 

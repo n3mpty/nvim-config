@@ -25,18 +25,12 @@ map("i", "<C-s>", "<cmd>w!<cr>", noremap)
 -- Normal --
 map("n", "<space>b", "<cmd>NeoTreeFloatToggle<cr>")
 -- Hop
-map("n", "F", "<CMD>HopWord<CR>", noremap)
-map("v", "F", "<CMD>HopWord<CR>", noremap)
+map({"n", "x"}, "F", "<CMD>HopWord<CR>", noremap)
+map({"n", "x"}, "f", "<CMD>HopWordCurrentLine<CR>", noremap)
 
 --
 map("n", "<ESC>", "<cmd>:noh<cr>")
 
--- Invert insert keys
--- map("n", "i", "a", noremap)
--- map("n", "I", "A", noremap)
--- map("n", "a", "i", noremap)
--- map("n", "A", "I", noremap)
---
 
 map("n", "<C-p>", "%", noremap)
 map("v", "<C-p>", "%", noremap)
@@ -52,8 +46,8 @@ map("n", "<space>sv", "<cmd>vsplit<cr>", remap) -- Vertical split
 
 -- Buffer
 map("n", "C", "<cmd>Bdelete<cr>", silent) -- Close buffer
-map("n", "<S-l>", ":BufferNext<CR>", silent)
-map("n", "<S-h>", ":BufferPrevious<CR>", silent)
+map("n", "<S-l>", ":BufferLineCycleNext<CR>", silent)
+map("n", "<S-h>", ":BufferLineCyclePrev<CR>", silent)
 --
 
 -- open new line but stay in normal mode
@@ -102,13 +96,11 @@ map("v", "<A-k>", ":m .-2<CR>==", noremap)
 
 -- Clipboard
 -- paste selected text without yanking
-map("v", "<space>p", "\"_dP", noremap)
+map({ "v", "x", "n" }, "<space>p", "\"_dP", noremap)
 map("n", "<space>p", "\"_dP", noremap)
 map("x", "<space>p", "\"_dP", noremap)
 
-map("n", "<space>d", "\"_d")
-map("v", "<space>d", "\"_d")
-map("x", "<space>d", "\"_d")
+map({ "n", "x" }, "<space>d", "\"_d")
 
 map('n', 'vaa', 'ggVG', noremap) -- select all buffer
 map('n', 'yaa', 'ggVGy', noremap) -- copy all buffer

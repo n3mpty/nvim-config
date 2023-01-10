@@ -7,10 +7,13 @@ cmd([[
     set guicursor+=i:blinkon1
 
     set t_Co=256
+    let &t_Cs = "\e[4:3m"
+    let &t_Ce = "\e[4:0m"
 ]])
 
 --
--- cmd("colorscheme onedark_dark")
+cmd("colorscheme khaoti")
+
 opt.showmode = false
 opt.swapfile = false
 opt.wrap = false
@@ -67,7 +70,12 @@ opt.shortmess:append("c")
 opt.whichwrap:append("<,>,[,],h,l")
 opt.iskeyword:append("-")
 
-opt.list = false
+opt.list = true
+-- opt.listchars:append "tab:⇥"
+opt.listchars:append "trail:·"
+opt.listchars:append "extends:»"
+opt.listchars:append "precedes:«"
+opt.listchars:append "nbsp:×"
 
 --
 opt.inccommand = "split"

@@ -1,6 +1,7 @@
 require("options.autocommands")
-require("config.lsp")
-require("options.options")
 require("options.mappings")
-require("options.statusline")
 require("plugins")
+require("options.options")
+require("config.lsp")
+require("options.statusline")
+

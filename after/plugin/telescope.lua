@@ -1,6 +1,5 @@
 local status_ok, telescope = pcall(require, "telescope")
 if not status_ok then
-    vim.notify("Failed loading " .. req_file, vim.log.levels.ERROR)
     return
 end
 
@@ -9,7 +8,7 @@ local actions = require("telescope.actions")
 telescope.setup({
     defaults = {
 
-        prompt_prefix = " ",
+        prompt_prefix = "",
         selection_caret = "🞂 ",
         path_display = { "smart" },
         file_ignore_patterns = {
